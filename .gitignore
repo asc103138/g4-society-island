@@ -1,0 +1,8 @@
+.DS_Store
+Thumbs.db
+__pycache__/
+*.log
+temp_*.html
+test_screenshots/
+viverse_ref.png
+three.min.js
