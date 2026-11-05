@@ -1028,7 +1028,7 @@ const ZONES = [
     intro: '漢人傳統的三合院會隨著家族人口變多而擴建；院子裡的每個空間都有它的用途。',
     trap: '易錯陷阱：三合院「左大右小」，要站在正廳門口、面向屋外來判斷左右；水池用來洗衣、養魚、防火，不是發電。',
     cards: [
-      { illustration: 'grow-house', title: '房子跟著家族長大', summary: '一條龍：只有正身一排。單伸手：加蓋一邊護龍。三合院：兩邊都有護龍，排成ㄇ字形。' },
+      { illustration: 'grow-house', title: '房子跟著家族長大', summary: '一條龍：只有正身一排。單伸手：依左尊右卑先在右邊加蓋左護龍。三合院：兩邊都加蓋護龍，排成ㄇ字形。' },
       { illustration: 'sanheyuan-parts', title: '三合院的空間', summary: '正身中央是正廳：祭拜祖先、招待客人。兩旁是護龍。中間的稻埕：曬穀子、孩子玩耍、招待客人。' },
       { illustration: 'yard-uses', title: '屋外的好幫手', summary: '竹林、果樹：擋風、防小偷，也提供食物、柴火和編織材料。水池：洗衣、養魚、防火。堆肥場：做肥料。' },
     ],
@@ -2335,8 +2335,8 @@ function sanheyuan() {
   g.add(at(rbox(0.32, 0.42, 0.03, mat('wood'), 0.01), 0, 0.21, -0.66));
   for (const s of [-1, 1]) g.add(at(rbox(0.06, 0.3, 0.02, fixedMat('#d63a2a'), 0.005), s * 0.22, 0.28, -0.66));
   g.add(at(signBoard('正廳', 0.36, 0.14, { bg: '#d63a2a', fg: '#f6d27a', frame: '#7a3b2e' }), 0, 0.5, -0.66));
-  // 兩側護龍（左大右小：左邊略長）
-  for (const [s, len] of [[-1, 1.15], [1, 1.0]]) {
+  // 兩側護龍（站在正廳面向屋外判斷：右側 +x 為左護龍略長，左側 -x 為右護龍略短）
+  for (const [s, len] of [[1, 1.15], [-1, 1.0]]) {
     const x = s * 0.82;
     g.add(at(rbox(0.45, 0.48, len, brick, 0.04), x, 0.24, -0.6 + len / 2));
     g.add(at(gableRoof(0.6, 0.24, len + 0.08, tile), x, 0.48, -0.6 + len / 2));
@@ -3774,13 +3774,15 @@ const DRAW = {
     title(ctx, '房子跟著家族長大');
     const draw = (x, wings) => {
       roundRect(ctx, x, 110, 110, 30, 3, C.brick);
-      if (wings >= 1) roundRect(ctx, x, 140, 26, 70, 3, C.brick);
-      if (wings >= 2) roundRect(ctx, x + 84, 140, 26, 70, 3, C.brick);
+      // 單伸手（wings>=1）：依左尊右卑先在圖面右側加蓋「左護龍（大邊）」
+      if (wings >= 1) roundRect(ctx, x + 84, 140, 26, 70, 3, C.brick);
+      // 三合院（wings>=2）：再在圖面左側加蓋「右護龍（小邊）」
+      if (wings >= 2) roundRect(ctx, x, 140, 26, 70, 3, C.brick);
     };
     draw(30, 0); draw(185, 1); draw(340, 2);
     arrow(ctx, 148, 150, 178, 150); arrow(ctx, 303, 150, 333, 150);
     text(ctx, '一條龍', 85, 232, { size: 16 }); text(ctx, '單伸手', 240, 232, { size: 16 }); text(ctx, '三合院', 395, 232, { size: 16, color: C.brick });
-    caption(ctx, '人口變多，就一邊一邊加蓋護龍');
+    caption(ctx, '人口變多，就一邊一邊加蓋護龍（先左後右）');
   },
   'sanheyuan-parts'(ctx) {
     title(ctx, '三合院的空間');
@@ -3789,8 +3791,8 @@ const DRAW = {
     roundRect(ctx, 314, 106, 56, 130, 4, C.brick); text(ctx, '護龍', 342, 170, { size: 15, color: '#fff' });
     roundRect(ctx, 172, 112, 136, 124, 4, '#efe2c0'); text(ctx, '稻埕', 240, 160, { size: 18, color: '#9a7a40' });
     text(ctx, '曬穀・玩耍', 240, 188, { size: 13, color: C.sub, weight: 500 });
-    text(ctx, '左大', 70, 150, { size: 15, color: C.red }); text(ctx, '右小', 410, 150, { size: 15, color: C.red });
-    caption(ctx, '站在正廳門口、面向屋外判斷左右');
+    text(ctx, '右小（二房）', 60, 150, { size: 13, color: C.red }); text(ctx, '左大（大房）', 420, 150, { size: 13, color: C.red });
+    caption(ctx, '站在正廳門口、面向屋外判斷左右（右側為左護龍）');
   },
   'yard-uses'(ctx) {
     title(ctx, '屋外的好幫手');
