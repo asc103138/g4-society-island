@@ -2,10 +2,12 @@
 
 ## 專案資訊
 - 專案名稱：康軒四上 社會島・家鄉時空英雄傳 3D 沉浸 RPG 冒險
-- 專案用途：國小四年級社會科第一單元（家鄉的環境）與第二單元（家鄉的傳統生活）期中評量 3D 沉浸微縮模型互動複習遊戲
+- 專案用途：國小四年級社會科第一單元（家鄉的環境）、第二單元（家鄉的傳統生活）與第三單元（家鄉的信仰與老街）3D 沉浸微縮模型互動複習遊戲
 - 主要工作目錄：`/Users/tunyuan/Library/CloudStorage/GoogleDrive-asc103138@st.tc.edu.tw/我的雲端硬碟/115四上期中社會複習遊戲`
 - GitHub 儲存庫：`https://github.com/asc103138/g4-society-island`
-- 上線展示網址：`https://asc103138.github.io/g4-society-island/`
+- 上線展示網址：
+  - 第一、二單元地圖（`index.html`）：`https://asc103138.github.io/g4-society-island/`
+  - 第三單元獨立地圖（`unit3/index.html` & `unit3.html`）：`https://asc103138.github.io/g4-society-island/unit3/`
 
 ## 工作與安全規則
 - 回應使用繁體中文（台灣）。
