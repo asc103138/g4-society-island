@@ -1053,12 +1053,39 @@ const ZONES = [
   {
     id: 'sanheyuan', unit: 'change', islandId: 'change', order: 9,
     name: '紅磚三合院大宅', shortName: '三合院',
-    intro: '漢人依「左尊右卑」長幼次序擴建三合院，正身正廳祭祖、兩側長輩臥室、左右護龍；稻埕曬穀遊戲，周遭配置牛棚農具間、水井與防風竹林。',
-    trap: '易錯陷阱：站在正廳「面向屋外」判斷左右，以左為尊（大房在左邊）；農具間緊鄰牛棚是為了牽牛耕作時隨手拿取農具最方便！',
+    intro: '漢人依「左尊右卑」擴建三合院：正身正廳祭祖接待、兩側長輩臥室、左右護龍子孫房與小廳、右翼廚房大灶煙囪、稻埕曬穀牛車、牛棚緊鄰農具間、堆肥場、水井與防風竹林。',
+    trap: '易錯核心：人由正廳「面向屋外」以左為尊（大房在左邊）；農具間「緊鄰牛棚」是為了牽牛耕田就近取用鋤犁農具最順暢！',
     cards: [
-      { illustration: 'sanheyuan-structure', title: '正身正廳與護龍格局', summary: '正廳供奉神明祖先牌位，祭拜神明、祖先與接待客人；依左尊右卑，左側為大房長輩臥室，右側為二房；左右護龍為晚輩臥室、廳與廚房大灶。' },
-      { illustration: 'sanheyuan-yard', title: '多用途稻埕空間', summary: '前方寬廣稻埕可曬穀、脫穀；也是孩童嬉戲玩耍、一家人乘涼聊天、鄰里請客與年節祭拜的多用途廣場。' },
-      { illustration: 'sanheyuan-farm', title: '周遭生產與生活設施', summary: '水井汲水洗菜洗衣；屋後竹林果樹防風防盜兼採柴火；牛棚緊鄰農具間（方便隨時拿取耕具）；堆肥場、豬舍與牛車展現自給自足農村生活。' },
+      {
+        illustration: 'sanheyuan-main',
+        title: '正身核心：正廳與尊卑臥室',
+        summary: '正身中央為全宅最高大「正廳」，設有神明祖先牌位供桌（公媽桌），是家族祭祀與接待貴客的核心。依「左尊右卑」（由正廳面向外），左側臥室由家族大長輩（大房）居住，右側臥室由二長輩（二房）居住，體現長幼有序。'
+      },
+      {
+        illustration: 'sanheyuan-left-wing',
+        title: '左護龍：大房臥室、小廳與擴建',
+        summary: '左護龍為長子家族生活圈，包含大房子孫臥室與專屬「小廳」（起居聚會）。漢人隨家族人口增加向外加蓋，歷經「一條龍（正身）」→「單伸手（加左護龍）」→「三合院（左右護龍齊全）」，家族在左護龍形成獨立的生活單元。'
+      },
+      {
+        illustration: 'sanheyuan-right-kitchen',
+        title: '右護龍：晚輩起居與廚房大灶',
+        summary: '右護龍設有二房晚輩臥室、右小廳，外側末端為「廚房」。廚房設有紅磚大灶、大鐵鍋與高聳排煙煙囪，烹煮全家三餐；柴灰餘溫燜烤地瓜當點心，草木灰回田天然施肥，展現物盡其用智慧。'
+      },
+      {
+        illustration: 'sanheyuan-yard-cart',
+        title: '前庭稻埕：農作曝曬、遊戲與牛車',
+        summary: '前方寬廣「稻埕」農忙時用木耙翻曬稻穀、曬菜脯與花生；平時是孩童跳格子嬉戲追逐、夜晚全家乘涼閒聊與辦桌聚會的公共空間。側邊停放木輪「牛車」，負責載運沉甸甸的豐收農產。'
+      },
+      {
+        illustration: 'sanheyuan-barn-tools',
+        title: '農事因果：牛棚緊鄰農具間、堆肥與豬舍',
+        summary: '課本核心提問：「為什麼農具間和牛棚的位置相近？」因為牽水牛出門耕作時，能就近取用牛犁、割耙等農具；收工時就近卸具入棚休息，動線最順！後方「堆肥場」將牛糞雜草發酵成天然肥料，「豬舍」餵養家豬，「儲物間」收藏甕糧。'
+      },
+      {
+        illustration: 'sanheyuan-well-bamboo',
+        title: '生活水源與防風竹林：水井與竹林',
+        summary: '右後方石砌「水井」提供洗米煮飯、洗菜洗衣潔淨水源；屋後密植「竹林」具備三大智慧：①阻擋強烈東北季風與颱風防風遮蔭；②砍伐竹竿編製竹管屋、農具魚筌與家具；③枯枝落葉作為大灶燃柴，與自然共生！'
+      }
     ],
     quiz: [
       { q: '在三合院周遭環境的空間配置中，「農具間」通常為什麼要蓋在「牛棚」的旁邊？', options: ['方便牽牛耕作時就近拿取犁、耙等農具', '為了讓水牛在冬天吃農具充飢', '農具比較怕冷需要水牛體溫保暖', '為了防止小偷偷走整座房屋'], answer: 0, why: '牽耕牛出門下田時，就近拿取耕具省時又省力！' },
@@ -2622,6 +2649,10 @@ function sanheyuan() {
     g.add(at(gableRoof(0.65, 0.26, len + 0.08, tile), x, 0.52, -0.75 + len / 2));
     g.add(at(rbox(0.02, 0.28, 0.18, wood, 0.005), x - s * 0.25, 0.16, -0.2));
   }
+  // 護龍立牌標示
+  g.add(at(signBoard('左護龍・大房房/小廳', 0.52, 0.13, { bg: '#8a4b38', fg: '#fff' }), 1.0, 0.58, 0));
+  g.add(at(signBoard('廚房・大灶煙囪', 0.42, 0.13, { bg: '#991b1b', fg: '#fef08a' }), -1.15, 0.58, -0.3));
+
   // 廚房與排煙煙囪（設在右護龍後端）
   g.add(at(cyl(0.05, 0.05, 0.55, 6, fixedMat('#9c4a34')), -1.1, 0.65, -0.6));
   const kitchenSmoke = ball(0.07, fixedMat('#ffffff', { transparent: true, opacity: 0.8 }), 7, 5);
@@ -2664,6 +2695,14 @@ function sanheyuan() {
   // 堆肥場
   g.add(at(rbox(0.45, 0.12, 0.4, fixedMat('#451a03'), 0.01), -1.55, 0.06, -0.25));
   g.add(at(signBoard('堆肥場', 0.3, 0.1, { bg: '#451a03', fg: '#fef3c7' }), -1.55, 0.18, -0.05));
+
+  // 豬舍（矮牆、粉紅小豬）
+  g.add(at(rbox(0.38, 0.14, 0.3, fixedMat('#94a3b8'), 0.01), -1.55, 0.07, 0.18));
+  const pig = new THREE.Group();
+  pig.add(rbox(0.14, 0.09, 0.1, fixedMat('#f472b6'), 0.02));
+  pig.add(at(ball(0.05, fixedMat('#f472b6'), 5, 4), 0.08, 0.02, 0));
+  g.add(at(pig, -1.55, 0.05, 0.18));
+  g.add(at(signBoard('豬舍', 0.24, 0.1, { bg: '#db2777', fg: '#fff' }), -1.55, 0.18, 0.35));
 
   // 木輪牛車
   const oxCart = new THREE.Group();
@@ -4348,45 +4387,210 @@ const DRAW = {
     tag(ctx, 318, 62, 140, 170, C.demo, '休閒', ['划船', '河濱自行車', '浮潛'], { size: 20, bodySize: 16 });
     caption(ctx, '好好用水，也好好保護水');
   },
-  // 9 紅磚三合院大宅
-  'sanheyuan-structure'(ctx) {
-    title(ctx, '三合院正身與護龍格局');
-    roundRect(ctx, 110, 60, 260, 46, 4, C.brick);
-    text(ctx, '正身・正廳（供奉神明祖先）', 240, 83, { size: 14, color: '#fff' });
-    roundRect(ctx, 110, 106, 56, 120, 4, C.brick);
-    text(ctx, '右護龍', 138, 160, { size: 13, color: '#fff' });
-    text(ctx, '（小邊）', 138, 180, { size: 11, color: '#fed7aa' });
-    roundRect(ctx, 314, 106, 56, 120, 4, C.brick);
-    text(ctx, '左護龍', 342, 160, { size: 13, color: '#fff' });
-    text(ctx, '（大邊）', 342, 180, { size: 11, color: '#fed7aa' });
-    roundRect(ctx, 172, 112, 136, 114, 4, '#efe2c0');
-    text(ctx, '稻埕', 240, 160, { size: 18, color: '#9a7a40' });
-    // 廚房煙囪
-    roundRect(ctx, 80, 180, 26, 46, 2, '#9c4a34');
-    text(ctx, '廚房大灶', 93, 238, { size: 11, color: C.red });
-    text(ctx, '二房長輩', 60, 80, { size: 12, color: '#c2410c' });
-    text(ctx, '大房長輩', 415, 80, { size: 12, color: '#c2410c' });
-    caption(ctx, '面向屋外以左為尊（右側為大房左護龍，左側為二房右護龍）');
+  // 9 紅磚三合院大宅：全小房剖面解說系列
+  'sanheyuan-main'(ctx) {
+    title(ctx, '正身核心格局：正廳與尊卑臥室剖面');
+    roundRect(ctx, 20, 56, 440, 182, 8, '#fdfbf7', '#b85c3c', 2);
+    // 屋脊與屋頂
+    roundRect(ctx, 40, 64, 400, 24, 4, '#9c4a34');
+    text(ctx, '◀ 面向屋外：以左為尊（大房） ｜ 以右為卑（二房） ▶', 240, 78, { size: 12, color: '#fef08a' });
+    
+    // 正廳（中央）
+    roundRect(ctx, 175, 96, 130, 114, 4, '#fee2e2', '#dc2626', 1.5);
+    text(ctx, '正廳', 240, 114, { size: 16, color: '#991b1b', bold: true });
+    text(ctx, '供奉神明祖先牌位', 240, 134, { size: 11, color: '#b91c1c' });
+    text(ctx, '接待貴客・家族大典', 240, 150, { size: 11, color: '#7f1d1d' });
+    // 供桌圖示
+    roundRect(ctx, 205, 164, 70, 26, 2, '#78350f');
+    text(ctx, '公媽桌', 240, 179, { size: 10, color: '#fef3c7' });
+    
+    // 大房臥室（左尊，面對正廳時在右手邊/圖右）
+    roundRect(ctx, 315, 96, 115, 114, 4, '#fef3c7', '#d97706', 1.5);
+    text(ctx, '大房長輩臥室', 372, 114, { size: 14, color: '#92400e', bold: true });
+    text(ctx, '（左尊・大長輩居住）', 372, 132, { size: 11, color: '#b45309' });
+    roundRect(ctx, 330, 150, 85, 42, 3, '#b45309');
+    text(ctx, '紅眠大床', 372, 174, { size: 11, color: '#fff' });
+
+    // 二房臥室（右卑，面對正廳時在左手邊/圖左）
+    roundRect(ctx, 50, 96, 115, 114, 4, '#f1f5f9', '#64748b', 1.5);
+    text(ctx, '二房長輩臥室', 108, 114, { size: 14, color: '#334155', bold: true });
+    text(ctx, '（右卑・次長輩居住）', 108, 132, { size: 11, color: '#475569' });
+    roundRect(ctx, 65, 150, 85, 42, 3, '#64748b');
+    text(ctx, '傳統木床', 108, 174, { size: 11, color: '#fff' });
+
+    caption(ctx, '正身正廳為祭祀接待核心，兩側按左尊右卑安排長輩居住空間');
   },
-  'sanheyuan-yard'(ctx) {
-    title(ctx, '多用途稻埕生活空間');
-    roundRect(ctx, 30, 62, 420, 170, 10, '#fef3c7', '#d97706', 2);
-    for (let k = 0; k < 3; k++) roundRect(ctx, 50, 140 + k * 26, 380, 16, 4, '#eab308');
-    text(ctx, '🌾 金黃曬穀・脫穀', 120, 95, { size: 16, color: '#b45309' });
-    text(ctx, '🏃 孩童遊戲・鄰里聊天', 340, 95, { size: 16, color: '#0284c7' });
-    text(ctx, '一家人乘涼、年節祭拜與搭棚請客的多功能廣場', 240, 125, { size: 13, color: '#475569' });
-    caption(ctx, '稻埕是家族生活與情感交流的核心公共空間');
+
+  'sanheyuan-left-wing'(ctx) {
+    title(ctx, '左護龍：大房臥室、小廳與房舍擴建');
+    roundRect(ctx, 20, 56, 440, 182, 8, '#fdfbf7', '#b85c3c', 2);
+    // 左護龍三個小房
+    roundRect(ctx, 35, 68, 125, 100, 4, '#fef3c7', '#d97706', 1.5);
+    text(ctx, '大房子孫臥室', 97, 88, { size: 13, color: '#92400e', bold: true });
+    text(ctx, '長子兒女寢室', 97, 108, { size: 11, color: '#b45309' });
+    roundRect(ctx, 55, 126, 85, 30, 2, '#b45309');
+    text(ctx, '木床・衣櫃', 97, 143, { size: 10, color: '#fff' });
+
+    roundRect(ctx, 170, 68, 135, 100, 4, '#fed7aa', '#ea580c', 1.5);
+    text(ctx, '左護龍「小廳」', 237, 88, { size: 13, color: '#9a3412', bold: true });
+    text(ctx, '大房家庭起居客廳', 237, 108, { size: 11, color: '#c2410c' });
+    roundRect(ctx, 195, 126, 85, 30, 2, '#c2410c');
+    text(ctx, '茶几・交談閱讀', 237, 143, { size: 10, color: '#fff' });
+
+    roundRect(ctx, 315, 68, 130, 100, 4, '#ffedd5', '#f97316', 1.5);
+    text(ctx, '次房/晚輩臥室', 380, 88, { size: 13, color: '#c2410c', bold: true });
+    text(ctx, '安靜休憩空間', 380, 108, { size: 11, color: '#ea580c' });
+    roundRect(ctx, 338, 126, 85, 30, 2, '#ea580c');
+    text(ctx, '子弟臥房', 380, 143, { size: 10, color: '#fff' });
+
+    // 房舍加蓋流程
+    roundRect(ctx, 35, 178, 410, 48, 4, '#ecfdf5', '#10b981', 1);
+    text(ctx, '🏠 家族繁衍加蓋進程：一條龍（正身） ➔ 單伸手（加左護龍） ➔ 三合院（左右齊全）', 240, 204, { size: 11, color: '#065f46', bold: true });
+
+    caption(ctx, '左護龍是大房家族專屬生活圈，人口增加時一邊一邊加蓋護龍');
   },
-  'sanheyuan-farm'(ctx) {
-    title(ctx, '三合院生活與生產設施');
-    tag(ctx, 22, 62, 135, 170, '#78350f', '牛棚 ✕ 農具間', ['兩者相鄰近！', '方便出門耕田', '就近取犁耙耕具'], { size: 16, bodySize: 13 });
-    tag(ctx, 167, 62, 135, 170, '#0284c7', '水井 ✕ 堆肥場', ['古井汲水洗衣洗菜', '牛豬糞草木灰堆肥', '菜園天然滋養肥料'], { size: 16, bodySize: 13 });
-    tag(ctx, 312, 62, 145, 170, '#15803d', '屋後竹林果樹', ['擋強風、防小偷', '遮蔭、採摘水果', '落枝作為大灶柴火'], { size: 16, bodySize: 13 });
-    caption(ctx, '農具間緊鄰牛棚，牽牛取工具最省力方便！');
+
+  'sanheyuan-right-kitchen'(ctx) {
+    title(ctx, '右護龍：晚輩臥室、小廳與廚房大灶');
+    roundRect(ctx, 20, 56, 440, 182, 8, '#fdfbf7', '#b85c3c', 2);
+
+    // 晚輩臥室
+    roundRect(ctx, 35, 68, 120, 95, 4, '#f1f5f9', '#64748b', 1.5);
+    text(ctx, '二房子孫臥室', 95, 88, { size: 13, color: '#334155', bold: true });
+    text(ctx, '晚輩兒女寢室', 95, 108, { size: 11, color: '#64748b' });
+    roundRect(ctx, 50, 124, 90, 28, 2, '#64748b');
+    text(ctx, '木床・書桌', 95, 140, { size: 10, color: '#fff' });
+
+    // 右小廳
+    roundRect(ctx, 165, 68, 120, 95, 4, '#e0f2fe', '#0284c7', 1.5);
+    text(ctx, '右護龍「小廳」', 225, 88, { size: 13, color: '#0369a1', bold: true });
+    text(ctx, '起居接待小客廳', 225, 108, { size: 11, color: '#0284c7' });
+    roundRect(ctx, 180, 124, 90, 28, 2, '#0284c7');
+    text(ctx, '泡茶・家庭閒談', 225, 140, { size: 10, color: '#fff' });
+
+    // 廚房大灶（末端）
+    roundRect(ctx, 295, 68, 150, 95, 4, '#fee2e2', '#dc2626', 2);
+    text(ctx, '廚房（大灶與煙囪）', 370, 88, { size: 13, color: '#991b1b', bold: true });
+    text(ctx, '紅磚大灶・雙大鐵鍋', 370, 106, { size: 10, color: '#dc2626' });
+    text(ctx, '高聳煙囪通風冒煙', 370, 120, { size: 10, color: '#b91c1c' });
+    // 大灶與鐵鍋圖
+    roundRect(ctx, 310, 132, 70, 24, 2, '#991b1b');
+    text(ctx, '紅磚大灶', 345, 146, { size: 10, color: '#fff' });
+    roundRect(ctx, 395, 126, 35, 30, 2, '#78350f');
+    text(ctx, '水缸', 412, 143, { size: 10, color: '#fff' });
+
+    // 柴灰物盡其用
+    roundRect(ctx, 35, 174, 410, 52, 4, '#fef3c7', '#f59e0b', 1.5);
+    text(ctx, '🍠 柴灰餘溫燜地瓜：灶火熄滅後利用柴灰餘溫燜熟地瓜，香甜不浪費能源！', 240, 192, { size: 11, color: '#92400e', bold: true });
+    text(ctx, '🌿 草木灰天然施肥：灶灰收集送往菜園農地，是極佳的天然鉀肥滋養作物。', 240, 212, { size: 11, color: '#78350f' });
+
+    caption(ctx, '廚房設於右護龍外側，大灶煙囪通風排煙，柴灰物盡其用');
   },
-  'grow-house'(ctx) { this['sanheyuan-structure'](ctx); },
-  'sanheyuan-parts'(ctx) { this['sanheyuan-structure'](ctx); },
-  'yard-uses'(ctx) { this['sanheyuan-farm'](ctx); },
+
+  'sanheyuan-yard-cart'(ctx) {
+    title(ctx, '前庭稻埕：金黃曬穀、孩童嬉戲與木輪牛車');
+    roundRect(ctx, 20, 56, 440, 182, 8, '#fdfbf7', '#b85c3c', 2);
+
+    // 稻埕大鋪面
+    roundRect(ctx, 35, 68, 270, 154, 6, '#fef9c3', '#eab308', 2);
+    text(ctx, '金黃「稻埕」（門前埕）', 170, 88, { size: 14, color: '#854d0e', bold: true });
+    // 三道曬穀浪
+    for (let k = 0; k < 3; k++) roundRect(ctx, 50, 102 + k * 28, 240, 16, 3, '#ca8a04');
+    text(ctx, '🌾 農忙曬穀：木耙翻曬稻穀・花生・蘿蔔乾', 170, 132, { size: 11, color: '#713f12' });
+    text(ctx, '🏃 平時休閒：孩童玩跳格子・夜晚全家乘涼聊天', 170, 172, { size: 11, color: '#854d0e' });
+    text(ctx, '🎉 辦桌宴席：年節祭祀、鄰里喜慶搭棚宴客', 170, 198, { size: 11, color: '#a16207' });
+
+    // 右側：木輪牛車
+    roundRect(ctx, 315, 68, 130, 154, 6, '#f8fafc', '#64748b', 1.5);
+    text(ctx, '雙轅木輪牛車', 380, 88, { size: 13, color: '#1e293b', bold: true });
+    // 牛車圖示
+    roundRect(ctx, 330, 108, 100, 48, 3, '#92400e');
+    text(ctx, '木造車斗', 380, 126, { size: 11, color: '#fef3c7' });
+    text(ctx, '滿載稻穀麻袋', 380, 142, { size: 9, color: '#fde68a' });
+    // 木大輪
+    circle(ctx, 350, 172, 14, '#451a03'); circle(ctx, 410, 172, 14, '#451a03');
+    text(ctx, '大木輪', 380, 174, { size: 10, color: '#78350f' });
+    text(ctx, '搬運農產沉重主力', 380, 202, { size: 11, color: '#475569' });
+
+    caption(ctx, '稻埕兼具農作曝曬與情感交流；木輪牛車負責農產重物運送');
+  },
+
+  'sanheyuan-barn-tools'(ctx) {
+    title(ctx, '農事因果：為什麼農具間和牛棚位置相近？');
+    roundRect(ctx, 20, 56, 440, 182, 8, '#fdfbf7', '#b85c3c', 2);
+
+    // 醒目黃色因果問答框
+    roundRect(ctx, 35, 66, 410, 42, 4, '#fef3c7', '#f59e0b', 2);
+    text(ctx, '❓ 課本核心問題：為什麼農具間和牛棚的位置相近？', 240, 80, { size: 12, color: '#b45309', bold: true });
+    text(ctx, '💡 因果解答：方便出門耕田時牽牛就近取用鋤犁農具，省時又省力！', 240, 97, { size: 11, color: '#92400e', bold: true });
+
+    // 四大農牧小區
+    // 1. 牛棚
+    roundRect(ctx, 35, 116, 95, 96, 4, '#fed7aa', '#ea580c', 1.5);
+    text(ctx, '牛棚', 82, 134, { size: 13, color: '#9a3412', bold: true });
+    text(ctx, '飼養耕作水牛', 82, 154, { size: 10, color: '#c2410c' });
+    text(ctx, '遮風避雨草料槽', 82, 170, { size: 9, color: '#7c2d12' });
+    text(ctx, '🐂 農夫好夥伴', 82, 194, { size: 10, color: '#ea580c' });
+
+    // 2. 農具間（緊鄰！）
+    roundRect(ctx, 138, 116, 95, 96, 4, '#ffedd5', '#f97316', 2);
+    text(ctx, '農具間', 185, 134, { size: 13, color: '#c2410c', bold: true });
+    text(ctx, '緊鄰牛棚相通！', 185, 154, { size: 10, color: '#dc2626', bold: true });
+    text(ctx, '放置牛犁、割耙', 185, 170, { size: 9, color: '#9a3412' });
+    text(ctx, '鋤頭等大型農具', 185, 184, { size: 9, color: '#9a3412' });
+    text(ctx, '🛠️ 隨牽隨取', 185, 200, { size: 10, color: '#c2410c' });
+
+    // 3. 堆肥場
+    roundRect(ctx, 241, 116, 95, 96, 4, '#f0fdf4', '#16a34a', 1.5);
+    text(ctx, '堆肥場', 288, 134, { size: 13, color: '#166534', bold: true });
+    text(ctx, '牛糞＋稻草落葉', 288, 154, { size: 10, color: '#15803d' });
+    text(ctx, '自然發酵漚肥', 288, 170, { size: 9, color: '#14532d' });
+    text(ctx, '🌱 田地天然肥料', 288, 194, { size: 10, color: '#16a34a' });
+
+    // 4. 豬舍與儲物間
+    roundRect(ctx, 344, 116, 101, 96, 4, '#f1f5f9', '#64748b', 1.5);
+    text(ctx, '豬舍・儲物間', 394, 134, { size: 12, color: '#334155', bold: true });
+    text(ctx, '廚餘菜葉餵豬', 394, 154, { size: 10, color: '#475569' });
+    text(ctx, '儲物間放陶甕醬菜', 394, 170, { size: 9, color: '#64748b' });
+    text(ctx, '🐷 循環農業', 394, 194, { size: 10, color: '#334155' });
+
+    caption(ctx, '牛棚緊鄰農具間展現極致動線智慧，兼備堆肥自給自足');
+  },
+
+  'sanheyuan-well-bamboo'(ctx) {
+    title(ctx, '生活水源與環境屏障：水井與屋後竹林');
+    roundRect(ctx, 20, 56, 440, 182, 8, '#fdfbf7', '#b85c3c', 2);
+
+    // 左側：水井
+    roundRect(ctx, 35, 68, 145, 154, 6, '#e0f2fe', '#0284c7', 2);
+    text(ctx, '石砌「水井」', 107, 90, { size: 14, color: '#0369a1', bold: true });
+    circle(ctx, 107, 132, 28, '#0284c7');
+    circle(ctx, 107, 132, 20, '#38bdf8');
+    text(ctx, '水井', 107, 136, { size: 11, color: '#fff', bold: true });
+    text(ctx, '💧 全家飲用洗菜水源', 107, 176, { size: 10, color: '#0284c7' });
+    text(ctx, '井邊洗衣清潔日常', 107, 198, { size: 10, color: '#0369a1' });
+
+    // 右側：屋後防風竹林
+    roundRect(ctx, 190, 68, 255, 154, 6, '#f0fdf4', '#16a34a', 2);
+    text(ctx, '屋後茂密「竹林」三大功能', 317, 90, { size: 13, color: '#166534', bold: true });
+    // 三大功能條
+    roundRect(ctx, 200, 104, 235, 32, 3, '#dcfce7');
+    text(ctx, '① 🛡️ 防風遮蔭：阻擋強烈東北季風與夏日強颱，遮蔭降溫', 317, 122, { size: 9.5, color: '#14532d' });
+    roundRect(ctx, 200, 142, 235, 32, 3, '#dcfce7');
+    text(ctx, '② 🎋 就地取材：砍竹編製竹管屋、農具、魚筌、扁擔家具', 317, 160, { size: 9.5, color: '#14532d' });
+    roundRect(ctx, 200, 180, 235, 32, 3, '#dcfce7');
+    text(ctx, '③ 🔥 供柴採筍：竹筍入菜，枯竹落葉作為廚房大灶薪柴', 317, 198, { size: 9.5, color: '#14532d' });
+
+    caption(ctx, '石砌水井滿足全宅用水；屋後竹林防風取材兼供柴，生態永續');
+  },
+
+  // 向下相容別名
+  'sanheyuan-structure'(ctx) { this['sanheyuan-main'](ctx); },
+  'sanheyuan-yard'(ctx) { this['sanheyuan-yard-cart'](ctx); },
+  'sanheyuan-farm'(ctx) { this['sanheyuan-barn-tools'](ctx); },
+  'grow-house'(ctx) { this['sanheyuan-left-wing'](ctx); },
+  'sanheyuan-parts'(ctx) { this['sanheyuan-main'](ctx); },
+  'yard-uses'(ctx) { this['sanheyuan-yard-cart'](ctx); },
 
   // 10 竹管厝與土埆厝工坊
   'bamboo-house'(ctx) {
