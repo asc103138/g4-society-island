@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>康軒四上 社會島・家鄉時空英雄傳 3D 沉浸 RPG 冒險（期中複習專用）</title>
   <meta name="description" content="康軒國小四上社會第一、二單元重點 3D 互動島嶼微縮模型：地圖四要素、電子地圖、五大地形、氣候圖、水庫與水資源、三合院、石板屋、古早器物與淨灘減塑，含 RPG 闖關與證書。">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏝️</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -784,7 +785,7 @@ html[data-mode="night"] .all-clear { background: rgb(240 199 90 / .12); color: #
       <button type="button" class="tool" onclick="openDrawer('teacherDrawer')">📋 審查</button>
       <button type="button" class="tool btn-primary" onclick="openDrawer('certModal')" style="font-weight:900;">🏆 證書</button>
       <button type="button" class="tool" id="btn-guide">導覽</button>
-      <button type="button" class="tool" id="btn-places" aria-expanded="false" aria-controls="places">十站地點</button>
+      <button type="button" class="tool" id="btn-places" aria-expanded="false" aria-controls="places">十二站地點</button>
     </nav>
   </header>
 
@@ -801,13 +802,15 @@ html[data-mode="night"] .all-clear { background: rgb(240 199 90 / .12); color: #
       <button type="button" class="tool" style="font-size:12px; padding:4px 8px;" onclick="window.goStationFast('home')">1.地圖站</button>
       <button type="button" class="tool" style="font-size:12px; padding:4px 8px;" onclick="window.goStationFast('emap')">2.電子地圖</button>
       <button type="button" class="tool" style="font-size:12px; padding:4px 8px;" onclick="window.goStationFast('flat')">3.平原盆地</button>
-      <button type="button" class="tool" style="font-size:12px; padding:4px 8px;" onclick="window.goStationFast('high')">4.丘陵茶園</button>
-      <button type="button" class="tool" style="font-size:12px; padding:4px 8px;" onclick="window.goStationFast('climate')">5.氣候觀測</button>
-      <button type="button" class="tool" style="font-size:12px; padding:4px 8px;" onclick="window.goStationFast('water')">6.水庫水資源</button>
-      <button type="button" class="tool" style="font-size:12px; padding:4px 8px;" onclick="window.goStationFast('sanheyuan')">7.三合院</button>
-      <button type="button" class="tool" style="font-size:12px; padding:4px 8px;" onclick="window.goStationFast('stonehouse')">8.石板屋</button>
-      <button type="button" class="tool" style="font-size:12px; padding:4px 8px;" onclick="window.goStationFast('objects')">9.古早器物</button>
-      <button type="button" class="tool" style="font-size:12px; padding:4px 8px;" onclick="window.goStationFast('beach')">10.淨灘海岸</button>
+      <button type="button" class="tool" style="font-size:12px; padding:4px 8px;" onclick="window.goStationFast('tableland')">4.大肚台地</button>
+      <button type="button" class="tool" style="font-size:12px; padding:4px 8px;" onclick="window.goStationFast('hills')">5.石碇丘陵</button>
+      <button type="button" class="tool" style="font-size:12px; padding:4px 8px;" onclick="window.goStationFast('high')">6.高山中央山脈</button>
+      <button type="button" class="tool" style="font-size:12px; padding:4px 8px;" onclick="window.goStationFast('climate')">7.氣候觀測</button>
+      <button type="button" class="tool" style="font-size:12px; padding:4px 8px;" onclick="window.goStationFast('water')">8.水庫水資源</button>
+      <button type="button" class="tool" style="font-size:12px; padding:4px 8px;" onclick="window.goStationFast('sanheyuan')">9.三合院</button>
+      <button type="button" class="tool" style="font-size:12px; padding:4px 8px;" onclick="window.goStationFast('stonehouse')">10.石板屋</button>
+      <button type="button" class="tool" style="font-size:12px; padding:4px 8px;" onclick="window.goStationFast('objects')">11.古早器物</button>
+      <button type="button" class="tool" style="font-size:12px; padding:4px 8px;" onclick="window.goStationFast('beach')">12.淨灘海岸</button>
     </div>
     <div class="controls">
       <button type="button" class="tool" id="btn-home">↺ 全景</button>
@@ -950,43 +953,70 @@ const ZONES = [
   },
   {
     id: 'flat', unit: 'demo', islandId: 'demo', order: 3,
-    name: '平地農村', shortName: '平地',
-    intro: '地勢比較平坦的地形有平原、盆地和台地。平地交通方便，常有大片農田、熱鬧的城鎮和工廠。',
-    trap: '易錯陷阱：盆地是「四周高、中間低平」，台地是「頂部平坦、邊緣陡峭」；兩種都有平地，差別在周圍的樣子。',
+    name: '平原與盆地', shortName: '平原盆地',
+    intro: '平原平坦廣闊，常有一大片水稻田與沿海魚塭；盆地則是四周被山環繞、中間低平，交通便利形成繁華的大都市。',
+    trap: '易錯陷阱：平原是一望無際的平坦農田；盆地是「四周高、中間低平」，像個大臉盆，例如臺北盆地與埔里盆地。',
     cards: [
-      { illustration: 'plain', title: '平原', summary: '地勢平坦廣闊，例如嘉南平原、蘭陽平原。適合種水稻，沿海平原也常看到養魚的魚塭。' },
-      { illustration: 'basin', title: '盆地', summary: '四周較高、中間低平，像一個臉盆，例如臺北盆地、埔里盆地。人口和住宅密集，商業很熱鬧。' },
-      { illustration: 'tableland', title: '台地', summary: '頂部平坦、邊緣陡峭，例如林口台地。因為上面平坦，常開發成工業區和住宅區。' },
+      { illustration: 'plain', title: '平原：平坦廣闊', summary: '地勢平坦廣闊，例如宜蘭平原、嘉南平原、臺東池上。適合種水稻，靠近海岸的地方可看到很多魚塭（如屏東枋寮）。' },
+      { illustration: 'basin', title: '盆地：四周高中間低平', summary: '四周有許多山圍繞、中間是低平平坦的土地，例如臺北市、埔里盆地。交通便利、住宅密集，是個熱鬧的大都市。' },
+      { illustration: 'plain-life', title: '平原與盆地的生活', summary: '平原以農耕水稻與養殖魚塭為主；盆地則高樓大廈林立、人口與商業活動最密集。' },
     ],
     quiz: [
-      { q: '「頂部平坦、邊緣陡峭」，最符合下列哪一個地方的地形？', options: ['林口', '埔里', '綠島外海', '玉山主峰'], answer: 0, why: '林口是台地：上面平坦、邊緣陡峭。埔里是盆地。' },
-      { type: 'fill', q: '臺北市四周有山圍繞、中間是低平的土地，這種地形叫做＿＿。', answers: ['盆地'], why: '四周高、中間低平 → 盆地。' },
-      { type: 'tf', q: '嘉南平原地勢平坦廣闊，很適合開闢成大片水稻田。', answer: true, why: '平原地勢平坦、水源方便，適合種稻。' },
-      { type: 'tf', q: '屏東枋寮沿海的魚塭，通常開在高低起伏的丘陵上。', answer: false, why: '魚塭在沿海的平原上，不在丘陵。' },
-      { q: '平原、盆地和台地，有什麼共同的地方？', options: ['都有比較平坦的土地', '海拔都超過一千公尺', '都只能種高山水果', '四周都被大海包圍'], answer: 0, why: '三種地形都屬於地勢比較平坦的地形。' },
+      { q: '四周有許多山圍繞、中間是低平土地，這符合哪一種地形？', options: ['盆地（如臺北盆地）', '高聳的中央山脈', '起伏平緩的丘陵', '沿海的平原沙灘'], answer: 0, why: '四周高、中間低平像臉盆 → 盆地。' },
+      { type: 'tf', q: '嘉南平原地勢平坦廣闊，很適合開闢成大片水稻田；靠近海岸的地方還能看到養魚的魚塭。', answer: true, why: '平原地勢平坦廣闊，利於水稻種植與沿海養殖魚塭。' },
+      { type: 'fill', q: '臺北市四周有許多山圍繞、中間是平坦繁華的市中心，這種地形稱為＿＿。', answers: ['盆地'], why: '四周高山環繞、中間低平 → 盆地。' },
     ],
   },
   {
-    id: 'high', unit: 'demo', islandId: 'demo', order: 4,
-    name: '山坡茶園', shortName: '山坡',
-    intro: '地勢起伏的地形有丘陵和山地。越往高處，坡越陡、氣溫越低，人們的生活方式也跟著改變。',
-    trap: '易錯陷阱：丘陵坡度平緩、起伏比較小，常見茶園、果園和梯田；山地大約在海拔 1000 公尺以上，高聳、起伏大。',
+    id: 'tableland', unit: 'demo', islandId: 'demo', order: 4,
+    name: '大肚台地農工站', shortName: '台地',
+    intro: '台地地勢較高、頂部平坦，邊緣以陡坡和低地相接。早期盛產耐旱甘藷（地瓜）與花生，現代則發展工業園區與工廠。',
+    trap: '易錯陷阱：台地從空中鳥瞰是「頂部平坦、邊緣陡峭」；因為頂部平坦，很多家長就在住家附近的工廠上班。',
     cards: [
-      { illustration: 'hill', title: '丘陵', summary: '坡度平緩、起伏較小，例如苗栗、新北石碇一帶。山坡上常開闢茶園、果園和一層層的梯田。' },
-      { illustration: 'mountain', title: '山地', summary: '高聳、起伏大，海拔大約 1000 公尺以上，例如中央山脈。有大片森林，也能種溫帶的高山水果；大雨時要提防土石流。' },
-      { illustration: 'flat-vs-rugged', title: '平坦 vs 崎嶇', summary: '平坦的地方交通方便、人口多；崎嶇的地方交通較不方便、人口較少，但有森林、茶園與好風景。' },
+      { illustration: 'tableland-shape', title: '台地地形特徵', summary: '從空中鳥瞰，頂部平坦，邊緣以陡坡和低地相接，像一張平坦的大桌子。例如：臺中市大肚台地、桃園台地、林口台地。' },
+      { illustration: 'tableland-crops', title: '台地的農特產', summary: '台地紅壤土質排水快且水源較不便，早期居民多種植耐旱的甘藷（地瓜）、花生與甘蔗，部分平緩處開闢茶園。' },
+      { illustration: 'tableland-life', title: '台地活動與生活', summary: '現代因頂部平坦廣闊，常開發成工業區與工廠，許多家長在附近上班；台地邊緣視野開闊，常設有登山健行步道與觀景台（如望高寮）。' },
     ],
     quiz: [
-      { q: '新北石碇的山坡上種滿一層層的茶樹，這裡的地形最可能是哪一種？', options: ['坡度平緩的丘陵', '海拔很高的山地', '四面環山的盆地', '平坦的沿海沙灘'], answer: 0, why: '丘陵坡度平緩，很適合種茶。' },
-      { type: 'fill', q: '一般來說，海拔大約＿＿公尺以上、高聳陡峭的地形稱為山地。', answers: ['1000', '一千', '1,000'], why: '山地大約在海拔 1000 公尺以上。' },
-      { type: 'tf', q: '南投仁愛鄉的高山氣溫比較低，可以種植溫帶水果。', answer: true, why: '山地氣溫較低，適合種蘋果、水蜜桃等溫帶水果。' },
-      { q: '住在山地的居民遇到連續大雨，最需要提防哪一種災害？', options: ['土石流', '海水倒灌', '沙塵暴', '寒流結冰'], answer: 0, why: '山坡陡、土石鬆動，大雨時容易發生土石流。' },
-      { type: 'order', q: '把這三種地形，依照一般的海拔「由低到高」排好：', items: ['平原', '丘陵', '山地'], why: '平原最低平，丘陵起伏較小，山地最高聳。' },
-      { type: 'tf', q: '地勢崎嶇的地方交通比較不便，所以人口通常比平原更密集。', answer: false, why: '崎嶇的地方交通不便，人口通常比平原少。' },
+      { q: '從空中鳥瞰臺中市「大肚台地」，它的地形外貌最符合下列哪一種特徵？', options: ['頂部平坦，邊緣以陡坡相接', '四周高山環繞，中間低平', '海拔超過一千公尺高聳陡峭', '地勢一望無際又低平'], answer: 0, why: '台地特徵：頂部平坦，邊緣以陡坡和低地相接。' },
+      { type: 'tf', q: '台地因為頂部平坦廣闊，除了早期種植耐旱的地瓜、花生外，現代也常開發成工業區，許多家長就在住家附近的工廠上班。', answer: true, why: '頂部平坦適合興建工業園區與現代廠房。' },
+      { type: 'fill', q: '從空中鳥瞰，頂部平坦、邊緣以陡坡和低地相接的地形稱為＿＿。', answers: ['台地', '臺地'], why: '頂部平坦、邊緣陡峭 → 台地（例如大肚台地）。' },
     ],
   },
   {
-    id: 'climate', unit: 'demo', islandId: 'demo', order: 5,
+    id: 'hills', unit: 'demo', islandId: 'demo', order: 5,
+    name: '苗栗石碇丘陵站', shortName: '丘陵',
+    intro: '丘陵海拔高度不超過 1000 公尺、坡度較平緩起伏。山坡氣候適宜加上排水良好，很早以前人們就在這裡種茶、採果。',
+    trap: '易錯陷阱：丘陵高度不超過 1000 公尺、坡度平緩排水好，主要種茶樹與柑橘果樹，現代結合觀光吸引很多假日遊客。',
+    cards: [
+      { illustration: 'hills-shape', title: '丘陵地形特徵', summary: '高度不超過 1000 公尺、坡度較平緩的連綿起伏山坡地。例如：苗栗縣苗栗丘陵、新北市石碇區丘陵。' },
+      { illustration: 'hills-crops', title: '丘陵的農特產', summary: '山坡氣候適宜加上「排水良好」，農民沿等高線開闢階梯茶園（包種茶、東方美人茶），也廣泛種植柑橘（椪柑、桶柑、柚子）。' },
+      { illustration: 'hills-life', title: '丘陵活動與休閒', summary: '世代以種茶、製茶與果樹採收為業。現代許多茶園轉型為「觀光休閒茶園」，假日吸引很多遊客體驗採茶、品茗與走訪茶山步道。' },
+    ],
+    quiz: [
+      { q: '新北市石碇區與苗栗縣的丘陵，因為坡度平緩且具備哪一項優點，很久以前人們便在這裡種茶、製茶？', options: ['山坡排水良好', '一年四季終年積雪', '四周都是深海魚塭', '地底蘊藏大量石油'], answer: 0, why: '丘陵坡度平緩、氣候適宜且排水良好，最適合茶樹與果樹生長。' },
+      { type: 'tf', q: '丘陵的海拔高度一般不超過 1000 公尺，現代許多茶園轉型為觀光茶園，假日吸引很多遊客體驗採茶與品茶。', answer: true, why: '丘陵高度低於 1000 公尺，現代結合休閒農業與觀光。' },
+      { q: '在丘陵起伏的山坡上，除了常看見一層層的茶園外，農民也經常種植下列哪一種經濟水果？', options: ['柑橘（橘子、椪柑）', '高山上的溫帶水蜜桃', '熱帶沙漠仙人掌', '長在深海裡的昆布'], answer: 0, why: '丘陵山坡排水佳，適合種植柑橘類果樹。' },
+    ],
+  },
+  {
+    id: 'high', unit: 'demo', islandId: 'demo', order: 6,
+    name: '高山中央山脈', shortName: '高山',
+    intro: '山地海拔大約在 1000 公尺以上，高聳、起伏大。山上有大片森林，能種植溫帶高山水果，大雨時要提防土石流。',
+    trap: '易錯陷阱：海拔 1000 公尺以上稱為山地，高聳起伏大；連續大雨時山坡陡峭土石鬆動，最需要提防土石流。',
+    cards: [
+      { illustration: 'mountain', title: '山地：高聳陡峭', summary: '高聳、起伏大，海拔大約 1000 公尺以上，例如中央山脈、玉山。有大片原始森林能涵養水源。' },
+      { illustration: 'mountain-crops', title: '山地農特產', summary: '高山氣溫較低、水氣充足，例如臺中市和平區、南投仁愛鄉，居民以種植溫帶水果（蘋果、水蜜桃）與高冷蔬菜為生。' },
+      { illustration: 'mountain-life', title: '山地生活與防災', summary: '山地交通較不便，大雨時容易土石鬆動發生土石流，居民平時要做好水土保持與防災警戒。' },
+    ],
+    quiz: [
+      { type: 'fill', q: '一般來說，海拔大約＿＿公尺以上、高聳陡峭且起伏大的地形稱為山地。', answers: ['1000', '一千', '1,000'], why: '山地海拔通常在 1000 公尺以上。' },
+      { type: 'tf', q: '南投仁愛鄉與臺中和平區的高山氣溫較低、水氣充足，適合種植蘋果、水蜜桃等溫帶水果。', answer: true, why: '高山氣溫涼爽，適合溫帶水果生長。' },
+      { q: '住在山地的居民遇到連續大雨時，最需要提防哪一種自然災害？', options: ['土石流', '海水倒灌', '沙漠沙塵暴', '嚴寒結冰'], answer: 0, why: '山坡陡峭、土石鬆動，豪雨容易引發土石流。' },
+    ],
+  },
+  {
+    id: 'climate', unit: 'demo', islandId: 'demo', order: 7,
     name: '氣候觀測站', shortName: '氣候站',
     intro: '看懂氣溫圖和雨量圖，就能說出一個地方的氣候特色，也能明白氣候怎麼影響建材、農作物和休閒。',
     trap: '易錯陷阱：折線圖看「氣溫」，長條圖看「雨量」；讀圖時先看單位和月份，別把兩張圖搞反。',
@@ -999,12 +1029,10 @@ const ZONES = [
       { q: '在氣候圖上，用一根根「長條」表示的，通常是什麼資料？', options: ['每個月的降雨量', '每個月的平均氣溫', '每個月出生的人數', '每個月的颱風名字'], answer: 0, why: '長條圖表示雨量，折線圖表示氣溫。' },
       { type: 'tf', q: '高雄夏天雨多、冬天雨少，所以冬天時常看到河床露出來。', answer: true, why: '冬季雨量少，河水變少，河床就露出來了。' },
       { type: 'fill', q: '九份常下雨，早期的居民在屋頂鋪上黑色的＿＿來防水。', answers: ['油毛氈'], why: '多雨的氣候影響了建材的選擇。' },
-      { q: '澎湖雨量少、風又大，當地農民最適合種哪一種作物？', options: ['耐旱的花生', '需要大量水的水稻', '高山上的溫帶水蜜桃', '長在水田裡的茭白筍'], answer: 0, why: '花生耐旱，適合澎湖少雨的氣候。' },
-      { q: '下列哪一句話，最能說明基隆的氣候特色？', options: ['一年四季都常常下雨', '冬天幾乎不下雨', '四季的氣溫都很低', '一整年都很乾燥'], answer: 0, why: '基隆四季多雨，有「雨港」之稱。' },
     ],
   },
   {
-    id: 'water', unit: 'demo', islandId: 'demo', order: 6,
+    id: 'water', unit: 'demo', islandId: 'demo', order: 8,
     name: '水庫水資源站', shortName: '水庫',
     intro: '河川、湖泊、海洋和地下水都是水資源。水量會隨季節變多變少，所以要好好儲存、使用，也要保護它不被汙染。',
     trap: '易錯陷阱：水庫能供水、防洪、發電；水資源還要「保護」——工廠廢水不能直接排進河川。',
@@ -1017,13 +1045,10 @@ const ZONES = [
       { type: 'tf', q: '濁水溪在雨季時水量豐沛，到了乾季就可能進入枯水期。', answer: true, why: '河川水量會隨季節變化。' },
       { q: '下列哪一項「不是」水庫的功能？', options: ['把河水變成海水', '儲水供應民生用水', '雨季時減少洪水', '利用水流來發電'], answer: 0, why: '水庫可以供水、防洪、發電，但不會把河水變海水。' },
       { type: 'fill', q: '把洗米水拿來澆花，讓水重複使用，可以＿＿用水。', answers: ['節約', '節省'], why: '重複利用是節約用水的好方法。' },
-      { q: '小宇看見工廠把黑色廢水排進河裡，他最適合怎麼做？', options: ['向環保單位檢舉', '跑去河邊撈魚吃', '當作沒看到', '叫同學一起去玩水'], answer: 0, why: '發現汙染要向環保單位檢舉，保護水資源。' },
-      { type: 'order', q: '雨水變成家裡的自來水，大致的順序是：', items: ['雨水匯入河川', '水庫把水存起來', '淨水場把水處理乾淨', '送到家裡的水龍頭'], why: '下雨 → 水庫儲水 → 淨水 → 送到家家戶戶。' },
-      { q: '假日到河邊或湖邊，可以從事哪一種休閒活動？', options: ['划船、騎自行車', '滑雪、堆雪人', '騎駱駝穿越沙漠', '攀爬冰河'], answer: 0, why: '水資源也帶來休閒：划船、河濱自行車、浮潛。' },
     ],
   },
   {
-    id: 'sanheyuan', unit: 'change', islandId: 'change', order: 7,
+    id: 'sanheyuan', unit: 'change', islandId: 'change', order: 9,
     name: '紅磚三合院', shortName: '三合院',
     intro: '漢人傳統的三合院會隨著家族人口變多而擴建；院子裡的每個空間都有它的用途。',
     trap: '易錯陷阱：三合院「左大右小」，要站在正廳門口、面向屋外來判斷左右；水池用來洗衣、養魚、防火，不是發電。',
@@ -1036,13 +1061,10 @@ const ZONES = [
       { type: 'order', q: '家族的人口越來越多，住屋的樣子依序變成：', items: ['一條龍（只有正身）', '單伸手（加一邊護龍）', '三合院（兩邊都有護龍）'], why: '人口增加，就一邊一邊往外加蓋護龍。' },
       { type: 'fill', q: '三合院中間的大廣場叫做＿＿，可以曬穀子，也是孩子玩耍的地方。', answers: ['稻埕'], why: '稻埕：曬穀、玩耍、招待客人。' },
       { q: '三合院正身中央的「正廳」，主要用來做什麼？', options: ['祭拜祖先、招待客人', '曬稻穀和花生', '堆放肥料', '飼養雞鴨'], answer: 0, why: '正廳是家族最重要的空間。' },
-      { type: 'tf', q: '三合院旁邊挖的水池，主要是用來發電。', answer: false, why: '水池用來洗衣、養魚和防火。' },
-      { q: '三合院後面種了一大片竹林，有什麼好處？', options: ['擋風，也能防小偷', '讓屋子變得更潮濕', '把颱風吸引過來', '讓屋頂看起來更高'], answer: 0, why: '竹林可以擋風、防盜，竹子還能拿來編器物。' },
-      { type: 'tf', q: '判斷三合院的「左大右小」時，要站在正廳門口、面向屋外來看。', answer: true, why: '以正廳面向外的方向判斷左右。' },
     ],
   },
   {
-    id: 'stonehouse', unit: 'change', islandId: 'change', order: 8,
+    id: 'stonehouse', unit: 'change', islandId: 'change', order: 10,
     name: '石板屋聚落', shortName: '石板屋',
     intro: '各地的人會「就地取材」，依照當地的氣候和環境，蓋出最適合居住的房子。',
     trap: '易錯陷阱：達悟族的地下屋是「一部分」蓋在地面下，用來躲避蘭嶼的強風；澎湖的咾咕石是多孔的珊瑚礁石。',
@@ -1054,14 +1076,11 @@ const ZONES = [
     quiz: [
       { q: '排灣族用石板蓋的房子，住起來有什麼特色？', options: ['冬暖夏涼', '冬冷夏熱', '一年到頭都悶熱', '一下雨就漏水'], answer: 0, why: '石板屋牆壁厚實，冬暖夏涼。' },
       { type: 'fill', q: '各地的人用當地容易取得的材料來蓋房子，這種做法叫做＿＿。', answers: ['就地取材'], why: '石板、竹、木、咾咕石都是就地取材。' },
-      { type: 'tf', q: '達悟族的地下屋，是整棟房子完全埋在地底下。', answer: false, why: '地下屋只有一部分在地面下。' },
       { q: '蘭嶼的達悟族把房子蓋得一部分在地面下，主要是為了什麼？', options: ['抵擋強勁的季風和颱風', '方便在地下挖礦', '可以在屋裡養魚', '讓遊客找不到房子'], answer: 0, why: '蘭嶼風很強，房子低矮、半在地下比較不怕風。' },
-      { q: '澎湖的傳統老房子，常用哪一種當地材料來砌牆？', options: ['多孔的咾咕石', '厚重的鋼板', '透明的玻璃磚', '進口的大理石'], answer: 0, why: '咾咕石是多孔的珊瑚礁石，澎湖就地取材。' },
-      { type: 'tf', q: '現在很多新蓋的房子改用鋼筋混凝土，比竹管仔厝和土埆厝更堅固。', answer: true, why: '建材隨時代改變，鋼筋混凝土比較堅固耐用。' },
     ],
   },
   {
-    id: 'objects', unit: 'change', islandId: 'culture', order: 9,
+    id: 'objects', unit: 'change', islandId: 'culture', order: 11,
     name: '古早器物市集', shortName: '器物市集',
     intro: '以前的人用竹、藤、木頭、泥土和植物葉子做出生活器物，很多器物到今天還有現代的版本。',
     trap: '易錯陷阱：菜櫥只是通風、防蟲蟻，沒有冷藏功能；魚筌留縫隙讓小魚游走，是永續利用的智慧。',
@@ -1074,13 +1093,10 @@ const ZONES = [
       { q: '魚筌故意留了一些縫隙，最主要的用意是什麼？', options: ['讓小魚游走，魚才抓不完', '讓魚筌變得比較輕', '讓河水流得更慢', '方便掛在牆上當裝飾'], answer: 0, why: '留下小魚讓牠長大，是永續利用的智慧。' },
       { type: 'fill', q: '以前漢人用泥土砌成、燒木柴煮飯的器物叫做＿＿。', answers: ['土灶', '灶'], why: '土灶 → 現在的瓦斯爐。' },
       { type: 'tf', q: '傳統的菜櫥和冰箱一樣，可以讓食物保持低溫。', answer: false, why: '菜櫥只能通風、防蟲蟻，沒有冷藏功能。' },
-      { q: '土灶燒完木柴留下的灰，以前的人會拿來做什麼？', options: ['當作田裡的肥料', '當作刷牙的牙膏', '燒成透明的玻璃', '拿來染頭髮'], answer: 0, why: '灶灰可以當肥料，一點都不浪費。' },
-      { q: '下列「傳統器物─現代器物」的配對，哪一組正確？', options: ['土灶─瓦斯爐', '菜櫥─攪拌機', '木杵─電冰箱', '魚筌─塑膠袋'], answer: 0, why: '土灶→瓦斯爐、菜櫥→冰箱、木杵→攪拌機、魚筌→捕魚船。' },
-      { type: 'tf', q: '原住民會用竹子和藤來編織器物，也會用植物的葉子包食物。', answer: true, why: '竹、藤、木、植物葉都是就地取材的器物材料。' },
     ],
   },
   {
-    id: 'beach', unit: 'change', islandId: 'culture', order: 10,
+    id: 'beach', unit: 'change', islandId: 'culture', order: 12,
     name: '淨灘海岸', shortName: '淨灘',
     intro: '科技讓器物更方便，卻也帶來更多垃圾。塑膠不容易分解，海龜可能把漂在海裡的塑膠袋當成水母吃下肚。',
     trap: '易錯陷阱：減塑最重要的是「源頭減量」——先想辦法少用，再談回收。',
@@ -1093,9 +1109,6 @@ const ZONES = [
       { type: 'tf', q: '塑膠又便宜又方便，丟進大海以後很快就會自己分解。', answer: false, why: '塑膠很難分解，會在海裡留存很久。' },
       { q: '一次淨灘活動統計撿到的垃圾，數量最多的通常是哪一類？', options: ['塑膠製品', '小貝殼', '海草', '細沙'], answer: 0, why: '淨灘撿到最多的是塑膠瓶、塑膠袋等塑膠製品。' },
       { type: 'fill', q: '減少塑膠垃圾最根本的方法，是從＿＿減量，一開始就少用。', answers: ['源頭'], why: '源頭減量：不需要的就不拿、不買。' },
-      { q: '下列哪一種做法，最符合「減塑」的精神？', options: ['自備環保杯和購物袋', '買飲料時多拿幾根吸管', '把塑膠袋丟進海裡', '天天使用免洗餐具'], answer: 0, why: '自備環保用品，就能從源頭減少塑膠。' },
-      { type: 'tf', q: '海龜可能把海中漂浮的塑膠袋當成水母，誤吃下肚。', answer: true, why: '塑膠垃圾會傷害海洋生物。' },
-      { q: '科技進步帶來的影響中，哪一項是「缺點」？', options: ['垃圾變多、用電量增加', '生活變得更便利', '器物的材質更多元', '生活品質跟著提高'], answer: 0, why: '方便的背後，是更多垃圾和用電。' },
     ],
   },
 ];
@@ -2211,7 +2224,173 @@ function flatFarm() {
   basin.add(at(cyl(0.38, 0.38, 0.04, 16, fixedMat('#cfe3b4')), 0, 0.02, 0));
   for (const [x, z, c] of [[-0.1, -0.05, '#f6efe0'], [0.12, 0.08, '#e8d5b0'], [0.0, 0.18, '#f6efe0']]) basin.add(at(rbox(0.12, 0.16, 0.12, fixedMat(c), 0.02), x, 0.1, z));
   g.add(at(basin, 0.75, 0, -0.85));
-  g.add(at(standSign('平原・盆地・台地', 1.1, { bg: '#4f8a6a' }), 0.15, 0, 1.05));
+  g.add(at(standSign('平原與盆地', 0.95, { bg: '#4f8a6a' }), 0.15, 0, 1.05));
+  return g;
+}
+
+// ---------- 地標 4：大肚台地農工站（平坦頂部、陡峭邊緣、耐旱地瓜花生田、現代廠房上班族、望高寮步道與遊客） ----------
+function tablelandStation() {
+  const g = new THREE.Group();
+  const earthMat = fixedMat('#b9a27a');
+  const grassMat = fixedMat('#8ebf6a');
+  const ridgeMat = fixedMat('#7a5230'); // 地瓜土壟
+  const sweetPotatoMat = fixedMat('#c2410c'); // 紅心地瓜
+  const factoryWall = fixedMat('#cbd5e1'); // 工廠牆面
+  const factoryRoof = fixedMat('#475569'); // 斜鋸齒屋頂
+  const solarMat = fixedMat('#1e3a8a'); // 太陽能板
+  const woodDeckMat = fixedMat('#a16207'); // 望高寮木棧道
+
+  // 1. 台地典型地貌：厚實平坦頂部 + 陡峭邊緣（空中大桌面）
+  g.add(at(rbox(2.8, 0.45, 2.2, earthMat, 0.08), 0, 0.225, -0.1));
+  g.add(at(rbox(2.7, 0.12, 2.1, grassMat, 0.04), 0, 0.51, -0.1));
+
+  // 2. 西側：早期耐旱農作物區（甘藷/地瓜田、花生、甘蔗）
+  for (let k = 0; k < 3; k++) {
+    const z = -0.7 + k * 0.35;
+    g.add(at(rbox(1.0, 0.08, 0.18, ridgeMat, 0.04), -0.75, 0.58, z));
+    for (let i = 0; i < 4; i++) {
+      const x = -1.1 + i * 0.23;
+      g.add(at(sc(ball(0.065, fixedMat('#3f8a4a'), 6, 5), 1.2, 0.5, 1.2), x, 0.63, z));
+    }
+    // 露出的甘藷（地瓜）
+    g.add(at(sc(ball(0.045, sweetPotatoMat, 6, 5), 1.6, 0.9, 0.9), -0.85, 0.64, z + 0.04, 0.3));
+    g.add(at(sc(ball(0.04, sweetPotatoMat, 6, 5), 1.5, 0.8, 0.8), -0.65, 0.64, z - 0.03, -0.2));
+  }
+  for (const [x, z] of [[-0.4, -0.85], [-0.35, -0.3], [-0.4, 0.15]]) {
+    g.add(at(cyl(0.02, 0.02, 0.45, 5, fixedMat('#65a30d')), x, 0.75, z));
+    g.add(at(sc(ball(0.08, fixedMat('#84cc16'), 5, 4), 1, 0.6, 1), x, 0.95, z));
+  }
+  g.add(at(signBoard('耐旱甘藷・花生', 0.58, 0.16, { bg: '#c2410c' }), -0.75, 0.9, -0.05));
+
+  // 3. 東北側：現代工業區（頂部平坦開闢工業園區、現代科技廠房、上班族家長）
+  g.add(at(rbox(1.1, 0.5, 0.8, factoryWall, 0.03), 0.75, 0.78, -0.55));
+  for (let i = 0; i < 3; i++) {
+    const rx = 0.4 + i * 0.35;
+    const roofSegment = rbox(0.3, 0.06, 0.82, factoryRoof, 0.01);
+    roofSegment.rotation.z = -0.25;
+    g.add(at(roofSegment, rx, 1.06, -0.55));
+    g.add(at(rbox(0.24, 0.02, 0.75, solarMat, 0.01), rx, 1.09, -0.55));
+  }
+  g.add(at(cyl(0.06, 0.06, 0.65, 8, fixedMat('#94a3b8')), 1.15, 1.1, -0.85));
+  const fSmoke = ball(0.08, fixedMat('#ffffff', { transparent: true, opacity: 0.75 }), 8, 6);
+  fSmoke.userData.bob = 0.05;
+  g.add(at(fSmoke, 1.15, 1.48, -0.85));
+
+  // 工廠上班族家長公仔
+  const worker = figure(fixedMat('#1e40af'), { h: 0.42 });
+  worker.add(at(ball(0.09, fixedMat('#facc15'), 8, 6), 0, 0.45, 0));
+  worker.add(at(rbox(0.12, 0.09, 0.04, fixedMat('#475569'), 0.01), 0.16, 0.15, 0));
+  g.add(at(worker, 0.6, 0.56, 0.05, Math.PI * 0.8));
+
+  // 4. 東南側：望高寮景觀步道與觀景平台
+  g.add(at(rbox(1.1, 0.06, 0.65, woodDeckMat, 0.02), 0.65, 0.58, 0.6));
+  for (let i = 0; i < 4; i++) {
+    g.add(at(cyl(0.02, 0.02, 0.28, 5, woodDeckMat), 0.25 + i * 0.27, 0.73, 0.9));
+  }
+  g.add(at(rbox(0.9, 0.03, 0.04, woodDeckMat, 0.01), 0.65, 0.85, 0.9));
+  const scopeBase = cyl(0.025, 0.035, 0.35, 6, fixedMat('#64748b'));
+  g.add(at(scopeBase, 0.85, 0.77, 0.75));
+  const scopeTubes = rbox(0.12, 0.06, 0.18, fixedMat('#334155'), 0.01);
+  scopeTubes.rotation.x = -0.2;
+  g.add(at(scopeTubes, 0.85, 0.95, 0.75));
+
+  // 遠眺遊客公仔
+  const tourist = figure(fixedMat('#dc2626'), { h: 0.42 });
+  g.add(at(tourist, 0.45, 0.6, 0.7, 0));
+
+  // 5. 雙柱中英文站牌
+  g.add(at(standSign('大肚台地', 0.85, { bg: '#b45309' }), -0.1, 0.54, 0.88));
+  return g;
+}
+
+// ---------- 地標 5：石碇丘陵站（連綿起伏山坡、排水良好梯田茶園、椪柑果樹、採茶姑娘、曬茶架萎凋、品茶茶坊） ----------
+function hillsStation() {
+  const g = new THREE.Group();
+  const hillSlope = fixedMat('#65a30d');
+  const terraceMat1 = fixedMat('#84cc16');
+  const terraceMat2 = fixedMat('#4d7c0f');
+  const teaGreen = fixedMat('#15803d');
+  const orangeFruit = fixedMat('#ea580c');
+  const orangeLeaf = fixedMat('#166534');
+  const woodBrown = fixedMat('#78350f');
+  const bambooMat = fixedMat('#ca8a04');
+
+  // 1. 丘陵地形特徵：坡度平緩、層次連綿起伏（1000m 以下山坡地）
+  g.add(at(rbox(2.8, 0.35, 2.2, hillSlope, 0.08), 0, 0.175, 0));
+  g.add(at(rbox(2.4, 0.3, 1.8, terraceMat1, 0.07), -0.1, 0.35, -0.1));
+  g.add(at(rbox(1.8, 0.25, 1.3, terraceMat2, 0.06), -0.25, 0.5, -0.25));
+
+  // 2. 西北側：沿等高線開闢的階梯茶園
+  for (let tier = 0; tier < 3; tier++) {
+    const rad = 0.9 - tier * 0.22;
+    const cy = 0.58 + tier * 0.18;
+    const numBushes = 7 - tier * 2;
+    for (let i = 0; i < numBushes; i++) {
+      const ang = (i / (numBushes - 1 || 1) - 0.5) * 1.6 + Math.PI * 0.65;
+      const tx = -0.75 + Math.cos(ang) * rad;
+      const tz = -0.55 + Math.sin(ang) * rad;
+      const bush = sc(ball(0.09, teaGreen, 7, 5), 1.25, 0.75, 1.1);
+      g.add(at(bush, tx, cy, tz));
+    }
+  }
+
+  // 採茶姑娘（頭戴黃竹斗笠、身背採茶竹簍）
+  const teaGirl = figure(fixedMat('#ec4899'), { h: 0.42 });
+  teaGirl.add(at(cone(0.17, 0.09, 10, fixedMat('#fef08a')), 0, 0.48, 0));
+  const basket = rbox(0.14, 0.18, 0.1, bambooMat, 0.02);
+  teaGirl.add(at(basket, 0, 0.22, -0.13));
+  g.add(at(teaGirl, -0.65, 0.65, -0.2, Math.PI * 0.25));
+
+  // 3. 東北側：排水良好的柑橘果園（椪柑、桶柑果樹）
+  for (const [ox, oz] of [[0.65, -0.65], [1.1, -0.25]]) {
+    g.add(at(cyl(0.045, 0.06, 0.38, 6, mat('trunk')), ox, 0.52, oz));
+    g.add(at(ball(0.28, orangeLeaf, 8, 6), ox, 0.85, oz));
+    for (const [dx, dy, dz] of [
+      [0.18, 0.82, 0.15], [-0.16, 0.88, 0.14], [0.08, 0.98, -0.18],
+      [0.2, 0.75, -0.1], [-0.18, 0.76, -0.12], [0.0, 0.72, 0.22]
+    ]) {
+      g.add(at(ball(0.052, orangeFruit, 6, 5), ox + dx, dy, oz + dz));
+    }
+  }
+  g.add(at(signBoard('山坡椪柑果園', 0.54, 0.16, { bg: '#ea580c' }), 0.85, 1.15, -0.25));
+
+  // 4. 南側活動區：製茶日光萎凋竹篩 ＋ 休閒觀光茶坊品茶
+  g.add(at(cyl(0.025, 0.025, 0.35, 5, woodBrown), -0.7, 0.35, 0.55));
+  g.add(at(cyl(0.025, 0.025, 0.35, 5, woodBrown), -0.2, 0.35, 0.55));
+  g.add(at(rbox(0.65, 0.03, 0.04, woodBrown, 0.01), -0.45, 0.48, 0.55));
+  for (let k = 0; k < 2; k++) {
+    const sx = -0.58 + k * 0.28;
+    const tray = cyl(0.12, 0.12, 0.025, 12, bambooMat);
+    tray.rotation.x = 0.25;
+    g.add(at(tray, sx, 0.52, 0.55));
+    const teaLeaves = cyl(0.1, 0.1, 0.015, 10, fixedMat('#22c55e'));
+    teaLeaves.rotation.x = 0.25;
+    g.add(at(teaLeaves, sx, 0.53, 0.55));
+  }
+
+  // 休閒觀光茶坊：泡茶木桌與茶椅
+  g.add(at(rbox(0.55, 0.04, 0.45, woodBrown, 0.02), 0.55, 0.45, 0.5));
+  g.add(at(cyl(0.03, 0.03, 0.22, 5, woodBrown), 0.55, 0.34, 0.5));
+  g.add(at(ball(0.045, fixedMat('#78350f'), 6, 5), 0.52, 0.51, 0.48));
+  g.add(at(cyl(0.02, 0.02, 0.025, 6, fixedMat('#ffffff')), 0.62, 0.48, 0.52));
+  g.add(at(rbox(0.2, 0.03, 0.2, woodBrown, 0.01), 0.25, 0.38, 0.5));
+  g.add(at(rbox(0.2, 0.03, 0.2, woodBrown, 0.01), 0.85, 0.38, 0.5));
+
+  // 品茗遊客公仔
+  const teaGuest = figure(fixedMat('#0284c7'), { h: 0.42 });
+  g.add(at(teaGuest, 0.25, 0.39, 0.5, Math.PI * 0.5));
+
+  // 油桐花小樹
+  g.add(at(cyl(0.04, 0.05, 0.4, 6, mat('trunk')), -1.1, 0.42, 0.4));
+  g.add(at(ball(0.24, fixedMat('#4ade80'), 8, 6), -1.1, 0.72, 0.4));
+  for (const [fx, fy, fz] of [
+    [-1.05, 0.82, 0.55], [-1.2, 0.75, 0.3], [-0.98, 0.68, 0.45], [-1.15, 0.85, 0.35]
+  ]) {
+    g.add(at(ball(0.035, fixedMat('#ffffff'), 5, 4), fx, fy, fz));
+  }
+
+  // 5. 雙柱中英文站牌
+  g.add(at(standSign('石碇丘陵', 0.85, { bg: '#15803d' }), 0.0, 0.38, 0.95));
   return g;
 }
 
@@ -2564,17 +2743,17 @@ function mountain(r, h) {
   return g;
 }
 
-return { mat, fixedMat, applyMaterialPalette, rbox, cyl, cone, ball, at, sc, gableRoof, signBoard, cloud, mapStation, eMapTower, flatFarm, hillTea, climateStation, reservoir, sanheyuan, stoneVillage, objectsMarket, beachCleanup, tree, mountain };
+return { mat, fixedMat, applyMaterialPalette, rbox, cyl, cone, ball, at, sc, gableRoof, signBoard, cloud, mapStation, eMapTower, flatFarm, tablelandStation, hillsStation, hillTea, climateStation, reservoir, sanheyuan, stoneVillage, objectsMarket, beachCleanup, tree, mountain };
 })();
 // ---- src/world.js ----
 const __world = (() => {
-// 世界布局：西邊「家鄉環境島」是第一單元六站：東岸地圖站、東北高處的電子地圖塔、西北靠山的山坡茶園、西側氣候觀測站、
-// 西南低處的平地農村與南岸水庫；東邊「傳統住屋島」（三合院、石板屋）與南邊「器物海灘島」（器物市集、淨灘海岸）是第二單元。三座島以橋相連。
+// 世界布局：西邊「家鄉環境島」是第一單元八站：東岸地圖站、東北高處的電子地圖塔、大肚台地、石碇丘陵、西北高山、西側氣候觀測站、
+// 西南低處平地農村與南側山坡水庫；東邊「傳統住屋島」（三合院、石板屋）與南邊「器物海灘島」（器物市集、淨灘海岸）是第二單元。三座島以橋相連。
 const { createIslandTerrain } = __terrain;
 const { createIslandPath, validateIslandConnections } = __paths;
 const {
   mat, fixedMat, at, ball, cyl, tree, mountain, cloud,
-  mapStation, eMapTower, flatFarm, hillTea, climateStation, reservoir, sanheyuan, stoneVillage, objectsMarket, beachCleanup,
+  mapStation, eMapTower, flatFarm, tablelandStation, hillsStation, hillTea, climateStation, reservoir, sanheyuan, stoneVillage, objectsMarket, beachCleanup,
 } = __models;
 
 const WATER_LEVEL = -0.24;
@@ -2592,13 +2771,14 @@ const LAYOUT = {
   demo: {
     outline: [[-16, -3], [-15, -8], [-11, -10.5], [-6, -10], [-2.5, -7], [-1.5, -2.5], [-2.2, 3.5], [-3.6, 7.4], [-6.2, 9.0], [-9.6, 8.4], [-12.5, 6.4], [-15, 3.5]],
     plateaus: [
-      { position: [-12.0, 2.8, -7.0], radius: 1.5 },  // 山坡茶園（最高處，靠山）
-      { position: [-8.8, 2.8, -8.6], radius: 1.2 },   // 山坡水庫（南側高山峽谷，同為山坡高地 2.8）
+      { position: [-12.0, 2.8, -7.0], radius: 1.5 },  // 高山中央山脈（最高處）
+      { position: [-8.8, 2.8, -8.6], radius: 1.2 },   // 山坡水庫（南側高山峽谷，同為高地 2.8）
       { position: [-5.5, 2.4, -6.8], radius: 1.3 },   // 電子地圖塔
-      { position: [-12.8, 1.7, -1.2], radius: 1.6 },  // 氣候觀測站
-      { position: [-5.5, 1.5, 1.9], radius: 1.6 },    // 家鄉地圖站
-      { position: [-10.2, 1.0, 4.4], radius: 1.6 },   // 平地農村（低處）
-      { position: [-6.2, 0.9, 6.6], radius: 1.5 },    // 東北海岸平台
+      { position: [-12.8, 1.7, -1.2], radius: 1.5 },  // 氣候觀測站
+      { position: [-5.5, 1.5, 1.9], radius: 1.5 },    // 家鄉地圖站
+      { position: [-10.2, 1.0, 4.8], radius: 1.3 },   // 平原盆地（低處平坦農村）
+      { position: [-5.8, 1.6, 6.6], radius: 1.4 },    // 大肚台地（高度 1.6，頂部平坦四周陡）
+      { position: [-13.2, 1.7, 1.8], radius: 1.1 },   // 石碇丘陵（高度 1.7，平緩山坡茶園果園）
       { position: [-8.5, 2.0, -2.5], radius: 1.0 },   // 中央廣場
       { position: [-2.6, 1.5, -2.0], radius: 0.7 },   // 東岸橋頭
     ],
@@ -2632,6 +2812,8 @@ const SITES = {
   home: { building: mapStation, at: [-5.3, 2.4], node: [-6.6, 0.4], island: 'demo', scale: 1 },
   emap: { building: eMapTower, at: [-5.2, -7.2], node: [-6.3, -5.0], island: 'demo', scale: 1 },
   flat: { building: flatFarm, at: [-10.3, 4.9], node: [-9.4, 2.6], island: 'demo', scale: 1 },
+  tableland: { building: tablelandStation, at: [-5.8, 6.6], node: [-6.8, 4.8], island: 'demo', scale: 0.95 },
+  hills: { building: hillsStation, at: [-13.2, 1.8], node: [-11.2, 1.0], island: 'demo', scale: 0.95 },
   high: { building: hillTea, at: [-12.2, -7.3], node: [-10.3, -5.4], island: 'demo', scale: 1 },
   climate: { building: climateStation, at: [-13.1, -1.2], node: [-10.7, -1.8], island: 'demo', scale: 0.95 },
   water: { building: reservoir, at: [-8.8, -8.6], node: [-8.4, -6.6], island: 'demo', scale: 0.95 },
@@ -2655,6 +2837,8 @@ const ROADS = [
   ['climate', 'dj', [[-9.7, -2.1]]],
   ['home', 'dj', [[-7.4, -0.8]]],
   ['flat', 'dj', [[-9.0, 0.2]]],
+  ['tableland', 'dj', [[-7.0, 3.8], [-6.2, 1.2]]],
+  ['hills', 'dj', [[-11.2, 0.4]]],
   ['water', 'dj', [[-8.5, -4.6]]],
   ['dj', 'demo-change:a', [[-5.0, -2.1]]],
   ['demo-change:b', 'cj', [[6.4, -0.8]]],
@@ -3715,25 +3899,80 @@ const DRAW = {
     text(ctx, '像一個臉盆', 240, 92, { size: 18, color: C.demo });
     caption(ctx, '例：臺北盆地、埔里盆地｜住宅密集、商業熱鬧');
   },
+  'plain-life'(ctx) {
+    title(ctx, '平原農耕 vs 盆地都市');
+    tag(ctx, 30, 62, 200, 175, C.green, '平原生活', ['一望無際水稻田', '沿海開闢養殖魚塭', '農村悠閒步調'], { size: 18, bodySize: 15 });
+    tag(ctx, 250, 62, 200, 175, C.demo, '盆地生活', ['四周高山環繞低平', '高樓大廈商業熱鬧', '交通樞紐人口稠密'], { size: 18, bodySize: 15 });
+    caption(ctx, '平原宜農耕水產，盆地利商貿交通');
+  },
+  // 4 大肚台地農工站
+  'tableland-shape'(ctx) {
+    title(ctx, '台地：頂部平坦・邊緣陡峭');
+    poly(ctx, [[50, 230], [120, 115], [360, 115], [430, 230]], '#b9a27a');
+    roundRect(ctx, 116, 105, 248, 16, 4, FIELD);
+    text(ctx, '頂部平坦如大桌面', 240, 138, { size: 16, color: '#fff' });
+    text(ctx, '陡坡', 86, 185, { size: 18, color: C.red });
+    text(ctx, '陡坡', 394, 185, { size: 18, color: C.red });
+    arrow(ctx, 120, 185, 95, 215, C.red);
+    arrow(ctx, 360, 185, 385, 215, C.red);
+    caption(ctx, '例：臺中大肚台地、桃園台地、林口台地');
+  },
+  'tableland-crops'(ctx) {
+    title(ctx, '台地農特產：耐旱好作物');
+    roundRect(ctx, 30, 62, 420, 170, 10, '#fef3c7', '#d97706', 2);
+    roundRect(ctx, 50, 130, 380, 80, 8, '#78350f');
+    for (let i = 0; i < 4; i++) {
+      circle(ctx, 90 + i * 95, 145, 16, '#22c55e');
+      ctx.fillStyle = '#ea580c'; ctx.beginPath(); ctx.ellipse(90 + i * 95, 185, 22, 12, 0.2, 0, Math.PI * 2); ctx.fill();
+    }
+    text(ctx, '🍠 耐旱甘藷（地瓜）', 140, 95, { size: 16, color: '#c2410c' });
+    text(ctx, '🥜 花生・甘蔗', 340, 95, { size: 16, color: '#ca8a04' });
+    caption(ctx, '紅壤土質排水快且取水不便，居民多種耐旱作物');
+  },
+  'tableland-life'(ctx) {
+    title(ctx, '台地生活：工業區與景觀步道');
+    tag(ctx, 30, 62, 200, 175, C.brick, '頂部平坦：工業區', ['地勢平坦開闢工業區', '精密廠房與科技園區', '家長在附近工廠上班'], { size: 17, bodySize: 14 });
+    tag(ctx, 250, 62, 200, 175, '#0284c7', '邊緣陡峭：望高寮', ['視野開闊登高遠眺', '登山健行觀景木棧道', '欣賞璀璨日落與夜景'], { size: 17, bodySize: 14 });
+    caption(ctx, '台地地貌平陡對比，形塑兼具工業與休閒之生活');
+  },
   tableland(ctx) {
-    title(ctx, '台地：頂部平坦、邊緣陡峭');
-    poly(ctx, [[60, 230], [130, 120], [350, 120], [420, 230]], '#b9a27a');
-    roundRect(ctx, 128, 110, 224, 14, 4, FIELD);
-    for (let i = 0; i < 3; i++) roundRect(ctx, 150 + i * 62, 78, 46, 34, 3, '#d7dde0');
-    roundRect(ctx, 330, 66, 10, 46, 2, C.brick);
-    text(ctx, '平坦', 240, 140, { size: 15, color: '#fff' });
-    text(ctx, '陡', 92, 190, { size: 18, color: C.red }); text(ctx, '陡', 388, 190, { size: 18, color: C.red });
-    caption(ctx, '例：林口台地｜工業區、住宅區');
+    this['tableland-shape'](ctx);
   },
-  // 4 山坡茶園
+  // 5 石碇丘陵站
+  'hills-shape'(ctx) {
+    title(ctx, '丘陵：海拔 1000m 以下・坡度平緩');
+    ctx.fillStyle = HILL; ctx.beginPath(); ctx.moveTo(20, 235);
+    ctx.bezierCurveTo(110, 130, 180, 140, 240, 175);
+    ctx.bezierCurveTo(300, 130, 390, 140, 460, 235); ctx.fill();
+    text(ctx, '連綿起伏波浪狀', 240, 110, { size: 17, color: C.green });
+    text(ctx, '排水良好', 130, 175, { size: 16, color: '#15803d' });
+    text(ctx, '坡度和緩', 360, 175, { size: 16, color: '#15803d' });
+    caption(ctx, '例：苗栗丘陵、新北石碇丘陵｜海拔 < 1000m');
+  },
+  'hills-crops'(ctx) {
+    title(ctx, '丘陵農特產：階梯茶園與柑橘果園');
+    roundRect(ctx, 30, 62, 420, 170, 10, '#ecfdf5', '#059669', 2);
+    for (let k = 0; k < 3; k++) {
+      for (let i = 0; i < 5; i++) circle(ctx, 65 + i * 32, 195 - k * 30, 11, '#15803d');
+    }
+    text(ctx, '🍵 階梯茶園', 130, 95, { size: 16, color: '#15803d' });
+    text(ctx, '包種茶・東方美人茶', 130, 120, { size: 13, color: '#166534' });
+    circle(ctx, 350, 160, 28, '#16a34a');
+    for (const [dx, dy] of [[-10, -8], [12, -4], [0, 10], [-12, 12]]) circle(ctx, 350 + dx, 160 + dy, 6, '#ea580c');
+    text(ctx, '🍊 柑橘果園', 350, 95, { size: 16, color: '#c2410c' });
+    text(ctx, '椪柑・桶柑・柚子', 350, 120, { size: 13, color: '#9a3412' });
+    caption(ctx, '山坡氣候適宜加上排水良好，最適宜種茶樹與果樹');
+  },
+  'hills-life'(ctx) {
+    title(ctx, '丘陵生活：採茶品茗與休閒農業');
+    tag(ctx, 30, 62, 200, 175, '#15803d', '傳統農作工藝', ['採茶姑娘一心二葉', '竹篩日光萎凋製茶', '細緻烘焙傳承茶香'], { size: 17, bodySize: 14 });
+    tag(ctx, 250, 62, 200, 175, '#d97706', '現代休閒觀光', ['休閒觀光茶園品茗', '假日登山踏青採果', '五月漫步油桐花步道'], { size: 17, bodySize: 14 });
+    caption(ctx, '傳統製茶手藝結合休閒觀光，活化丘陵山鄉活力');
+  },
   hill(ctx) {
-    title(ctx, '丘陵：坡度平緩、起伏小');
-    ctx.fillStyle = HILL; ctx.beginPath(); ctx.moveTo(20, 235); ctx.bezierCurveTo(120, 120, 200, 130, 260, 170); ctx.bezierCurveTo(320, 120, 400, 130, 460, 235); ctx.fill();
-    for (let k = 0; k < 4; k++) for (let i = 0; i < 6; i++) circle(ctx, 80 + i * 22 + k * 8, 210 - k * 18, 7, '#3f8a4a');
-    for (const [x, y] of [[350, 190], [390, 200]]) { circle(ctx, x, y, 16, '#93cc88'); circle(ctx, x + 6, y - 4, 4, C.red); }
-    text(ctx, '茶園', 130, 120, { size: 16, color: C.green }); text(ctx, '果園', 375, 150, { size: 16, color: C.red });
-    caption(ctx, '例：苗栗、新北石碇｜茶園、果園、梯田');
+    this['hills-shape'](ctx);
   },
+  // 6 高山中央山脈
   mountain(ctx) {
     title(ctx, '山地：高聳、起伏大');
     mountainShape(ctx, 170, 240, 240, 190, HILL, '#eef3ee');
@@ -3741,6 +3980,21 @@ const DRAW = {
     for (let i = 0; i < 6; i++) poly(ctx, [[90 + i * 30, 238], [100 + i * 30, 205], [110 + i * 30, 238]], '#3f7a4a');
     line(ctx, 430, 240, 430, 70, C.sub, 2); text(ctx, '1000m↑', 430, 60, { size: 14, color: C.sub });
     caption(ctx, '例：中央山脈｜森林、高山水果；大雨要防土石流');
+  },
+  'mountain-crops'(ctx) {
+    title(ctx, '山地農特產：溫帶水果與高冷蔬菜');
+    tag(ctx, 30, 62, 200, 175, '#0284c7', '高山氣候涼爽', ['海拔 1000 公尺以上', '氣溫較低、水氣充足', '原始森林涵養水源'], { size: 17, bodySize: 14 });
+    tag(ctx, 250, 62, 200, 175, '#dc2626', '溫帶果蔬農作', ['仁愛、和平溫帶蘋果', '鮮甜水蜜桃、蜜李', '高冷高麗菜清甜脆嫩'], { size: 17, bodySize: 14 });
+    caption(ctx, '例：臺中和平區、南投仁愛鄉｜高山溫帶農業');
+  },
+  'mountain-life'(ctx) {
+    title(ctx, '山地生活：水土保持與防範土石流');
+    roundRect(ctx, 30, 62, 420, 170, 10, '#fef2f2', '#ef4444', 2);
+    mountainShape(ctx, 150, 225, 180, 130, '#b91c1c', '#fee2e2');
+    text(ctx, '⚠️ 連續大雨土石鬆動', 310, 105, { size: 16, color: '#b91c1c' });
+    text(ctx, '提防土石流災害！', 310, 135, { size: 16, color: '#991b1b' });
+    text(ctx, '落實水土保持與防災', 310, 165, { size: 14, color: '#475569' });
+    caption(ctx, '山坡陡峭起伏大，暴雨時需高度警戒土石流');
   },
   'flat-vs-rugged'(ctx) {
     title(ctx, '平坦 vs 崎嶇');
@@ -3984,7 +4238,7 @@ const gameState = {
     { id: "compass", name: "傳奇指北羅盤", icon: "🧭", count: 1, desc: "地圖四要素之方位指針裝備。" },
     { id: "fishTrap", name: "工匠竹編魚筌", icon: "🎋", count: 1, desc: "順流水中捕魚，留縫隙讓小魚游走。" }
   ],
-  stamps: Array(10).fill(false)
+  stamps: Array(12).fill(false)
 };
 
 // 音效開關狀態宣告（置於音效引擎之前避免 TDZ）
@@ -4190,10 +4444,12 @@ window.useInventoryItem = function(itemId) {
 const STAMP_DEFINITIONS = [
   { name: "地圖四要素徽章", icon: "🧭" },
   { name: "電子地圖導航徽章", icon: "📡" },
-  { name: "五大地形探勘徽章", icon: "⛰️" },
-  { name: "茶園梯田水土徽章", icon: "🍵" },
+  { name: "平原水稻與盆地徽章", icon: "🌾" },
+  { name: "台地甘藷與工業徽章", icon: "🍠" },
+  { name: "丘陵茶香與椪柑徽章", icon: "🍵" },
+  { name: "中央山脈高山森林徽章", icon: "⛰️" },
   { name: "氣候四海觀測徽章", icon: "⛅" },
-  { name: "水庫與海廢減塑徽章", icon: "💧" },
+  { name: "水庫與水利發電徽章", icon: "💧" },
   { name: "三合院左尊右卑徽章", icon: "🏡" },
   { name: "石板屋呼吸抗颱徽章", icon: "🏛️" },
   { name: "先民物盡其用徽章", icon: "🎋" },
@@ -4280,7 +4536,7 @@ window.drawCertificateCanvas = function() {
 
   ctx.fillStyle = "#b45309";
   ctx.font = "bold 18px 'Noto Sans TC', sans-serif";
-  ctx.fillText(`🌟 冒險等級：Lv.${gameState.level} ${gameState.title}  |  ⭐ 星級榮譽：${gameState.stars} / 30 ★`, 400, 395);
+  ctx.fillText(`🌟 冒險等級：Lv.${gameState.level} ${gameState.title}  |  ⭐ 星級榮譽：${gameState.stars} / ${ZONES.length * 3} ★`, 400, 395);
 
   ctx.strokeStyle = "#b91c1c";
   ctx.lineWidth = 3.5;
@@ -4340,11 +4596,59 @@ function buildMinigame(z) {
         sfx.playCorrect();
         status.innerHTML = "🎉 <strong>地圖四要素安裝完成！獲得 35 EXP 與 50 G！</strong>";
         addExp(35); addGold(50);
-        gameState.stamps[0] = true;
+        gameState.stamps[z.order - 1] = true;
       }
     }
     btns.append(b1, b2, b3);
     box.append(el("h4", {}, "🗺️ 實境小實驗：地圖修復工作台"), desc, status, btns);
+  }
+  else if (z.id === "tableland") {
+    let tPotato = false, tFactory = false;
+    const desc = el("div", { style: "font-size:13px; color:var(--text); margin-bottom:8px;" }, "🍠 大肚台地紅壤排水快、頂部平坦，請體驗台地的農產與現代工業：");
+    const status = el("div", { style: "font-size:12px; font-weight:700; color:var(--primary); margin-bottom:8px;" }, "［待完成：耐旱作物採收、平坦台地廠房啟動］");
+    const btns = el("div", { class: "minigame-actions" });
+    function checkTab() {
+      if (tPotato && tFactory) {
+        sfx.playCorrect();
+        status.innerHTML = "🎉 <strong>大肚台地農工體驗完成！獲得 40 EXP 與 50 G！</strong>";
+        addExp(40); addGold(50);
+        gameState.stamps[z.order - 1] = true;
+      }
+    }
+    const bPot = el("button", { class: "minigame-btn", type: "button", onclick: () => {
+      tPotato = true; bPot.classList.add("done"); bPot.disabled = true;
+      bPot.innerText = "✅ 已採收紅心地瓜與花生"; sfx.playClick(); checkTab();
+    } }, "🍠 採收耐旱甘藷（地瓜）與花生");
+    const bFac = el("button", { class: "minigame-btn", type: "button", onclick: () => {
+      tFactory = true; bFac.classList.add("done"); bFac.disabled = true;
+      bFac.innerText = "✅ 台地科技廠房運轉中"; sfx.playClick(); checkTab();
+    } }, "🏭 啟動平坦台地工業區廠房");
+    btns.append(bPot, bFac);
+    box.append(el("h4", {}, "🍠 實境小實驗：大肚台地農工體驗"), desc, status, btns);
+  }
+  else if (z.id === "hills") {
+    let hTea = false, hOrange = false;
+    const desc = el("div", { style: "font-size:13px; color:var(--text); margin-bottom:8px;" }, "🍵 石碇與苗栗丘陵排水良好，請體驗手作採茶萎凋與柑橘護理：");
+    const status = el("div", { style: "font-size:12px; font-weight:700; color:var(--primary); margin-bottom:8px;" }, "［待完成：採茶萎凋、椪柑防蟲套袋］");
+    const btns = el("div", { class: "minigame-actions" });
+    function checkHil() {
+      if (hTea && hOrange) {
+        sfx.playCorrect();
+        status.innerHTML = "🎉 <strong>石碇丘陵茶果體驗完成！獲得 40 EXP 與 50 G！</strong>";
+        addExp(40); addGold(50);
+        gameState.stamps[z.order - 1] = true;
+      }
+    }
+    const bTea = el("button", { class: "minigame-btn", type: "button", onclick: () => {
+      hTea = true; bTea.classList.add("done"); bTea.disabled = true;
+      bTea.innerText = "✅ 茶青放入竹篩日光萎凋"; sfx.playClick(); checkHil();
+    } }, "🍵 採茶青並放竹篩日光萎凋");
+    const bOra = el("button", { class: "minigame-btn", type: "button", onclick: () => {
+      hOrange = true; bOra.classList.add("done"); bOra.disabled = true;
+      bOra.innerText = "✅ 排水山坡椪柑套袋完成"; sfx.playClick(); checkHil();
+    } }, "🍊 山坡椪柑果樹防蟲套袋");
+    btns.append(bTea, bOra);
+    box.append(el("h4", {}, "🍵 實境小實驗：丘陵茶果手作工坊"), desc, status, btns);
   }
   else if (z.id === "water") {
     let monsterHp = 100;
@@ -4365,7 +4669,7 @@ function buildMinigame(z) {
         log.innerHTML = "🎉 <strong>海廢浪費怪已被消滅！獲得 50 EXP 與 80 G！</strong>";
         btns.style.display = "none";
         addExp(50); addGold(80);
-        gameState.stamps[5] = true;
+        gameState.stamps[z.order - 1] = true;
       }
     }
     btns.append(
@@ -4386,7 +4690,7 @@ function buildMinigame(z) {
         sfx.playCorrect();
         res.innerHTML = "🎉 <strong>三合院長幼尊卑與柴灰物盡其用通關！獲得 45 EXP！</strong>";
         addExp(45); addGold(50);
-        gameState.stamps[6] = true;
+        gameState.stamps[z.order - 1] = true;
       }
     }
     const bRoom = el("button", { class: "minigame-btn", type: "button", onclick: () => {
@@ -4415,7 +4719,7 @@ function buildMinigame(z) {
         sfx.playCorrect();
         res.innerHTML = "🎉 <strong>石板屋排煙與達悟地下屋抗颱模擬通關！獲得 45 EXP！</strong>";
         addExp(45); addGold(50);
-        gameState.stamps[7] = true;
+        gameState.stamps[z.order - 1] = true;
       }
     }
     const b1 = el("button", { class: "minigame-btn", type: "button", onclick: () => {
@@ -4445,7 +4749,7 @@ function buildMinigame(z) {
         sfx.playCorrect();
         res.innerHTML = "🎉 <strong>魚筌捕魚與搗小米完成！獲得 45 EXP！</strong>";
         addExp(45); addGold(50);
-        gameState.stamps[8] = true;
+        gameState.stamps[z.order - 1] = true;
       }
     }
     const bFish = el("button", { class: "minigame-btn", type: "button", onclick: () => {
@@ -5391,7 +5695,7 @@ return {  };
   <div class="drawer-overlay" id="stampsDrawer" onclick="if(event.target===this)closeDrawer('stampsDrawer')">
     <div class="drawer-panel">
       <div class="drawer-header">
-        <h3>🎖️ 十大關卡探索徽章冊</h3>
+        <h3>🎖️ 十二大關卡探索徽章冊</h3>
         <button class="drawer-close" onclick="closeDrawer('stampsDrawer')">×</button>
       </div>
       <div class="drawer-body">
