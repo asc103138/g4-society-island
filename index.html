@@ -775,7 +775,7 @@ html[data-mode="night"] .all-clear { background: rgb(240 199 90 / .12); color: #
       </div>
 
       <div class="rpg-gold-pill" title="探險金幣">🪙 <span id="hudGoldText">100 G</span></div>
-      <div class="rpg-stars-pill" title="全島星星">⭐ <span id="hudStarsText">0 / 30 ★</span></div>
+      <div class="rpg-stars-pill" title="全島星星">⭐ <span id="hudStarsText">0 / 45 ★</span></div>
     </div>
 
     <nav class="top-actions" aria-label="島嶼工具">
@@ -785,7 +785,7 @@ html[data-mode="night"] .all-clear { background: rgb(240 199 90 / .12); color: #
       <button type="button" class="tool" onclick="openDrawer('teacherDrawer')">📋 審查</button>
       <button type="button" class="tool btn-primary" onclick="openDrawer('certModal')" style="font-weight:900;">🏆 證書</button>
       <button type="button" class="tool" id="btn-guide">導覽</button>
-      <button type="button" class="tool" id="btn-places" aria-expanded="false" aria-controls="places">十二站地點</button>
+      <button type="button" class="tool" id="btn-places" aria-expanded="false" aria-controls="places">十五站地點</button>
     </nav>
   </header>
 
@@ -804,13 +804,16 @@ html[data-mode="night"] .all-clear { background: rgb(240 199 90 / .12); color: #
       <button type="button" class="tool" style="font-size:12px; padding:4px 8px;" onclick="window.goStationFast('flat')">3.平原盆地</button>
       <button type="button" class="tool" style="font-size:12px; padding:4px 8px;" onclick="window.goStationFast('tableland')">4.大肚台地</button>
       <button type="button" class="tool" style="font-size:12px; padding:4px 8px;" onclick="window.goStationFast('hills')">5.石碇丘陵</button>
-      <button type="button" class="tool" style="font-size:12px; padding:4px 8px;" onclick="window.goStationFast('high')">6.高山中央山脈</button>
+      <button type="button" class="tool" style="font-size:12px; padding:4px 8px;" onclick="window.goStationFast('high')">6.中央山脈</button>
       <button type="button" class="tool" style="font-size:12px; padding:4px 8px;" onclick="window.goStationFast('climate')">7.氣候觀測</button>
       <button type="button" class="tool" style="font-size:12px; padding:4px 8px;" onclick="window.goStationFast('water')">8.水庫水資源</button>
-      <button type="button" class="tool" style="font-size:12px; padding:4px 8px;" onclick="window.goStationFast('sanheyuan')">9.三合院</button>
-      <button type="button" class="tool" style="font-size:12px; padding:4px 8px;" onclick="window.goStationFast('stonehouse')">10.石板屋</button>
-      <button type="button" class="tool" style="font-size:12px; padding:4px 8px;" onclick="window.goStationFast('objects')">11.古早器物</button>
-      <button type="button" class="tool" style="font-size:12px; padding:4px 8px;" onclick="window.goStationFast('beach')">12.淨灘海岸</button>
+      <button type="button" class="tool" style="font-size:12px; padding:4px 8px;" onclick="window.goStationFast('sanheyuan')">9.三合院大宅</button>
+      <button type="button" class="tool" style="font-size:12px; padding:4px 8px;" onclick="window.goStationFast('earth_bamboo')">10.竹管土埆厝</button>
+      <button type="button" class="tool" style="font-size:12px; padding:4px 8px;" onclick="window.goStationFast('stonehouse')">11.石板屋聚落</button>
+      <button type="button" class="tool" style="font-size:12px; padding:4px 8px;" onclick="window.goStationFast('underground')">12.蘭嶼地下屋</button>
+      <button type="button" class="tool" style="font-size:12px; padding:4px 8px;" onclick="window.goStationFast('woodhouse')">13.泰雅木屋</button>
+      <button type="button" class="tool" style="font-size:12px; padding:4px 8px;" onclick="window.goStationFast('objects')">14.古早器物</button>
+      <button type="button" class="tool" style="font-size:12px; padding:4px 8px;" onclick="window.goStationFast('beach')">15.淨灘永續</button>
     </div>
     <div class="controls">
       <button type="button" class="tool" id="btn-home">↺ 全景</button>
@@ -1049,38 +1052,86 @@ const ZONES = [
   },
   {
     id: 'sanheyuan', unit: 'change', islandId: 'change', order: 9,
-    name: '紅磚三合院', shortName: '三合院',
-    intro: '漢人傳統的三合院會隨著家族人口變多而擴建；院子裡的每個空間都有它的用途。',
-    trap: '易錯陷阱：三合院「左大右小」，要站在正廳門口、面向屋外來判斷左右；水池用來洗衣、養魚、防火，不是發電。',
+    name: '紅磚三合院大宅', shortName: '三合院',
+    intro: '漢人依「左尊右卑」長幼次序擴建三合院，正身正廳祭祖、兩側長輩臥室、左右護龍；稻埕曬穀遊戲，周遭配置牛棚農具間、水井與防風竹林。',
+    trap: '易錯陷阱：站在正廳「面向屋外」判斷左右，以左為尊（大房在左邊）；農具間緊鄰牛棚是為了牽牛耕作時隨手拿取農具最方便！',
     cards: [
-      { illustration: 'grow-house', title: '房子跟著家族長大', summary: '一條龍：只有正身一排。單伸手：依左尊右卑先在右邊加蓋左護龍。三合院：兩邊都加蓋護龍，排成ㄇ字形。' },
-      { illustration: 'sanheyuan-parts', title: '三合院的空間', summary: '正身中央是正廳：祭拜祖先、招待客人。兩旁是護龍。中間的稻埕：曬穀子、孩子玩耍、招待客人。' },
-      { illustration: 'yard-uses', title: '屋外的好幫手', summary: '竹林、果樹：擋風、防小偷，也提供食物、柴火和編織材料。水池：洗衣、養魚、防火。堆肥場：做肥料。' },
+      { illustration: 'sanheyuan-structure', title: '正身正廳與護龍格局', summary: '正廳供奉神明祖先牌位，祭拜神明、祖先與接待客人；依左尊右卑，左側為大房長輩臥室，右側為二房；左右護龍為晚輩臥室、廳與廚房大灶。' },
+      { illustration: 'sanheyuan-yard', title: '多用途稻埕空間', summary: '前方寬廣稻埕可曬穀、脫穀；也是孩童嬉戲玩耍、一家人乘涼聊天、鄰里請客與年節祭拜的多用途廣場。' },
+      { illustration: 'sanheyuan-farm', title: '周遭生產與生活設施', summary: '水井汲水洗菜洗衣；屋後竹林果樹防風防盜兼採柴火；牛棚緊鄰農具間（方便隨時拿取耕具）；堆肥場、豬舍與牛車展現自給自足農村生活。' },
     ],
     quiz: [
-      { type: 'order', q: '家族的人口越來越多，住屋的樣子依序變成：', items: ['一條龍（只有正身）', '單伸手（加一邊護龍）', '三合院（兩邊都有護龍）'], why: '人口增加，就一邊一邊往外加蓋護龍。' },
-      { type: 'fill', q: '三合院中間的大廣場叫做＿＿，可以曬穀子，也是孩子玩耍的地方。', answers: ['稻埕'], why: '稻埕：曬穀、玩耍、招待客人。' },
-      { q: '三合院正身中央的「正廳」，主要用來做什麼？', options: ['祭拜祖先、招待客人', '曬稻穀和花生', '堆放肥料', '飼養雞鴨'], answer: 0, why: '正廳是家族最重要的空間。' },
+      { q: '在三合院周遭環境的空間配置中，「農具間」通常為什麼要蓋在「牛棚」的旁邊？', options: ['方便牽牛耕作時就近拿取犁、耙等農具', '為了讓水牛在冬天吃農具充飢', '農具比較怕冷需要水牛體溫保暖', '為了防止小偷偷走整座房屋'], answer: 0, why: '牽耕牛出門下田時，就近拿取耕具省時又省力！' },
+      { q: '人站在三合院正廳門前「面向屋外」時，傳統觀念以哪一邊為尊，並以此原則安排長輩房間？', options: ['左邊（以左為尊，大房住左邊）', '右邊（以右為尊，小房住左邊）', '後面的防風竹林', '正前方的稻埕中央'], answer: 0, why: '面向屋外以左為尊，故長輩大房安排在左側。' },
+      { type: 'fill', q: '三合院正身中間的「＿＿」，供奉著神明與祖先牌位，是祭拜與接待客人最重要的場所。', answers: ['正廳'], why: '正廳是三合院最神聖尊貴的核心空間。' },
     ],
   },
   {
-    id: 'stonehouse', unit: 'change', islandId: 'change', order: 10,
-    name: '石板屋聚落', shortName: '石板屋',
-    intro: '各地的人會「就地取材」，依照當地的氣候和環境，蓋出最適合居住的房子。',
-    trap: '易錯陷阱：達悟族的地下屋是「一部分」蓋在地面下，用來躲避蘭嶼的強風；澎湖的咾咕石是多孔的珊瑚礁石。',
+    id: 'earth_bamboo', unit: 'change', islandId: 'change', order: 10,
+    name: '竹管厝與土埆厝工坊', shortName: '竹管土埆',
+    intro: '早期漢人居民就地取材：雲林麥寮用竹子當骨架再敷上泥土蓋出「竹管仔厝」；新北深坑以石塊為基，稻稈、泥土和水做成土磚砌成「土埆厝」。',
+    trap: '易錯陷阱：竹管仔厝是用「竹子作骨架再敷泥土」；土埆厝是「石塊為基腳，稻稈泥水做成土磚」砌牆，兩者皆為就地取材。',
     cards: [
-      { illustration: 'slate-house', title: '排灣族、魯凱族石板屋', summary: '用石板堆砌牆壁、鋪成屋頂，房子低矮、牆壁厚實，冬暖夏涼，被稱為「會呼吸的房子」。' },
-      { illustration: 'underground', title: '達悟族地下屋', summary: '蘭嶼的季風和颱風很強，達悟族把主屋的一部分蓋在地面下，屋頂低矮，可以抵擋強風。' },
-      { illustration: 'island-houses', title: '各地的住屋', summary: '澎湖：用多孔的咾咕石砌牆。泰雅族：用木頭和竹子蓋屋。早期漢人：竹管仔厝、土埆厝。現在：多改用鋼筋混凝土。' },
+      { illustration: 'bamboo-house', title: '雲林麥寮竹管仔厝', summary: '就地取材竹子作為房屋立柱與橫梁骨架，編織竹篾牆架後在兩側敷上混合粗糠的黏土，通風防震且輕巧。' },
+      { illustration: 'earth-brick-house', title: '新北深坑土埆厝', summary: '以堅硬石塊堆砌穩固基礎防止雨水浸蝕，再將稻稈、泥土和水充分拌勻，放入木模壓製曬乾成「土埆磚」，層層砌牆冬暖夏涼。' },
+      { illustration: 'earth-bamboo-wisdom', title: '就地取材的綠建築智慧', summary: '早期沒有現代鋼筋水泥，先民善用田間竹子、泥土與稻草，創造出自然環保又遮風避雨的居住空間。' },
     ],
     quiz: [
-      { q: '排灣族用石板蓋的房子，住起來有什麼特色？', options: ['冬暖夏涼', '冬冷夏熱', '一年到頭都悶熱', '一下雨就漏水'], answer: 0, why: '石板屋牆壁厚實，冬暖夏涼。' },
-      { type: 'fill', q: '各地的人用當地容易取得的材料來蓋房子，這種做法叫做＿＿。', answers: ['就地取材'], why: '石板、竹、木、咾咕石都是就地取材。' },
-      { q: '蘭嶼的達悟族把房子蓋得一部分在地面下，主要是為了什麼？', options: ['抵擋強勁的季風和颱風', '方便在地下挖礦', '可以在屋裡養魚', '讓遊客找不到房子'], answer: 0, why: '蘭嶼風很強，房子低矮、半在地下比較不怕風。' },
+      { q: '雲林縣麥寮鄉早期居民就地取材，利用什麼材料當作建築骨架，並在外面敷上泥土來建造「竹管仔厝」？', options: ['竹子', '鋼筋', '鐵條', '塑膠水管'], answer: 0, why: '竹子生長快速且韌性佳，就地取材作骨架。' },
+      { type: 'tf', q: '新北市深坑區的土埆厝，居民以石塊作為穩固房屋的基礎，再以稻稈、泥土和水做成土磚（土埆磚）來砌牆。', answer: true, why: '石塊為基防潮，土埆磚牆保暖隔熱冬暖夏涼。' },
+      { type: 'fill', q: '早期先民利用生活周遭容易取得的竹子、泥土、稻稈或石板來建造房屋，這種智慧做法稱為＿＿取材。', answers: ['就地'], why: '就地取材：根據當地自然資源建造最合適的家屋。' },
     ],
   },
   {
-    id: 'objects', unit: 'change', islandId: 'culture', order: 11,
+    id: 'stonehouse', unit: 'change', islandId: 'change', order: 11,
+    name: '排灣魯凱石板屋', shortName: '石板屋',
+    intro: '排灣族與魯凱族祖先就地取材，將大大小小的頁岩石板以交錯堆疊方式構築成堅固石板屋，厚實石板冬暖夏涼，柴煙順石縫外飄，被譽為「會呼吸的房子」。',
+    trap: '易錯陷阱：石板縫隙讓屋內煮食柴煙外飄防蟲蛀，故稱「會呼吸」；屏東霧臺舊好茶魯凱族石板屋聚落已被列入世界文物守護計畫！',
+    cards: [
+      { illustration: 'slate-stacking', title: '交錯堆疊的石板智慧', summary: '祖先挑選開採頁岩，大大小小石板交錯疊砌，牆面厚實；屋頂石板層層相疊如鱗片，平緩順水防漏，冬暖夏涼。' },
+      { illustration: 'breathing-house', title: '會呼吸的房子與防蟲柴煙', summary: '族人在屋內升火煮食與取暖，柴煙除了讓木構防腐防蟲，還能順著石板之間的微小縫隙往外飄散，保持室內通風舒適。' },
+      { illustration: 'slate-heritage', title: '石板屋聚落與世界遺產守護', summary: '屏東霧臺舊好茶部落（魯凱族石板屋列入世界建築文物守護計畫WMF）、舊排灣部落與春日鄉七佳部落，守護著珍貴文化寶藏。' },
+    ],
+    quiz: [
+      { q: '排灣族與魯凱族的石板屋，為什麼被稱為「會呼吸的房子」？', options: ['屋內升火煮食的柴煙能順著石板縫隙往外飄散', '屋子底下裝設了現代電動抽風機', '屋頂石板會隨天氣冷熱像氣球般膨脹縮小', '石板會發出像人呼吸一樣的聲音'], answer: 0, why: '柴煙順縫隙飄散，木材防蟲防腐且室內空氣對流。' },
+      { type: 'tf', q: '石板屋因為石板厚實，夏天能隔熱、冬天能保暖，因此住起來具有冬暖夏涼的特性。', answer: true, why: '厚石板具備優異熱阻特性，冬暖夏涼。' },
+      { q: '目前保存完整的石板屋聚落所剩不多，世界建築文物保護基金會(WMF)將哪一個魯凱族石板屋聚落列入文物守護計畫名單？', options: ['屏東縣霧臺鄉舊好茶部落', '臺北陽明山溫泉聚落', '臺東蘭嶼野銀部落', '南投日月潭水社碼頭'], answer: 0, why: '屏東霧臺舊好茶魯凱族石板屋聚落列入 WMF 守護計畫！' },
+    ],
+  },
+  {
+    id: 'underground', unit: 'change', islandId: 'change', order: 12,
+    name: '達悟族蘭嶼地下屋', shortName: '蘭嶼地下屋',
+    intro: '臺東縣蘭嶼鄉雅美族（達悟族）面對島嶼強勁的秋冬季風與猛烈颱風，就地取木石茅草，將主屋建於向下開挖的凹坑中，形成低矮堅韌的半地下式住屋。',
+    trap: '易錯陷阱：地下屋是「半地下式」，主屋凹入地表只露出斜茅草屋頂避強風；戶外還設有高腳涼台供乘涼聊天與手工藝！',
+    cards: [
+      { illustration: 'underground-structure', title: '半地下式主屋構造', summary: '向下挖掘地基凹坑，周圍以鵝卵石砌護坡排水，木柱架樑覆蓋低矮斜茅草頂，屋脊幾與地表齊平。' },
+      { illustration: 'typhoon-protection', title: '順應天候抵禦強風颱風', summary: '蘭嶼四面環海，夏季颱風與冬季東北季風極強，低矮屋身讓狂風從屋頂上方滑過，有效防止強風吹垮家園。' },
+      { illustration: 'tao-life-terrace', title: '高腳涼台生活與野銀部落', summary: '主屋旁架設通風木造高腳涼台，族人在此吹海風、編織漁網、雕刻飛魚器物；野銀部落完整保存傳統地下屋文化。' },
+    ],
+    quiz: [
+      { q: '臺東縣蘭嶼鄉的雅美族（達悟族）祖先，為什麼要把傳統主屋興建為「半地下式」的低矮住屋？', options: ['為了躲避島嶼強勁的季風和颱風侵襲', '為了在地下開採金礦與寶石', '為了引海水進屋飼養活飛魚', '為了躲避猛獸獵捕'], answer: 0, why: '低矮半地下屋可躲避海島強勁風暴侵襲。' },
+      { type: 'tf', q: '雅美族（達悟族）的傳統住屋除了半地下的主屋之外，戶外還設有架高的涼台，族人常在這裡乘涼、吹海風與製作手工藝。', answer: true, why: '高腳涼台是達悟族社交、工作與乘涼休憩的重要空間。' },
+      { type: 'fill', q: '臺東縣蘭嶼鄉以保存完整傳統半地下式住屋聚落而聞名的部落是＿＿部落。', answers: ['野銀'], why: '蘭嶼野銀部落是地下屋保存最完整之文化聚落。' },
+    ],
+  },
+  {
+    id: 'woodhouse', unit: 'change', islandId: 'change', order: 13,
+    name: '泰雅族武荖坑木屋', shortName: '泰雅木屋',
+    intro: '泰雅族人就地取材，以森林原木、竹子與茅草建造傳統住屋。宜蘭蘇澳武荖坑風景區展示的泰雅木屋，展現了原住民族高超的竹木構築技術與工藝之美。',
+    trap: '易錯陷阱：泰雅族住屋以「木頭、竹子、茅草」為主要建材，利用黃藤綁紮與木材榫卯，展示於宜蘭蘇澳武荖坑風景區！',
+    cards: [
+      { illustration: 'atayal-wood-craft', title: '木竹結構與工藝之美', summary: '以粗壯原木立柱、橫向疊木為牆，竹片鋪設通風地坪與骨架，並以堅韌黃藤竹篾緊密綁紮固定，展現山林建築高超智慧。' },
+      { illustration: 'wulaokeng-heritage', title: '宜蘭蘇澳武荖坑展示', summary: '武荖坑風景區設立傳統泰雅木屋，供遊客與學生親身體驗原住民族適應森林氣候、通風防潮防獸之居住智慧。' },
+      { illustration: 'atayal-weaving-life', title: '泰雅族織布與山林生活', summary: '屋內設有溫暖火塘，族人善於林中狩獵；婦女精通紅白色系菱形織紋編織工藝，呈現人與森林共榮的和諧生活。' },
+    ],
+    quiz: [
+      { q: '宜蘭縣蘇澳鎮「武荖坑風景區」設置了哪一個原住民族的傳統木竹住屋，供遊客認識傳統建築技術與工藝之美？', options: ['泰雅族', '達悟族', '排灣族', '魯凱族'], answer: 0, why: '武荖坑風景區展示泰雅族傳統木屋工藝。' },
+      { q: '泰雅族建造傳統住屋時，主要運用下列哪些天然材料就地取材建造？', options: ['木頭、竹子與茅草', '鋼筋、水泥與紅磚', '珊瑚礁咾咕石與貝殼', '大塊頁岩石板'], answer: 0, why: '泰雅族就地取木頭、竹子、茅草建造家屋。' },
+      { type: 'tf', q: '泰雅族傳統木屋以原木立柱疊牆，並利用黃藤或竹篾綁紮固定，屋內設有生火取暖的火塘，展現適應山林環境的智慧。', answer: true, why: '木竹藤構與火塘防潮取暖是泰雅傳統住屋之核心。' },
+    ],
+  },
+  {
+    id: 'objects', unit: 'change', islandId: 'culture', order: 14,
     name: '古早器物市集', shortName: '器物市集',
     intro: '以前的人用竹、藤、木頭、泥土和植物葉子做出生活器物，很多器物到今天還有現代的版本。',
     trap: '易錯陷阱：菜櫥只是通風、防蟲蟻，沒有冷藏功能；魚筌留縫隙讓小魚游走，是永續利用的智慧。',
@@ -1096,7 +1147,7 @@ const ZONES = [
     ],
   },
   {
-    id: 'beach', unit: 'change', islandId: 'culture', order: 12,
+    id: 'beach', unit: 'change', islandId: 'culture', order: 15,
     name: '淨灘海岸', shortName: '淨灘',
     intro: '科技讓器物更方便，卻也帶來更多垃圾。塑膠不容易分解，海龜可能把漂在海裡的塑膠袋當成水母吃下肚。',
     trap: '易錯陷阱：減塑最重要的是「源頭減量」——先想辦法少用，再談回收。',
@@ -1114,9 +1165,9 @@ const ZONES = [
 ];
 
 const ISLANDS = [
-  { id: 'demo', name: '家鄉環境島', note: '第一單元：地圖站、電子地圖塔、平地農村、山坡茶園、氣候觀測站、水庫' },
-  { id: 'change', name: '傳統住屋島', note: '第二單元：紅磚三合院、石板屋聚落' },
-  { id: 'culture', name: '器物海灘島', note: '第二單元：古早器物市集、淨灘海岸' },
+  { id: 'demo', name: '家鄉環境島', note: '第一單元八站：地圖站、電子地圖塔、平原盆地、大肚台地、石碇丘陵、高山、氣候站、水庫' },
+  { id: 'change', name: '傳統住屋島', note: '第二單元五站：三合院大宅、竹管土埆厝、排灣石板屋、蘭嶼地下屋、泰雅木屋' },
+  { id: 'culture', name: '器物海灘島', note: '第二單元二站：古早器物市集、淨灘海岸' },
 ];
 
 return { UNITS, ZONES, ISLANDS };
@@ -2543,83 +2594,305 @@ function reservoir() {
   return g;
 }
 
-// ---------- 地標 7：紅磚三合院（正身、兩護龍、稻埕、竹林、水池） ----------
+// ---------- 地標 9：紅磚三合院大宅（正身正廳、左右護龍、大灶煙囪、寬廣稻埕、牛棚、農具間、堆肥場、古井、牛車、老少公仔） ----------
 function sanheyuan() {
   const g = new THREE.Group();
   const brick = fixedMat('#b85c3c');
   const tile = fixedMat('#9c4a34');
-  // 正身（後排）與正廳門、紅色春聯
-  g.add(at(rbox(2.0, 0.6, 0.55, brick, 0.04), 0, 0.3, -0.95));
-  g.add(at(swallowRoof(0.75, 0.32, 2.15, tile), 0, 0.6, -0.95, Math.PI / 2));
-  g.add(at(rbox(0.32, 0.42, 0.03, mat('wood'), 0.01), 0, 0.21, -0.66));
-  for (const s of [-1, 1]) g.add(at(rbox(0.06, 0.3, 0.02, fixedMat('#d63a2a'), 0.005), s * 0.22, 0.28, -0.66));
-  g.add(at(signBoard('正廳', 0.36, 0.14, { bg: '#d63a2a', fg: '#f6d27a', frame: '#7a3b2e' }), 0, 0.5, -0.66));
-  // 兩側護龍（站在正廳面向屋外判斷：右側 +x 為左護龍略長，左側 -x 為右護龍略短）
-  for (const [s, len] of [[1, 1.15], [-1, 1.0]]) {
-    const x = s * 0.82;
-    g.add(at(rbox(0.45, 0.48, len, brick, 0.04), x, 0.24, -0.6 + len / 2));
-    g.add(at(gableRoof(0.6, 0.24, len + 0.08, tile), x, 0.48, -0.6 + len / 2));
-    g.add(at(rbox(0.02, 0.26, 0.18, mat('wood'), 0.005), x - s * 0.235, 0.15, -0.1));
+  const wood = mat('wood');
+  const strawMat = fixedMat('#d4a373');
+  const grayStone = fixedMat('#8a9096');
+
+  // 1. 正身（中央高起，正廳與長輩臥室）
+  g.add(at(rbox(2.2, 0.65, 0.6, brick, 0.04), 0, 0.325, -1.15));
+  g.add(at(swallowRoof(0.8, 0.35, 2.35, tile), 0, 0.65, -1.15, Math.PI / 2));
+  // 正廳大門與紅聯
+  g.add(at(rbox(0.34, 0.45, 0.03, wood, 0.01), 0, 0.225, -0.84));
+  for (const s of [-1, 1]) g.add(at(rbox(0.06, 0.32, 0.02, fixedMat('#d63a2a'), 0.005), s * 0.24, 0.3, -0.84));
+  g.add(at(signBoard('正廳', 0.38, 0.15, { bg: '#d63a2a', fg: '#f6d27a', frame: '#7a3b2e' }), 0, 0.54, -0.84));
+  // 長輩臥室標示牌（面向屋外，以左為尊：大房在左邊 +x，二房在右邊 -x）
+  g.add(at(signBoard('大房', 0.28, 0.12, { bg: '#8a4b38', fg: '#fff' }), 0.75, 0.48, -0.84));
+  g.add(at(signBoard('二房', 0.28, 0.12, { bg: '#8a4b38', fg: '#fff' }), -0.75, 0.48, -0.84));
+
+  // 2. 左右護龍（向前方伸展）
+  // 右側為左護龍（大邊，略長），左側為右護龍（小邊）
+  for (const [s, len] of [[1, 1.45], [-1, 1.25]]) {
+    const x = s * 0.95;
+    g.add(at(rbox(0.48, 0.52, len, brick, 0.04), x, 0.26, -0.75 + len / 2));
+    g.add(at(gableRoof(0.65, 0.26, len + 0.08, tile), x, 0.52, -0.75 + len / 2));
+    g.add(at(rbox(0.02, 0.28, 0.18, wood, 0.005), x - s * 0.25, 0.16, -0.2));
   }
-  // 稻埕：曬著金黃的穀子
-  g.add(at(rbox(1.15, 0.03, 1.0, fixedMat('#e9dfc8'), 0.01), 0, 0.015, -0.1));
-  g.add(at(rbox(0.7, 0.025, 0.45, fixedMat('#e6b84a'), 0.01), 0, 0.04, -0.1));
-  g.add(at(figure(mat('change'), { h: 0.42 }), 0.3, 0, 0.25, Math.PI));
-  // 屋後竹林：擋風、防小偷
+  // 廚房與排煙煙囪（設在右護龍後端）
+  g.add(at(cyl(0.05, 0.05, 0.55, 6, fixedMat('#9c4a34')), -1.1, 0.65, -0.6));
+  const kitchenSmoke = ball(0.07, fixedMat('#ffffff', { transparent: true, opacity: 0.8 }), 7, 5);
+  kitchenSmoke.userData.bob = 0.04;
+  g.add(at(kitchenSmoke, -1.1, 0.98, -0.6));
+
+  // 3. 寬廣稻埕（曬穀、孩童遊戲）
+  g.add(at(rbox(1.4, 0.03, 1.25, fixedMat('#ede4cb'), 0.02), 0, 0.015, -0.1));
+  for (let k = 0; k < 3; k++) {
+    g.add(at(rbox(0.95, 0.02, 0.2, fixedMat('#eab308'), 0.01), 0, 0.035, -0.4 + k * 0.35));
+  }
+  // 曬穀農夫公仔（戴斗笠、推穀耙）
+  const farmer = figure(fixedMat('#0284c7'), { h: 0.42 });
+  farmer.add(at(cone(0.16, 0.08, 10, strawMat), 0, 0.46, 0));
+  farmer.add(at(rbox(0.03, 0.35, 0.03, wood, 0.005), 0.15, 0.18, 0.1));
+  g.add(at(farmer, 0.25, 0.02, -0.15, Math.PI * 0.8));
+  // 稻埕嬉戲奔跑的孩童
+  const child = figure(fixedMat('#f43f5e'), { h: 0.32 });
+  g.add(at(child, -0.35, 0.02, 0.2, -0.5));
+
+  // 4. 左後側生產空間（完全對照課本剖面圖）：牛棚 緊鄰 農具間、堆肥場、牛車
+  // 牛棚（木柵欄、茅草斜頂）
+  g.add(at(rbox(0.7, 0.38, 0.55, strawMat, 0.02), -1.55, 0.22, -0.85));
+  g.add(at(gableRoof(0.8, 0.16, 0.65, fixedMat('#a16207')), -1.55, 0.42, -0.85));
+  g.add(at(signBoard('牛棚', 0.28, 0.12, { bg: '#78350f', fg: '#fff' }), -1.55, 0.52, -0.55));
+  // 水牛（黑灰身軀、牛角）
+  const waterBuffalo = new THREE.Group();
+  waterBuffalo.add(rbox(0.35, 0.22, 0.18, fixedMat('#334155'), 0.03));
+  waterBuffalo.add(at(ball(0.12, fixedMat('#1e293b'), 6, 5), 0.22, 0.06, 0));
+  const hornL = cyl(0.02, 0.02, 0.14, 5, fixedMat('#e2e8f0')); hornL.rotation.z = 0.8;
+  const hornR = cyl(0.02, 0.02, 0.14, 5, fixedMat('#e2e8f0')); hornR.rotation.z = -0.8;
+  waterBuffalo.add(at(hornL, 0.24, 0.16, 0.08)); waterBuffalo.add(at(hornR, 0.24, 0.16, -0.08));
+  g.add(at(waterBuffalo, -1.55, 0.12, -0.85, Math.PI / 2));
+
+  // 農具間（緊鄰牛棚！牽牛出門耕作方便取農具）
+  g.add(at(rbox(0.55, 0.35, 0.45, wood, 0.02), -1.55, 0.2, -1.35));
+  g.add(at(gableRoof(0.65, 0.15, 0.55, fixedMat('#854d0e')), -1.55, 0.4, -1.35));
+  g.add(at(signBoard('農具間', 0.34, 0.12, { bg: '#713f12', fg: '#fff' }), -1.55, 0.48, -1.1));
+
+  // 堆肥場
+  g.add(at(rbox(0.45, 0.12, 0.4, fixedMat('#451a03'), 0.01), -1.55, 0.06, -0.25));
+  g.add(at(signBoard('堆肥場', 0.3, 0.1, { bg: '#451a03', fg: '#fef3c7' }), -1.55, 0.18, -0.05));
+
+  // 木輪牛車
+  const oxCart = new THREE.Group();
+  oxCart.add(rbox(0.45, 0.06, 0.3, wood, 0.01));
+  const wheelL = cyl(0.12, 0.12, 0.03, 10, fixedMat('#78350f')); wheelL.rotation.x = Math.PI / 2;
+  const wheelR = cyl(0.12, 0.12, 0.03, 10, fixedMat('#78350f')); wheelR.rotation.x = Math.PI / 2;
+  oxCart.add(at(wheelL, 0, 0, 0.17)); oxCart.add(at(wheelR, 0, 0, -0.17));
+  g.add(at(oxCart, -1.45, 0.12, 0.3));
+
+  // 5. 右側：水井
+  const well = new THREE.Group();
+  well.add(at(cyl(0.2, 0.22, 0.22, 12, grayStone), 0, 0.11, 0));
+  well.add(at(cyl(0.16, 0.16, 0.04, 12, fixedMat('#38bdf8')), 0, 0.18, 0));
+  well.add(at(cyl(0.02, 0.02, 0.42, 5, wood), -0.16, 0.28, 0));
+  well.add(at(cyl(0.02, 0.02, 0.42, 5, wood), 0.16, 0.28, 0));
+  well.add(at(rbox(0.36, 0.02, 0.03, wood, 0.005), 0, 0.48, 0));
+  well.add(at(signBoard('水井', 0.25, 0.11, { bg: '#0369a1', fg: '#fff' }), 0, 0.58, 0));
+  g.add(at(well, 1.5, 0, -0.2));
+
+  // 6. 屋後防風防盜竹林
   for (let i = 0; i < 9; i++) {
-    const x = -1.1 + i * 0.27, z = -1.42 - (i % 2) * 0.12;
-    g.add(at(cyl(0.025, 0.03, 1.3 + (i % 3) * 0.18, 5, fixedMat('#6a9a3a')), x, 0.65, z));
+    const x = -1.1 + i * 0.28, z = -1.55 - (i % 2) * 0.12;
+    g.add(at(cyl(0.025, 0.03, 1.35 + (i % 3) * 0.2, 5, fixedMat('#6a9a3a')), x, 0.68, z));
     const leaf = ball(0.14, mat('leaf2'), 6, 5);
     leaf.userData.sway = 0.08;
-    g.add(at(leaf, x, 1.35 + (i % 3) * 0.18, z));
+    g.add(at(leaf, x, 1.4 + (i % 3) * 0.2, z));
   }
-  // 屋前水池：洗衣、養魚、防火
-  g.add(at(cyl(0.38, 0.4, 0.06, 18, fixedMat('#9aa4ad')), -0.95, 0.03, 0.75));
-  g.add(at(cyl(0.33, 0.33, 0.04, 18, fixedMat('#5ba7c8', { roughness: 0.25 })), -0.95, 0.06, 0.75));
-  const fish = sc(ball(0.05, fixedMat('#f29a4a'), 6, 4), 1.6, 0.6, 1);
-  fish.userData.bob = 0.015;
-  g.add(at(fish, -0.9, 0.09, 0.7));
-  g.add(at(standSign('三合院', 0.6, { bg: '#7a3b2e', frame: '#f6d27a' }), 0.85, 0, 0.75, -0.3));
+
+  // 7. 長輩老爺爺公仔
+  const grandfather = figure(fixedMat('#f8fafc'), { h: 0.45 });
+  grandfather.add(at(cyl(0.015, 0.015, 0.32, 5, fixedMat('#78350f')), 0.16, 0.16, 0.08));
+  g.add(at(grandfather, -0.28, 0.02, -0.65, 0));
+
+  // 8. 雙柱立牌
+  g.add(at(standSign('紅磚三合院', 0.85, { bg: '#9c4a34' }), 0.2, 0, 0.75));
   return g;
 }
 
-// ---------- 地標 8：石板屋聚落（排灣族石板屋、達悟族地下屋、澎湖咾咕石屋） ----------
+// ---------- 地標 10：竹管厝與土埆厝工坊（麥寮竹管仔厝、深坑石基土埆厝、長方土磚曬場、泥水工匠公仔） ----------
+function earthBambooStation() {
+  const g = new THREE.Group();
+  const bambooMat = fixedMat('#84cc16');
+  const mudWallMat = fixedMat('#d4a373');
+  const strawRoof = fixedMat('#a16207');
+  const stoneBase = fixedMat('#64748b');
+  const earthBrickMat = fixedMat('#b45309');
+  const wood = mat('wood');
+
+  // 1. 竹管仔厝（雲林麥寮代表：竹子為骨架，敷上泥土）
+  const bambooHouse = new THREE.Group();
+  for (const [bx, bz] of [[-0.45, -0.35], [0.45, -0.35], [-0.45, 0.35], [0.45, 0.35], [0, -0.35], [0, 0.35]]) {
+    bambooHouse.add(at(cyl(0.03, 0.03, 0.55, 6, bambooMat), bx, 0.28, bz));
+  }
+  bambooHouse.add(at(rbox(0.85, 0.48, 0.65, mudWallMat, 0.03), 0, 0.24, 0));
+  for (let k = 0; k < 3; k++) {
+    bambooHouse.add(at(rbox(0.87, 0.02, 0.02, bambooMat, 0.005), 0, 0.12 + k * 0.14, 0.33));
+  }
+  const bRoof = gableRoof(0.98, 0.3, 0.82, strawRoof);
+  bRoof.rotation.y = Math.PI / 2;
+  bambooHouse.add(at(bRoof, 0, 0.58, 0));
+  bambooHouse.add(at(signBoard('竹管仔厝 (麥寮)', 0.62, 0.14, { bg: '#65a30d', fg: '#fff' }), 0, 0.76, 0.42));
+  g.add(at(bambooHouse, -0.85, 0, -0.35));
+
+  // 2. 土埆厝（新北深坑代表：石塊為穩固基礎，稻稈泥土做成土磚砌牆）
+  const earthHouse = new THREE.Group();
+  earthHouse.add(at(rbox(1.0, 0.18, 0.75, stoneBase, 0.03), 0, 0.09, 0));
+  earthHouse.add(at(rbox(0.95, 0.42, 0.7, earthBrickMat, 0.03), 0, 0.38, 0));
+  for (let k = 0; k < 3; k++) {
+    earthHouse.add(at(rbox(0.97, 0.015, 0.015, fixedMat('#78350f'), 0.005), 0, 0.25 + k * 0.12, 0.355));
+  }
+  earthHouse.add(at(rbox(0.2, 0.32, 0.02, wood, 0.01), 0, 0.32, 0.36));
+  const eRoof = gableRoof(1.1, 0.32, 0.86, fixedMat('#475569'));
+  eRoof.rotation.y = Math.PI / 2;
+  earthHouse.add(at(eRoof, 0, 0.68, 0));
+  earthHouse.add(at(signBoard('土埆厝 (深坑)', 0.58, 0.14, { bg: '#b45309', fg: '#fff' }), 0, 0.88, 0.44));
+  g.add(at(earthHouse, 0.75, 0, -0.35));
+
+  // 3. 土埆磚日曬製作場
+  for (let i = 0; i < 3; i++) for (let j = 0; j < 2; j++) {
+    g.add(at(rbox(0.14, 0.05, 0.09, earthBrickMat, 0.01), -0.25 + i * 0.2, 0.025, 0.45 + j * 0.15));
+  }
+  g.add(at(rbox(0.28, 0.06, 0.16, wood, 0.01), 0.55, 0.03, 0.55));
+  g.add(at(cone(0.25, 0.4, 8, fixedMat('#eab308')), -0.75, 0.2, 0.55));
+  g.add(at(signBoard('稻草泥水土磚曬場', 0.6, 0.12, { bg: '#78350f', fg: '#fff' }), 0.1, 0.16, 0.8));
+
+  // 4. 漢人泥水工匠公仔
+  const mason = figure(fixedMat('#3b82f6'), { h: 0.42 });
+  mason.add(at(cone(0.15, 0.08, 10, fixedMat('#d4a373')), 0, 0.46, 0));
+  mason.add(at(rbox(0.08, 0.01, 0.06, fixedMat('#94a3b8'), 0.005), 0.16, 0.18, 0.1));
+  g.add(at(mason, 0.25, 0.02, 0.4, -0.3));
+
+  // 5. 雙柱立牌
+  g.add(at(standSign('竹管與土埆厝', 0.85, { bg: '#92400e' }), -0.1, 0, 0.95));
+  return g;
+}
+
+// ---------- 地標 11：排灣魯凱石板屋（冬暖夏涼、黑灰頁岩層層疊砌、石縫冒柴煙會呼吸的房子、百步蛇圖騰、排灣族人公仔） ----------
 function stoneVillage() {
   const g = new THREE.Group();
-  // 1 石板屋：一層層石板堆疊的厚牆與石板屋頂
-  const slate = new THREE.Group();
-  for (let k = 0; k < 6; k++) slate.add(at(rbox(0.95, 0.075, 0.75, fixedMat(k % 2 ? '#6f747a' : '#80868c'), 0.02), 0, 0.04 + k * 0.075, 0));
+  const slateDark = fixedMat('#4b5563');
+  const slateLight = fixedMat('#6b7280');
+  const wood = mat('wood');
+
+  // 1. 厚實石板牆身
+  for (let k = 0; k < 6; k++) {
+    g.add(at(rbox(1.5, 0.08, 1.1, k % 2 ? slateDark : slateLight, 0.02), 0, 0.04 + k * 0.08, -0.15));
+  }
+  // 2. 石板層疊平緩大屋頂
   for (let k = 0; k < 5; k++) {
-    const plate = rbox(1.05, 0.04, 0.24, fixedMat(k % 2 ? '#5e636a' : '#71777d'), 0.015);
+    const plate = rbox(1.65, 0.04, 0.32, k % 2 ? fixedMat('#374151') : fixedMat('#4b5563'), 0.015);
     plate.rotation.x = -0.18;
-    slate.add(at(plate, 0, 0.5 + k * 0.03, 0.3 - k * 0.17));
+    g.add(at(plate, 0, 0.56 + k * 0.035, 0.28 - k * 0.22));
   }
-  slate.add(at(rbox(0.2, 0.3, 0.02, mat('wood*0.8'), 0.01), 0.1, 0.15, 0.38));
-  // 2 地下屋：屋身一半在地面下，只露出低矮的屋頂
-  const under = new THREE.Group();
-  under.add(at(rbox(0.95, 0.04, 0.75, fixedMat('#7a6a50'), 0.02), 0, 0.01, 0));
-  for (let k = 0; k < 4; k++) under.add(at(sc(ball(0.1, fixedMat('#8a8f98'), 6, 5), 1.2, 0.7, 1), -0.42 + k * 0.28, 0.06, 0.4));
-  const ur = gableRoof(0.85, 0.28, 0.75, fixedMat('#b99f6a'));
-  ur.rotation.y = Math.PI / 2;
-  under.add(at(ur, 0, 0.02, 0));
-  under.add(at(rbox(0.12, 0.6, 0.12, fixedMat('#7a5b3a'), 0.02), 0.6, 0.3, 0.1));
-  // 3 咾咕石屋：米白色、多孔的珊瑚礁石牆
-  const coral = new THREE.Group();
-  coral.add(at(rbox(0.8, 0.5, 0.6, fixedMat('#e2d6b8'), 0.04), 0, 0.25, 0));
-  for (let k = 0; k < 14; k++) coral.add(at(ball(0.025, fixedMat('#b8a982'), 5, 4), -0.33 + (k % 7) * 0.11, 0.14 + Math.floor(k / 7) * 0.2, 0.3));
-  const cr = gableRoof(0.7, 0.24, 0.9, fixedMat('#5b5f66'));
-  cr.rotation.y = Math.PI / 2;
-  coral.add(at(cr, 0, 0.5, 0));
-  const spots = [[-1.05, -0.5, slate, '石板屋'], [0.15, -0.75, under, '地下屋'], [1.15, -0.25, coral, '咾咕石屋']];
-  for (const [x, z, b, name] of spots) {
-    g.add(at(b, x, 0, z, -x * 0.2));
-    g.add(at(signBoard(name, 0.6, 0.18, { bg: '#5e636a', frame: '#fffaf0' }), x, 0.14, z + 0.62, -x * 0.2));
+  g.add(at(rbox(0.25, 0.35, 0.03, wood, 0.01), 0, 0.18, 0.41));
+  g.add(at(signBoard('百步蛇紋門額', 0.45, 0.1, { bg: '#1f2937', fg: '#f59e0b', frame: '#dc2626' }), 0, 0.42, 0.42));
+
+  // 3. 升火柴煙從石縫中飄出（會呼吸的房子）
+  for (const [sx, sz] of [[-0.3, 0.1], [0.35, -0.15], [0.1, -0.3]]) {
+    const smokePuff = ball(0.06, fixedMat('#ffffff', { transparent: true, opacity: 0.75 }), 7, 5);
+    smokePuff.userData.bob = 0.05;
+    g.add(at(smokePuff, sx, 0.78, sz));
   }
-  // 穿傳統服飾的長者
-  const elder = figure(fixedMat('#2b2f38'), { h: 0.5 });
-  elder.add(at(cyl(0.11, 0.11, 0.04, 10, fixedMat('#d63a2a')), 0, 0.48, 0));
-  g.add(at(elder, -0.35, 0, 0.55));
-  g.add(at(standSign('就地取材', 0.75, { bg: '#7a5b40' }), 0.6, 0, 0.9, -0.2));
+
+  // 4. 前庭石板前埕與祭祀立石
+  g.add(at(rbox(1.8, 0.03, 0.9, fixedMat('#9ca3af'), 0.02), 0, 0.015, 0.75));
+  g.add(at(rbox(0.12, 0.7, 0.08, slateDark, 0.01), 0.75, 0.35, 0.65));
+
+  // 5. 排灣族人公仔
+  const paiwanWarrior = figure(fixedMat('#18181b'), { h: 0.45 });
+  paiwanWarrior.add(at(rbox(0.16, 0.18, 0.02, fixedMat('#ef4444'), 0.005), 0, 0.26, 0.11));
+  paiwanWarrior.add(at(cyl(0.015, 0.015, 0.18, 5, fixedMat('#ffffff')), 0.08, 0.52, 0));
+  g.add(at(paiwanWarrior, -0.45, 0.02, 0.65, 0.2));
+
+  // 6. 雙柱立牌
+  g.add(at(standSign('排灣石板屋', 0.85, { bg: '#374151' }), 0.15, 0, 1.15));
+  return g;
+}
+
+// ---------- 地標 12：達悟族蘭嶼地下屋（半地下開挖凹坑、防強風颱風、鵝卵石擋土牆、高腳涼台、達悟族勇士公仔） ----------
+function undergroundHouse() {
+  const g = new THREE.Group();
+  const stoneMat = fixedMat('#6b7280');
+  const wood = mat('wood');
+  const thatchMat = fixedMat('#78350f');
+  const cobbleMat = fixedMat('#9ca3af');
+
+  // 1. 開挖地面半地下式凹坑與防風石駁坎
+  g.add(at(rbox(1.5, 0.2, 1.2, stoneMat, 0.04), -0.3, 0.1, -0.1));
+  for (let k = 0; k < 6; k++) {
+    g.add(at(ball(0.08, cobbleMat, 6, 5), -0.9 + k * 0.25, 0.12, 0.5));
+  }
+  const mainRoof = gableRoof(1.3, 0.35, 1.0, thatchMat);
+  mainRoof.rotation.y = Math.PI / 2;
+  g.add(at(mainRoof, -0.3, 0.35, -0.1));
+  g.add(at(rbox(0.2, 0.18, 0.02, wood, 0.01), -0.3, 0.15, 0.42));
+  g.add(at(signBoard('半地下主屋 (防颱避強風)', 0.68, 0.12, { bg: '#0369a1', fg: '#fff' }), -0.3, 0.55, 0.38));
+
+  // 2. 戶外高腳涼台
+  const terrace = new THREE.Group();
+  for (const [px, pz] of [[-0.25, -0.2], [0.25, -0.2], [-0.25, 0.2], [0.25, 0.2]]) {
+    terrace.add(at(cyl(0.025, 0.025, 0.38, 5, wood), px, 0.19, pz));
+  }
+  terrace.add(at(rbox(0.65, 0.04, 0.55, fixedMat('#b45309'), 0.02), 0, 0.38, 0));
+  const tRoof = gableRoof(0.75, 0.18, 0.65, fixedMat('#a16207'));
+  tRoof.rotation.y = Math.PI / 2;
+  terrace.add(at(tRoof, 0, 0.58, 0));
+  terrace.add(at(signBoard('高腳涼台 (野銀)', 0.48, 0.11, { bg: '#0284c7', fg: '#fff' }), 0, 0.72, 0.26));
+  g.add(at(terrace, 0.85, 0, 0.1));
+
+  // 3. 達悟族公仔
+  const taoWarrior = figure(fixedMat('#ffffff'), { h: 0.42 });
+  for (let k = 0; k < 3; k++) {
+    taoWarrior.add(at(rbox(0.18, 0.03, 0.02, fixedMat('#2563eb'), 0.005), 0, 0.2 + k * 0.06, 0.11));
+  }
+  taoWarrior.add(at(cone(0.14, 0.08, 8, fixedMat('#ca8a04')), 0, 0.46, 0));
+  taoWarrior.add(at(sc(ball(0.06, fixedMat('#38bdf8'), 6, 4), 1.8, 0.5, 0.6), 0.18, 0.18, 0.1));
+  g.add(at(taoWarrior, 0.45, 0.02, 0.5, -0.4));
+
+  // 4. 雙柱立牌
+  g.add(at(standSign('蘭嶼地下屋', 0.85, { bg: '#0284c7' }), -0.1, 0, 0.95));
+  return g;
+}
+
+// ---------- 地標 13：泰雅族武荖坑木屋（原木疊砌、竹子骨架、黃藤綁紮、茅草斜頂、泰雅紅白披肩公仔） ----------
+function woodHouse() {
+  const g = new THREE.Group();
+  const logMat = fixedMat('#78350f');
+  const bambooMat = fixedMat('#84cc16');
+  const thatchMat = fixedMat('#a16207');
+  const wood = mat('wood');
+
+  // 1. 原木疊砌的泰雅傳統木屋
+  for (const [lx, lz] of [[-0.5, -0.4], [0.5, -0.4], [-0.5, 0.4], [0.5, 0.4]]) {
+    g.add(at(cyl(0.04, 0.04, 0.2, 6, logMat), lx, 0.1, lz));
+  }
+  g.add(at(rbox(1.2, 0.06, 0.95, wood, 0.02), 0, 0.22, 0));
+  for (let k = 0; k < 5; k++) {
+    const y = 0.28 + k * 0.09;
+    g.add(at(cyl(0.038, 0.038, 1.15, 6, logMat), 0, y, -0.42, 0, 0, Math.PI / 2));
+    g.add(at(cyl(0.038, 0.038, 1.15, 6, logMat), 0, y, 0.42, 0, 0, Math.PI / 2));
+    g.add(at(cyl(0.038, 0.038, 0.85, 6, logMat), -0.52, y, 0, Math.PI / 2, 0, 0));
+    g.add(at(cyl(0.038, 0.038, 0.85, 6, logMat), 0.52, y, 0, Math.PI / 2, 0, 0));
+  }
+  g.add(at(rbox(0.24, 0.36, 0.02, bambooMat, 0.01), 0, 0.42, 0.44));
+
+  // 2. 厚實檜木皮與茅草大斜屋頂
+  const roof = gableRoof(1.35, 0.38, 1.1, thatchMat);
+  roof.rotation.y = Math.PI / 2;
+  g.add(at(roof, 0, 0.84, 0));
+  g.add(at(signBoard('泰雅傳統木屋 (蘇澳武荖坑)', 0.72, 0.13, { bg: '#dc2626', fg: '#fff' }), 0, 1.05, 0.48));
+
+  // 3. 戶外晾曬架與柴火堆
+  g.add(at(cyl(0.02, 0.02, 0.45, 5, bambooMat), -0.75, 0.225, 0.5));
+  g.add(at(cyl(0.02, 0.02, 0.45, 5, bambooMat), -0.35, 0.225, 0.5));
+  g.add(at(rbox(0.5, 0.02, 0.02, bambooMat, 0.005), -0.55, 0.4, 0.5));
+  for (let k = 0; k < 3; k++) {
+    g.add(at(cyl(0.03, 0.03, 0.25, 5, logMat), -0.7 + k * 0.08, 0.06, 0.25, Math.PI / 2, 0, 0));
+  }
+
+  // 4. 泰雅族人公仔
+  const atayalPerson = figure(fixedMat('#ffffff'), { h: 0.45 });
+  const shawl = rbox(0.18, 0.22, 0.04, fixedMat('#dc2626'), 0.01);
+  shawl.rotation.z = -0.3;
+  atayalPerson.add(at(shawl, 0.04, 0.26, 0.1));
+  atayalPerson.add(at(cyl(0.09, 0.09, 0.03, 8, fixedMat('#dc2626')), 0, 0.43, 0));
+  g.add(at(atayalPerson, 0.35, 0.02, 0.6, -0.3));
+
+  // 5. 雙柱立牌
+  g.add(at(standSign('泰雅傳統木屋', 0.85, { bg: '#b91c1c' }), -0.1, 0, 0.95));
   return g;
 }
 
@@ -2743,17 +3016,17 @@ function mountain(r, h) {
   return g;
 }
 
-return { mat, fixedMat, applyMaterialPalette, rbox, cyl, cone, ball, at, sc, gableRoof, signBoard, cloud, mapStation, eMapTower, flatFarm, tablelandStation, hillsStation, hillTea, climateStation, reservoir, sanheyuan, stoneVillage, objectsMarket, beachCleanup, tree, mountain };
+return { mat, fixedMat, applyMaterialPalette, rbox, cyl, cone, ball, at, sc, gableRoof, signBoard, cloud, mapStation, eMapTower, flatFarm, tablelandStation, hillsStation, hillTea, climateStation, reservoir, sanheyuan, earthBambooStation, stoneVillage, undergroundHouse, woodHouse, objectsMarket, beachCleanup, tree, mountain };
 })();
 // ---- src/world.js ----
 const __world = (() => {
 // 世界布局：西邊「家鄉環境島」是第一單元八站：東岸地圖站、東北高處的電子地圖塔、大肚台地、石碇丘陵、西北高山、西側氣候觀測站、
-// 西南低處平地農村與南側山坡水庫；東邊「傳統住屋島」（三合院、石板屋）與南邊「器物海灘島」（器物市集、淨灘海岸）是第二單元。三座島以橋相連。
+// 西南低處平地農村與南側山坡水庫；東邊「傳統住屋島」是第二單元五站：三合院大宅、竹管土埆厝、排灣石板屋、蘭嶼地下屋、泰雅木屋；南邊「永續文化島」：器物市集、淨灘海岸。三座島以橋相連。
 const { createIslandTerrain } = __terrain;
 const { createIslandPath, validateIslandConnections } = __paths;
 const {
   mat, fixedMat, at, ball, cyl, tree, mountain, cloud,
-  mapStation, eMapTower, flatFarm, tablelandStation, hillsStation, hillTea, climateStation, reservoir, sanheyuan, stoneVillage, objectsMarket, beachCleanup,
+  mapStation, eMapTower, flatFarm, tablelandStation, hillsStation, hillTea, climateStation, reservoir, sanheyuan, earthBambooStation, stoneVillage, undergroundHouse, woodHouse, objectsMarket, beachCleanup,
 } = __models;
 
 const WATER_LEVEL = -0.24;
@@ -2784,12 +3057,15 @@ const LAYOUT = {
     ],
   },
   change: {
-    outline: blob(9.2, -2.2, 5.6, 0.35, 0.6),
+    outline: blob(9.2, -1.8, 6.8, 0.35, 0.6),
     plateaus: [
-      { position: [9.0, 1.5, -4.6], radius: 1.9 },    // 三合院
-      { position: [13.0, 1.3, -1.4], radius: 1.7 },   // 石板屋聚落
-      { position: [8.6, 1.4, 0.2], radius: 0.9 },     // 中央廣場
-      { position: [4.6, 1.2, -1.6], radius: 0.8 },    // 西岸橋頭
+      { position: [8.8, 1.4, -5.2], radius: 1.7 },    // 紅磚三合院大宅
+      { position: [5.2, 1.4, -2.2], radius: 1.3 },    // 竹管與土埆厝工坊
+      { position: [12.8, 1.4, -4.2], radius: 1.4 },   // 排灣魯凱石板屋
+      { position: [13.2, 1.4, 0.2], radius: 1.3 },    // 達悟蘭嶼地下屋
+      { position: [8.6, 1.4, 2.2], radius: 1.3 },     // 泰雅武荖坑木屋
+      { position: [8.8, 1.4, -1.5], radius: 1.0 },    // 中央聚落小廣場
+      { position: [4.6, 1.4, -1.0], radius: 0.8 },    // 西岸橋頭
     ],
   },
   culture: {
@@ -2817,17 +3093,20 @@ const SITES = {
   high: { building: hillTea, at: [-12.2, -7.3], node: [-10.3, -5.4], island: 'demo', scale: 1 },
   climate: { building: climateStation, at: [-13.1, -1.2], node: [-10.7, -1.8], island: 'demo', scale: 0.95 },
   water: { building: reservoir, at: [-8.8, -8.6], node: [-8.4, -6.6], island: 'demo', scale: 0.95 },
-  sanheyuan: { building: sanheyuan, at: [9.0, -4.9], node: [9.0, -2.0], island: 'change', scale: 1 },
-  stonehouse: { building: stoneVillage, at: [13.2, -1.5], node: [11.2, -0.4], island: 'change', scale: 1 },
+  sanheyuan: { building: sanheyuan, at: [8.8, -5.2], node: [8.8, -2.8], island: 'change', scale: 0.95 },
+  earth_bamboo: { building: earthBambooStation, at: [5.2, -2.2], node: [6.8, -1.8], island: 'change', scale: 0.95 },
+  stonehouse: { building: stoneVillage, at: [12.8, -4.2], node: [10.8, -3.0], island: 'change', scale: 0.95 },
+  underground: { building: undergroundHouse, at: [13.2, 0.2], node: [11.0, -0.4], island: 'change', scale: 0.95 },
+  woodhouse: { building: woodHouse, at: [8.6, 2.2], node: [8.6, 0.4], island: 'change', scale: 0.95 },
   objects: { building: objectsMarket, at: [2.0, 11.8], node: [3.0, 9.6], island: 'culture', scale: 0.9 },
   beach: { building: beachCleanup, at: [6.6, 11.7], node: [5.6, 9.6], island: 'culture', scale: 0.9 },
 };
-const JUNCTIONS = { dj: [-8.5, -2.5], cj: [8.6, 0.2], uj: [4.3, 8.4] };
+const JUNCTIONS = { dj: [-8.5, -2.5], cj: [8.8, -1.5], uj: [4.3, 8.4] };
 
 // 跨海通道：[id, 起島, 起點種子, 終島, 終點種子]
 const BRIDGES = [
-  ['demo-change', 'demo', [-2.4, -2.2], 'change', [4.0, -2.0]],
-  ['change-culture', 'change', [6.0, 2.4], 'culture', [4.4, 7.4]],
+  ['demo-change', 'demo', [-2.4, -2.2], 'change', [4.2, -1.2]],
+  ['change-culture', 'change', [6.8, 2.8], 'culture', [4.4, 7.4]],
 ];
 
 // 島內道路（自然曲線，經過中途點）
@@ -2841,10 +3120,13 @@ const ROADS = [
   ['hills', 'dj', [[-11.2, 0.4]]],
   ['water', 'dj', [[-8.5, -4.6]]],
   ['dj', 'demo-change:a', [[-5.0, -2.1]]],
-  ['demo-change:b', 'cj', [[6.4, -0.8]]],
+  ['demo-change:b', 'cj', [[6.4, -1.2]]],
   ['cj', 'sanheyuan', []],
-  ['cj', 'stonehouse', [[10.0, 0.0]]],
-  ['cj', 'change-culture:a', [[7.0, 1.6]]],
+  ['cj', 'earth_bamboo', []],
+  ['cj', 'stonehouse', []],
+  ['cj', 'underground', []],
+  ['cj', 'woodhouse', []],
+  ['cj', 'change-culture:a', [[7.6, 1.8]]],
   ['change-culture:b', 'uj', []],
   ['uj', 'objects', []],
   ['uj', 'beach', []],
@@ -2865,7 +3147,9 @@ function buildWorld(scene, palette) {
   for (const [id, def] of Object.entries(LAYOUT)) {
     terrains[id] = createIslandTerrain(THREE, {
       id, outline: def.outline, plateaus: def.plateaus, waterLevel: WATER_LEVEL,
-      groundColor: palette.lawn, bankColor: palette.shore, gridSize: 0.25,
+      groundColor: id === 'change' ? '#c4b182' : palette.lawn,
+      bankColor: id === 'change' ? '#8c6d48' : palette.shore,
+      gridSize: 0.25,
     });
     world.add(terrains[id].group);
   }
@@ -4064,70 +4348,174 @@ const DRAW = {
     tag(ctx, 318, 62, 140, 170, C.demo, '休閒', ['划船', '河濱自行車', '浮潛'], { size: 20, bodySize: 16 });
     caption(ctx, '好好用水，也好好保護水');
   },
-  // 7 三合院
-  'grow-house'(ctx) {
-    title(ctx, '房子跟著家族長大');
-    const draw = (x, wings) => {
-      roundRect(ctx, x, 110, 110, 30, 3, C.brick);
-      // 單伸手（wings>=1）：依左尊右卑先在圖面右側加蓋「左護龍（大邊）」
-      if (wings >= 1) roundRect(ctx, x + 84, 140, 26, 70, 3, C.brick);
-      // 三合院（wings>=2）：再在圖面左側加蓋「右護龍（小邊）」
-      if (wings >= 2) roundRect(ctx, x, 140, 26, 70, 3, C.brick);
-    };
-    draw(30, 0); draw(185, 1); draw(340, 2);
-    arrow(ctx, 148, 150, 178, 150); arrow(ctx, 303, 150, 333, 150);
-    text(ctx, '一條龍', 85, 232, { size: 16 }); text(ctx, '單伸手', 240, 232, { size: 16 }); text(ctx, '三合院', 395, 232, { size: 16, color: C.brick });
-    caption(ctx, '人口變多，就一邊一邊加蓋護龍（先左後右）');
+  // 9 紅磚三合院大宅
+  'sanheyuan-structure'(ctx) {
+    title(ctx, '三合院正身與護龍格局');
+    roundRect(ctx, 110, 60, 260, 46, 4, C.brick);
+    text(ctx, '正身・正廳（供奉神明祖先）', 240, 83, { size: 14, color: '#fff' });
+    roundRect(ctx, 110, 106, 56, 120, 4, C.brick);
+    text(ctx, '右護龍', 138, 160, { size: 13, color: '#fff' });
+    text(ctx, '（小邊）', 138, 180, { size: 11, color: '#fed7aa' });
+    roundRect(ctx, 314, 106, 56, 120, 4, C.brick);
+    text(ctx, '左護龍', 342, 160, { size: 13, color: '#fff' });
+    text(ctx, '（大邊）', 342, 180, { size: 11, color: '#fed7aa' });
+    roundRect(ctx, 172, 112, 136, 114, 4, '#efe2c0');
+    text(ctx, '稻埕', 240, 160, { size: 18, color: '#9a7a40' });
+    // 廚房煙囪
+    roundRect(ctx, 80, 180, 26, 46, 2, '#9c4a34');
+    text(ctx, '廚房大灶', 93, 238, { size: 11, color: C.red });
+    text(ctx, '二房長輩', 60, 80, { size: 12, color: '#c2410c' });
+    text(ctx, '大房長輩', 415, 80, { size: 12, color: '#c2410c' });
+    caption(ctx, '面向屋外以左為尊（右側為大房左護龍，左側為二房右護龍）');
   },
-  'sanheyuan-parts'(ctx) {
-    title(ctx, '三合院的空間');
-    roundRect(ctx, 110, 60, 260, 46, 4, C.brick); text(ctx, '正身・正廳', 240, 83, { size: 16, color: '#fff' });
-    roundRect(ctx, 110, 106, 56, 130, 4, C.brick); text(ctx, '護龍', 138, 170, { size: 15, color: '#fff' });
-    roundRect(ctx, 314, 106, 56, 130, 4, C.brick); text(ctx, '護龍', 342, 170, { size: 15, color: '#fff' });
-    roundRect(ctx, 172, 112, 136, 124, 4, '#efe2c0'); text(ctx, '稻埕', 240, 160, { size: 18, color: '#9a7a40' });
-    text(ctx, '曬穀・玩耍', 240, 188, { size: 13, color: C.sub, weight: 500 });
-    text(ctx, '右小（二房）', 60, 150, { size: 13, color: C.red }); text(ctx, '左大（大房）', 420, 150, { size: 13, color: C.red });
-    caption(ctx, '站在正廳門口、面向屋外判斷左右（右側為左護龍）');
+  'sanheyuan-yard'(ctx) {
+    title(ctx, '多用途稻埕生活空間');
+    roundRect(ctx, 30, 62, 420, 170, 10, '#fef3c7', '#d97706', 2);
+    for (let k = 0; k < 3; k++) roundRect(ctx, 50, 140 + k * 26, 380, 16, 4, '#eab308');
+    text(ctx, '🌾 金黃曬穀・脫穀', 120, 95, { size: 16, color: '#b45309' });
+    text(ctx, '🏃 孩童遊戲・鄰里聊天', 340, 95, { size: 16, color: '#0284c7' });
+    text(ctx, '一家人乘涼、年節祭拜與搭棚請客的多功能廣場', 240, 125, { size: 13, color: '#475569' });
+    caption(ctx, '稻埕是家族生活與情感交流的核心公共空間');
   },
-  'yard-uses'(ctx) {
-    title(ctx, '屋外的好幫手');
-    tag(ctx, 22, 62, 140, 170, C.green, '竹林・果樹', ['擋風、防小偷', '食物、柴火', '編織材料'], { size: 20, bodySize: 16 });
-    tag(ctx, 170, 62, 140, 170, BLUE, '水池', ['洗衣', '養魚', '防火'], { size: 20, bodySize: 16 });
-    tag(ctx, 318, 62, 140, 170, C.wood, '堆肥場', ['落葉、廚餘', '做成肥料'], { size: 20, bodySize: 16 });
-    caption(ctx, '水池不是用來發電的！', C.red);
+  'sanheyuan-farm'(ctx) {
+    title(ctx, '三合院生活與生產設施');
+    tag(ctx, 22, 62, 135, 170, '#78350f', '牛棚 ✕ 農具間', ['兩者相鄰近！', '方便出門耕田', '就近取犁耙耕具'], { size: 16, bodySize: 13 });
+    tag(ctx, 167, 62, 135, 170, '#0284c7', '水井 ✕ 堆肥場', ['古井汲水洗衣洗菜', '牛豬糞草木灰堆肥', '菜園天然滋養肥料'], { size: 16, bodySize: 13 });
+    tag(ctx, 312, 62, 145, 170, '#15803d', '屋後竹林果樹', ['擋強風、防小偷', '遮蔭、採摘水果', '落枝作為大灶柴火'], { size: 16, bodySize: 13 });
+    caption(ctx, '農具間緊鄰牛棚，牽牛取工具最省力方便！');
   },
-  // 8 石板屋
-  'slate-house'(ctx) {
-    title(ctx, '石板屋：會呼吸的房子');
-    for (let k = 0; k < 6; k++) roundRect(ctx, 110, 200 - k * 18, 260, 16, 3, k % 2 ? ROCK : '#6f747a');
-    poly(ctx, [[90, 96], [240, 70], [390, 96], [390, 108], [90, 108]], '#5e636a');
-    roundRect(ctx, 220, 160, 40, 56, 4, C.wood);
-    text(ctx, '冬暖夏涼', 240, 248, { size: 18, color: C.demo });
-    caption(ctx, '排灣族、魯凱族｜石板牆＋石板屋頂');
+  'grow-house'(ctx) { this['sanheyuan-structure'](ctx); },
+  'sanheyuan-parts'(ctx) { this['sanheyuan-structure'](ctx); },
+  'yard-uses'(ctx) { this['sanheyuan-farm'](ctx); },
+
+  // 10 竹管厝與土埆厝工坊
+  'bamboo-house'(ctx) {
+    title(ctx, '雲林麥寮：竹管仔厝');
+    roundRect(ctx, 30, 62, 420, 170, 10, '#f0fdf4', '#16a34a', 2);
+    // 竹骨架
+    for (let i = 0; i < 5; i++) line(ctx, 60 + i * 80, 195, 60 + i * 80, 105, '#65a30d', 6);
+    line(ctx, 50, 120, 390, 120, '#65a30d', 6);
+    line(ctx, 50, 160, 390, 160, '#65a30d', 6);
+    roundRect(ctx, 130, 120, 220, 75, 4, '#d4a373');
+    text(ctx, '竹篾骨架', 100, 95, { size: 14, color: '#4d7c0f' });
+    text(ctx, '敷抹黃泥粗糠', 240, 155, { size: 16, color: '#78350f' });
+    caption(ctx, '雲林麥寮｜就地取竹立骨架，兩側敷上泥土建造');
   },
-  underground(ctx) {
-    title(ctx, '達悟族地下屋');
+  'earth-brick-house'(ctx) {
+    title(ctx, '新北深坑：土埆厝');
+    roundRect(ctx, 30, 62, 420, 170, 10, '#fefce8', '#ca8a04', 2);
+    // 石頭基腳
+    roundRect(ctx, 60, 170, 360, 30, 4, '#64748b');
+    text(ctx, '石塊穩固地基（防潮防浸）', 240, 190, { size: 13, color: '#fff' });
+    // 土埆磚牆
+    for (let r = 0; r < 3; r++) {
+      for (let c = 0; c < 5; c++) {
+        roundRect(ctx, 70 + c * 68 + (r % 2 ? 34 : 0), 105 + r * 20, 62, 16, 2, '#b45309', '#78350f', 1);
+      }
+    }
+    caption(ctx, '新北深坑｜石基防潮，稻草泥水木模壓製土埆磚砌牆');
+  },
+  'earth-bamboo-wisdom'(ctx) {
+    title(ctx, '先民就地取材的綠建築智慧');
+    tag(ctx, 30, 62, 200, 175, '#65a30d', '竹管仔厝優點', ['竹材輕巧抗震好', '取材容易通風佳', '壞了隨時可修補'], { size: 17, bodySize: 14 });
+    tag(ctx, 250, 62, 200, 175, '#b45309', '土埆厝優點', ['土磚厚實冬暖夏涼', '石塊為基防雨浸泡', '天然泥草零環境負擔'], { size: 17, bodySize: 14 });
+    caption(ctx, '沒有現代水泥鋼筋，先民順應自然就地取材');
+  },
+
+  // 11 排灣魯凱石板屋
+  'slate-stacking'(ctx) {
+    title(ctx, '頁岩疊砌：冬暖夏涼石板屋');
+    for (let k = 0; k < 6; k++) roundRect(ctx, 90, 205 - k * 18, 300, 16, 3, k % 2 ? '#4b5563' : '#6b7280');
+    poly(ctx, [[70, 96], [240, 68], [410, 96], [410, 108], [70, 108]], '#374151');
+    roundRect(ctx, 215, 155, 50, 50, 4, C.wood);
+    text(ctx, '大大小小石板交錯平疊', 240, 135, { size: 15, color: '#f3f4f6' });
+    caption(ctx, '排灣族與魯凱族｜厚實石板隔熱保暖，冬暖夏涼');
+  },
+  'breathing-house'(ctx) {
+    title(ctx, '會呼吸的房子：柴煙防蟲');
+    roundRect(ctx, 30, 62, 420, 170, 10, '#f3f4f6', '#4b5563', 2);
+    roundRect(ctx, 120, 120, 240, 80, 4, '#6b7280');
+    text(ctx, '屋內升火煮食取暖', 240, 150, { size: 16, color: '#fff' });
+    text(ctx, '柴煙防木頭腐蝕與防蟲蛀', 240, 175, { size: 13, color: '#fef08a' });
+    for (let i = 0; i < 4; i++) {
+      arrow(ctx, 140 + i * 65, 120, 140 + i * 65, 80, '#9ca3af', 3);
+      circle(ctx, 140 + i * 65, 75, 8, '#d1d5db');
+    }
+    caption(ctx, '柴煙順著石板縫隙往外飄，故稱「會呼吸的房子」');
+  },
+  'slate-heritage'(ctx) {
+    title(ctx, '石板屋聚落與世界遺產守護');
+    tag(ctx, 30, 62, 200, 175, '#1e293b', '屏東舊好茶 (魯凱)', ['世界建築文物守護名單', 'WMF 國際高度肯定', '守護臺灣原民寶藏'], { size: 17, bodySize: 14 });
+    tag(ctx, 250, 62, 200, 175, '#991b1b', '七佳與舊排灣', ['排灣完整石板聚落', '百步蛇陶壺琉璃珠', '人與山林歷史見證'], { size: 17, bodySize: 14 });
+    caption(ctx, '石板屋是原住民祖先流傳下來的珍貴世界遺產');
+  },
+  'slate-house'(ctx) { this['slate-stacking'](ctx); },
+
+  // 12 達悟族蘭嶼地下屋
+  'underground-structure'(ctx) {
+    title(ctx, '達悟族：半地下主屋構造');
     roundRect(ctx, 20, 150, 440, 100, 4, '#b99f6a');
     roundRect(ctx, 140, 160, 200, 70, 4, '#e8d5b0');
     poly(ctx, [[120, 152], [240, 110], [360, 152]], '#8a6a3a');
     line(ctx, 20, 150, 460, 150, C.green, 4);
-    text(ctx, '地面', 50, 140, { size: 13, color: C.green });
-    for (let i = 0; i < 3; i++) arrow(ctx, 30 + i * 20, 80 + i * 10, 110 + i * 15, 100 + i * 10, C.demo, 3);
-    text(ctx, '強風', 70, 66, { size: 15, color: C.demo });
-    text(ctx, '一部分在地下', 240, 200, { size: 15, color: C.ink });
-    caption(ctx, '蘭嶼季風和颱風強，屋頂低矮好擋風');
+    text(ctx, '地面線', 50, 140, { size: 13, color: C.green });
+    text(ctx, '向下開挖凹坑（半地下屋）', 240, 195, { size: 15, color: C.ink });
+    caption(ctx, '臺東蘭嶼野銀部落｜主屋低矮緊貼地面');
   },
-  'island-houses'(ctx) {
-    title(ctx, '各地的住屋');
-    const h = [['澎湖', '咾咕石', '#e2d6b8'], ['泰雅族', '木、竹', '#a8875c'], ['早期漢人', '竹管仔厝・土埆厝', '#c9a466'], ['現在', '鋼筋混凝土', '#c9ced3']];
-    h.forEach(([n, m, col], i) => {
-      const x = 28 + i * 108;
-      house(ctx, x + 14, 170, 68, 60, col, '#5b5f66', 22);
-      text(ctx, n, x + 48, 196, { size: 16 });
-      text(ctx, m, x + 48, 220, { size: i === 2 ? 11 : 13, color: C.sub, weight: 500 });
-    });
-    caption(ctx, '就地取材：用當地容易取得的材料');
+  'typhoon-protection'(ctx) {
+    title(ctx, '順應天候：抵禦強風與颱風');
+    roundRect(ctx, 30, 62, 420, 170, 10, '#f0f9ff', '#0284c7', 2);
+    poly(ctx, [[130, 185], [240, 145], [350, 185]], '#78350f');
+    for (let i = 0; i < 4; i++) {
+      arrow(ctx, 40 + i * 25, 90 + i * 12, 180 + i * 30, 120 + i * 10, '#0284c7', 4);
+    }
+    text(ctx, '猛烈海風與颱風', 100, 80, { size: 16, color: '#0369a1' });
+    text(ctx, '強風順著低矮屋頂上方滑過！', 270, 210, { size: 14, color: '#0f172a' });
+    caption(ctx, '蘭嶼四面環海風力強，半地下屋有效保護家園安全');
   },
+  'tao-life-terrace'(ctx) {
+    title(ctx, '高腳涼台生活與文化智慧');
+    roundRect(ctx, 30, 62, 420, 170, 10, '#fdf4ff', '#a855f7', 2);
+    // 高腳涼台
+    line(ctx, 160, 190, 160, 130, '#78350f', 6);
+    line(ctx, 320, 190, 320, 130, '#78350f', 6);
+    roundRect(ctx, 140, 125, 200, 12, 3, '#ca8a04');
+    poly(ctx, [[130, 125], [240, 95], [350, 125]], '#a16207');
+    text(ctx, '高腳通風涼台', 240, 80, { size: 15, color: '#7e22ce' });
+    text(ctx, '族人乘涼、聊天、補魚網、雕刻飛魚飛舟', 240, 155, { size: 13, color: '#334155' });
+    caption(ctx, '主屋防風避颱，戶外涼台乘涼交流，機能分明');
+  },
+  underground(ctx) { this['underground-structure'](ctx); },
+
+  // 13 泰雅族武荖坑木屋
+  'atayal-wood-craft'(ctx) {
+    title(ctx, '泰雅木屋：木竹結構工藝');
+    roundRect(ctx, 30, 62, 420, 170, 10, '#fef2f2', '#ef4444', 2);
+    for (let k = 0; k < 4; k++) roundRect(ctx, 110, 115 + k * 18, 260, 14, 3, '#78350f');
+    poly(ctx, [[90, 115], [240, 75], [390, 115]], '#a16207');
+    text(ctx, '粗壯原木立柱・橫木疊牆', 240, 145, { size: 15, color: '#fef2f2' });
+    text(ctx, '黃藤竹篾緊密綁紮', 240, 175, { size: 13, color: '#fecaca' });
+    caption(ctx, '泰雅族就地取原木、竹子與茅草，展現高超山林工藝');
+  },
+  'wulaokeng-heritage'(ctx) {
+    title(ctx, '宜蘭蘇澳武荖坑展示木屋');
+    roundRect(ctx, 30, 62, 420, 170, 10, '#f8fafc', '#475569', 2);
+    tag(ctx, 40, 75, 185, 145, '#dc2626', '武荖坑風景區', ['展示傳統建築技術', '工藝與文化傳承', '供遊客親身體驗'], { size: 16, bodySize: 13 });
+    tag(ctx, 255, 75, 185, 145, '#78350f', '家屋通風防潮', ['地基微墊高防潮防獸', '竹木通風適應山林', '中央火塘生火取暖'], { size: 16, bodySize: 13 });
+    caption(ctx, '宜蘭蘇澳武荖坑風景區展示泰雅族傳統建築智慧');
+  },
+  'atayal-weaving-life'(ctx) {
+    title(ctx, '泰雅族織布與山林生活');
+    roundRect(ctx, 30, 62, 420, 170, 10, '#fff1f2', '#f43f5e', 2);
+    // 菱形織紋
+    for (let i = 0; i < 4; i++) {
+      poly(ctx, [[100 + i * 80, 145], [140 + i * 80, 115], [180 + i * 80, 145], [140 + i * 80, 175]], '#e11d48');
+    }
+    text(ctx, '紅白相間菱形幾何編織披肩', 240, 95, { size: 15, color: '#be123c' });
+    text(ctx, '森林狩獵、採集與火塘文化相融之山林生活', 240, 195, { size: 13, color: '#475569' });
+    caption(ctx, '泰雅族精通織布工藝與山林生存智慧');
+  },
+  'island-houses'(ctx) { this['atayal-wood-craft'](ctx); },
   // 9 器物市集
   'indigenous-tools'(ctx) {
     title(ctx, '原住民的器物');
@@ -4238,7 +4626,7 @@ const gameState = {
     { id: "compass", name: "傳奇指北羅盤", icon: "🧭", count: 1, desc: "地圖四要素之方位指針裝備。" },
     { id: "fishTrap", name: "工匠竹編魚筌", icon: "🎋", count: 1, desc: "順流水中捕魚，留縫隙讓小魚游走。" }
   ],
-  stamps: Array(12).fill(false)
+  stamps: Array(15).fill(false)
 };
 
 // 音效開關狀態宣告（置於音效引擎之前避免 TDZ）
@@ -4353,7 +4741,7 @@ function updateHUD() {
   for (const q of Object.values(quest)) totalStars += (q?.stars || 0);
   gameState.stars = totalStars;
   const starsEl = document.getElementById("hudStarsText");
-  if (starsEl) starsEl.innerText = totalStars + " / 30 ★";
+  if (starsEl) starsEl.innerText = `${totalStars} / ${ZONES.length * 3} ★`;
 }
 
 function showLevelUpModal() {
@@ -4450,9 +4838,12 @@ const STAMP_DEFINITIONS = [
   { name: "中央山脈高山森林徽章", icon: "⛰️" },
   { name: "氣候四海觀測徽章", icon: "⛅" },
   { name: "水庫與水利發電徽章", icon: "💧" },
-  { name: "三合院左尊右卑徽章", icon: "🏡" },
-  { name: "石板屋呼吸抗颱徽章", icon: "🏛️" },
-  { name: "先民物盡其用徽章", icon: "🎋" },
+  { name: "三合院大宅格局徽章", icon: "🏡" },
+  { name: "竹管土埆綠建築徽章", icon: "🎋" },
+  { name: "石板屋呼吸防蟲徽章", icon: "🏛️" },
+  { name: "蘭嶼地下屋防颱徽章", icon: "🌊" },
+  { name: "泰雅木屋山林工藝徽章", icon: "🌲" },
+  { name: "先民物盡其用徽章", icon: "🪵" },
   { name: "海岸減塑大滿貫徽章", icon: "🏖️" }
 ];
 
@@ -4580,16 +4971,6 @@ function buildMinigame(z) {
     const status = el("div", { style: "font-size:12px; font-weight:700; color:var(--primary); margin-bottom:8px;" }, "［待安裝：方向標、圖例、比例尺］");
     const btns = el("div", { class: "minigame-actions" });
     
-    const b1 = el("button", { class: "minigame-btn", type: "button", onclick: () => {
-      installed.compass = true; b1.classList.add("done"); b1.disabled = true; b1.innerText = "✅ 已安裝方向標"; check();
-    } }, "🧭 安裝方向標");
-    const b2 = el("button", { class: "minigame-btn", type: "button", onclick: () => {
-      installed.legend = true; b2.classList.add("done"); b2.disabled = true; b2.innerText = "✅ 已安裝圖例"; check();
-    } }, "📌 安裝圖例");
-    const b3 = el("button", { class: "minigame-btn", type: "button", onclick: () => {
-      installed.scale = true; b3.classList.add("done"); b3.disabled = true; b3.innerText = "✅ 已安裝比例尺"; check();
-    } }, "📏 安裝比例尺");
-    
     function check() {
       sfx.playClick();
       if (installed.compass && installed.legend && installed.scale) {
@@ -4599,8 +4980,65 @@ function buildMinigame(z) {
         gameState.stamps[z.order - 1] = true;
       }
     }
+    const b1 = el("button", { class: "minigame-btn", type: "button", onclick: () => {
+      installed.compass = true; b1.classList.add("done"); b1.disabled = true; b1.innerText = "✅ 已安裝方向標"; check();
+    } }, "🧭 安裝方向標");
+    const b2 = el("button", { class: "minigame-btn", type: "button", onclick: () => {
+      installed.legend = true; b2.classList.add("done"); b2.disabled = true; b2.innerText = "✅ 已安裝圖例"; check();
+    } }, "📌 安裝圖例");
+    const b3 = el("button", { class: "minigame-btn", type: "button", onclick: () => {
+      installed.scale = true; b3.classList.add("done"); b3.disabled = true; b3.innerText = "✅ 已安裝比例尺"; check();
+    } }, "📏 安裝比例尺");
     btns.append(b1, b2, b3);
     box.append(el("h4", {}, "🗺️ 實境小實驗：地圖修復工作台"), desc, status, btns);
+  }
+  else if (z.id === "emap") {
+    let gps = false, zoom = false;
+    const desc = el("div", { style: "font-size:13px; color:var(--text); margin-bottom:8px;" }, "📡 操作數位電子地圖系統，體驗即時定位與比例尺縮放：");
+    const status = el("div", { style: "font-size:12px; font-weight:700; color:var(--primary); margin-bottom:8px;" }, "［待操作：開啟 GPS 衛星定位、切換縮放檢視］");
+    const btns = el("div", { class: "minigame-actions" });
+    function checkEmap() {
+      if (gps && zoom) {
+        sfx.playCorrect();
+        status.innerHTML = "🎉 <strong>電子地圖導航操作成功！獲得 35 EXP 與 50 G！</strong>";
+        addExp(35); addGold(50);
+        gameState.stamps[z.order - 1] = true;
+      }
+    }
+    const bGps = el("button", { class: "minigame-btn", type: "button", onclick: () => {
+      gps = true; bGps.classList.add("done"); bGps.disabled = true;
+      bGps.innerText = "✅ GPS 定位目前位置 (藍點)"; sfx.playClick(); checkEmap();
+    } }, "📡 開啟 GPS 衛星定位");
+    const bZoom = el("button", { class: "minigame-btn", type: "button", onclick: () => {
+      zoom = true; bZoom.classList.add("done"); bZoom.disabled = true;
+      bZoom.innerText = "✅ 縮放比例尺檢視全臺到街景"; sfx.playClick(); checkEmap();
+    } }, "🔍 縮放切換大範圍與街景");
+    btns.append(bGps, bZoom);
+    box.append(el("h4", {}, "📡 實境小實驗：電子地圖導航模擬"), desc, status, btns);
+  }
+  else if (z.id === "flat") {
+    let rice = false, basin = false;
+    const desc = el("div", { style: "font-size:13px; color:var(--text); margin-bottom:8px;" }, "🌾 平原開闊平坦適合種稻，盆地四周高中央低容易聚居：");
+    const status = el("div", { style: "font-size:12px; font-weight:700; color:var(--primary); margin-bottom:8px;" }, "［待操作：平原良田插秧、觀察四周群山盆地］");
+    const btns = el("div", { class: "minigame-actions" });
+    function checkFlat() {
+      if (rice && basin) {
+        sfx.playCorrect();
+        status.innerHTML = "🎉 <strong>平原水稻與盆地體驗完成！獲得 40 EXP 與 50 G！</strong>";
+        addExp(40); addGold(50);
+        gameState.stamps[z.order - 1] = true;
+      }
+    }
+    const bRice = el("button", { class: "minigame-btn", type: "button", onclick: () => {
+      rice = true; bRice.classList.add("done"); bRice.disabled = true;
+      bRice.innerText = "✅ 嘉南平原廣闊沃土插秧完成"; sfx.playClick(); checkFlat();
+    } }, "🌾 嘉南平原引水插秧種稻");
+    const bBasin = el("button", { class: "minigame-btn", type: "button", onclick: () => {
+      basin = true; bBasin.classList.add("done"); bBasin.disabled = true;
+      bBasin.innerText = "✅ 臺北盆地四周高山環繞辨識成功"; sfx.playClick(); checkFlat();
+    } }, "🥣 觀測四周高中央低的盆地");
+    btns.append(bRice, bBasin);
+    box.append(el("h4", {}, "🌾 實境小實驗：平原沃野與盆地聚落"), desc, status, btns);
   }
   else if (z.id === "tableland") {
     let tPotato = false, tFactory = false;
@@ -4650,6 +5088,54 @@ function buildMinigame(z) {
     btns.append(bTea, bOra);
     box.append(el("h4", {}, "🍵 實境小實驗：丘陵茶果手作工坊"), desc, status, btns);
   }
+  else if (z.id === "high") {
+    let forest = false, river = false;
+    const desc = el("div", { style: "font-size:13px; color:var(--text); margin-bottom:8px;" }, "⛰️ 中央山脈高聳入雲（海拔>1000m），孕育茂密森林並涵養清澈溪流：");
+    const status = el("div", { style: "font-size:12px; font-weight:700; color:var(--primary); margin-bottom:8px;" }, "［待操作：辨識高山檜木林、追溯河川發源地］");
+    const btns = el("div", { class: "minigame-actions" });
+    function checkHigh() {
+      if (forest && river) {
+        sfx.playCorrect();
+        status.innerHTML = "🎉 <strong>中央山脈高山森林探索完成！獲得 45 EXP 與 50 G！</strong>";
+        addExp(45); addGold(50);
+        gameState.stamps[z.order - 1] = true;
+      }
+    }
+    const bFor = el("button", { class: "minigame-btn", type: "button", onclick: () => {
+      forest = true; bFor.classList.add("done"); bFor.disabled = true;
+      bFor.innerText = "✅ 高山雲霧針葉針闊葉林記錄完成"; sfx.playClick(); checkHigh();
+    } }, "🌲 記錄高山檜木與針葉林");
+    const bRiv = el("button", { class: "minigame-btn", type: "button", onclick: () => {
+      river = true; bRiv.classList.add("done"); bRiv.disabled = true;
+      bRiv.innerText = "✅ 探訪山脈水資源涵養源頭"; sfx.playClick(); checkHigh();
+    } }, "💧 追溯主要河川發源涵養地");
+    btns.append(bFor, bRiv);
+    box.append(el("h4", {}, "⛰️ 實境小實驗：高山森林與水土涵養"), desc, status, btns);
+  }
+  else if (z.id === "climate") {
+    let rain = false, mon = false;
+    const desc = el("div", { style: "font-size:13px; color:var(--text); margin-bottom:8px;" }, "⛅ 觀測臺灣氣候：夏季西南季風南部多雨，冬季東北季風北部濕冷：");
+    const status = el("div", { style: "font-size:12px; font-weight:700; color:var(--primary); margin-bottom:8px;" }, "［待操作：雨量筒測量、判讀季節季風］");
+    const btns = el("div", { class: "minigame-actions" });
+    function checkCli() {
+      if (rain && mon) {
+        sfx.playCorrect();
+        status.innerHTML = "🎉 <strong>氣候觀測站實測完成！獲得 40 EXP 與 50 G！</strong>";
+        addExp(40); addGold(50);
+        gameState.stamps[z.order - 1] = true;
+      }
+    }
+    const bRain = el("button", { class: "minigame-btn", type: "button", onclick: () => {
+      rain = true; bRain.classList.add("done"); bRain.disabled = true;
+      bRain.innerText = "✅ 量筒記錄毫米 (mm) 雨量數值"; sfx.playClick(); checkCli();
+    } }, "🌧️ 使用雨量計記錄日雨量");
+    const bMon = el("button", { class: "minigame-btn", type: "button", onclick: () => {
+      mon = true; bMon.classList.add("done"); bMon.disabled = true;
+      bMon.innerText = "✅ 判讀冬東北季風與夏西南季風"; sfx.playClick(); checkCli();
+    } }, "🚩 判定臺灣季節季風風向");
+    btns.append(bRain, bMon);
+    box.append(el("h4", {}, "⛅ 實境小實驗：氣象儀器與季風觀測"), desc, status, btns);
+  }
   else if (z.id === "water") {
     let monsterHp = 100;
     const desc = el("div", { style: "font-size:13px; color:var(--text); margin-bottom:8px;" }, "⚔️ 遭遇「海廢浪費怪」！請施展課本節水減塑招式進行打擊：");
@@ -4680,62 +5166,140 @@ function buildMinigame(z) {
     box.append(el("h4", {}, "⚔️ 實境小實驗：水資源守護者回合戰"), desc, hpBar, log, btns);
   }
   else if (z.id === "sanheyuan") {
-    const desc = el("div", { style: "font-size:13px; color:var(--text); margin-bottom:8px;" }, "🏡 三合院長幼尊卑房間安排與紅磚大灶柴灰妙用：");
-    const res = el("div", { style: "font-size:12px; font-weight:700; color:var(--primary); margin-bottom:8px;" }, "請選擇大房長輩的房間位置：");
+    const desc = el("div", { style: "font-size:13px; color:var(--text); margin-bottom:8px;" }, "🏡 三合院長幼尊卑房間安排、大灶柴灰妙用與牛棚農具就近配置：");
+    const res = el("div", { style: "font-size:12px; font-weight:700; color:var(--primary); margin-bottom:8px;" }, "請體驗傳統合院生活智慧：");
     const btns = el("div", { class: "minigame-actions" });
     
-    let roomDone = false, ashDone = false;
+    let roomDone = false, ashDone = false, barnDone = false;
     function checkSan() {
-      if (roomDone && ashDone) {
+      if (roomDone && ashDone && barnDone) {
         sfx.playCorrect();
-        res.innerHTML = "🎉 <strong>三合院長幼尊卑與柴灰物盡其用通關！獲得 45 EXP！</strong>";
-        addExp(45); addGold(50);
+        res.innerHTML = "🎉 <strong>三合院尊卑格局、柴灰與牛棚農具配置通關！獲得 50 EXP！</strong>";
+        addExp(50); addGold(60);
         gameState.stamps[z.order - 1] = true;
       }
     }
     const bRoom = el("button", { class: "minigame-btn", type: "button", onclick: () => {
       roomDone = true; bRoom.classList.add("done"); bRoom.disabled = true;
-      bRoom.innerText = "✅ 大房住左護龍 (左尊右卑)";
+      bRoom.innerText = "✅ 大房長輩居左護龍 (左尊右卑)";
       sfx.playClick(); checkSan();
-    } }, "👴 大房長輩安排在左護龍");
+    } }, "👴 安排大房居左護龍");
     
     const bAsh = el("button", { class: "minigame-btn", type: "button", onclick: () => {
       ashDone = true; bAsh.classList.add("done"); bAsh.disabled = true;
-      bAsh.innerText = "✅ 柴灰悶地瓜 ＋ 菜園天然施肥";
+      bAsh.innerText = "✅ 柴灰餘溫燜地瓜 ＋ 菜園施肥";
       sfx.playClick(); checkSan();
-    } }, "🍠 柴灰餘溫悶地瓜 ＋ 菜園施肥");
+    } }, "🍠 大灶柴灰燜地瓜與施肥");
+
+    const bBarn = el("button", { class: "minigame-btn", type: "button", onclick: () => {
+      barnDone = true; bBarn.classList.add("done"); bBarn.disabled = true;
+      bBarn.innerText = "✅ 牛棚緊鄰農具間 (就近牽牛取具)";
+      sfx.playClick(); checkSan();
+    } }, "🐂 牛棚緊鄰農具間耕田就近取具");
     
-    btns.append(bRoom, bAsh);
-    box.append(el("h4", {}, "🏡 實境小實驗：三合院古厝生活巧思"), desc, res, btns);
+    btns.append(bRoom, bAsh, bBarn);
+    box.append(el("h4", {}, "🏡 實境小實驗：三合院大宅格局與農耕巧思"), desc, res, btns);
+  }
+  else if (z.id === "earth_bamboo") {
+    let brick = false, bamboo = false;
+    const desc = el("div", { style: "font-size:13px; color:var(--text); margin-bottom:8px;" }, "🎋 竹管仔厝（竹子敷泥）與土埆厝（稻稈泥水做土磚），就地取材冬暖夏涼：");
+    const status = el("div", { style: "font-size:12px; font-weight:700; color:var(--primary); margin-bottom:8px;" }, "［待操作：壓製土埆磚日光曬乾、竹編夾泥牆抹平］");
+    const btns = el("div", { class: "minigame-actions" });
+    function checkEB() {
+      if (brick && bamboo) {
+        sfx.playCorrect();
+        status.innerHTML = "🎉 <strong>竹管厝與土埆厝傳統綠建築製作通關！獲得 45 EXP！</strong>";
+        addExp(45); addGold(50);
+        gameState.stamps[z.order - 1] = true;
+      }
+    }
+    const bBri = el("button", { class: "minigame-btn", type: "button", onclick: () => {
+      brick = true; bBri.classList.add("done"); bBri.disabled = true;
+      bBri.innerText = "✅ 泥土稻稈水壓模曬成土埆磚"; sfx.playClick(); checkEB();
+    } }, "🧱 泥稻水入模製作土埆磚");
+    const bBam = el("button", { class: "minigame-btn", type: "button", onclick: () => {
+      bamboo = true; bBam.classList.add("done"); bBam.disabled = true;
+      bBam.innerText = "✅ 竹篾編骨架並敷抹黏土稻草"; sfx.playClick(); checkEB();
+    } }, "🎋 竹子為骨架抹上泥土夾泥牆");
+    btns.append(bBri, bBam);
+    box.append(el("h4", {}, "🎋 實境小實驗：土埆磚與竹管夾泥工藝"), desc, status, btns);
   }
   else if (z.id === "stonehouse") {
-    const desc = el("div", { style: "font-size:13px; color:var(--text); margin-bottom:8px;" }, "🏛️ 原住民族就地取材住屋實境測試：");
-    const res = el("div", { style: "font-size:12px; font-weight:700; color:var(--primary); margin-bottom:8px;" }, "點擊按鈕進行建築環境模擬：");
+    const desc = el("div", { style: "font-size:13px; color:var(--text); margin-bottom:8px;" }, "🏛️ 排灣族與魯凱族石板屋：頁岩交錯疊砌，厚實冬暖夏涼，柴火石縫飄煙防蟲：");
+    const res = el("div", { style: "font-size:12px; font-weight:700; color:var(--primary); margin-bottom:8px;" }, "點擊體驗石板屋建築智慧：");
     const btns = el("div", { class: "minigame-actions" });
     
     let t1 = false, t2 = false;
-    function checkInd() {
+    function checkStone() {
       if (t1 && t2) {
         sfx.playCorrect();
-        res.innerHTML = "🎉 <strong>石板屋排煙與達悟地下屋抗颱模擬通關！獲得 45 EXP！</strong>";
+        res.innerHTML = "🎉 <strong>石板屋交錯疊砌與排煙防蟲通關！獲得 45 EXP！</strong>";
         addExp(45); addGold(50);
         gameState.stamps[z.order - 1] = true;
       }
     }
     const b1 = el("button", { class: "minigame-btn", type: "button", onclick: () => {
       t1 = true; b1.classList.add("done"); b1.disabled = true;
-      b1.innerText = "✅ 柴煙穿透石縫飄出 (防蟲會呼吸)";
-      sfx.playClick(); checkInd();
-    } }, "🔥 點燃柴火測試石板排煙");
+      b1.innerText = "✅ 頁岩交錯疊砌穩固且隔熱保暖";
+      sfx.playClick(); checkStone();
+    } }, "🧱 頁岩交錯疊砌測試穩固隔熱");
     
     const b2 = el("button", { class: "minigame-btn", type: "button", onclick: () => {
       t2 = true; b2.classList.add("done"); b2.disabled = true;
-      b2.innerText = "✅ 低矮屋頂成功避開強烈颱風";
-      sfx.playClick(); checkInd();
-    } }, "🌪️ 啟動颱風警報避風模擬");
+      b2.innerText = "✅ 柴煙順石縫飄出 (防蟲防腐會呼吸)";
+      sfx.playClick(); checkStone();
+    } }, "🔥 點燃室內柴火觀察石縫排煙");
     
     btns.append(b1, b2);
-    box.append(el("h4", {}, "🏛️ 實境小實驗：住屋抗風排煙實境"), desc, res, btns);
+    box.append(el("h4", {}, "🏛️ 實境小實驗：石板屋呼吸防蟲與堆疊智慧"), desc, res, btns);
+  }
+  else if (z.id === "underground") {
+    let tSea = false, tTyphoon = false;
+    const desc = el("div", { style: "font-size:13px; color:var(--text); margin-bottom:8px;" }, "🌊 達悟族（雅美族）蘭嶼地下屋：主屋深掘避強烈颱風，戶外涼台通風乘涼：");
+    const status = el("div", { style: "font-size:12px; font-weight:700; color:var(--primary); margin-bottom:8px;" }, "［待操作：涼台海風休憩、半地下主屋防颱測試］");
+    const btns = el("div", { class: "minigame-actions" });
+    function checkUnder() {
+      if (tSea && tTyphoon) {
+        sfx.playCorrect();
+        status.innerHTML = "🎉 <strong>達悟族地下屋與高腳涼台體驗通關！獲得 45 EXP！</strong>";
+        addExp(45); addGold(50);
+        gameState.stamps[z.order - 1] = true;
+      }
+    }
+    const bSea = el("button", { class: "minigame-btn", type: "button", onclick: () => {
+      tSea = true; bSea.classList.add("done"); bSea.disabled = true;
+      bSea.innerText = "✅ 登上高腳涼台通風乘涼看海"; sfx.playClick(); checkUnder();
+    } }, "🌬️ 登上高腳涼台通風乘涼");
+    const bTyp = el("button", { class: "minigame-btn", type: "button", onclick: () => {
+      tTyphoon = true; bTyp.classList.add("done"); bTyp.disabled = true;
+      bTyp.innerText = "✅ 鵝卵石坡低矮主屋避過強烈颱風"; sfx.playClick(); checkUnder();
+    } }, "🌪️ 啟動強烈颱風避風模擬");
+    btns.append(bSea, bTyp);
+    box.append(el("h4", {}, "🌊 實境小實驗：蘭嶼地下屋防颱與涼台生活"), desc, status, btns);
+  }
+  else if (z.id === "woodhouse") {
+    let tLog = false, tRattan = false;
+    const desc = el("div", { style: "font-size:13px; color:var(--text); margin-bottom:8px;" }, "🌲 泰雅族武荖坑木屋：原木疊砌、高床架空地坪防潮防獸，黃藤綁紮緊實工藝：");
+    const status = el("div", { style: "font-size:12px; font-weight:700; color:var(--primary); margin-bottom:8px;" }, "［待操作：高床架空防潮通風、天然黃藤緊密綁紮］");
+    const btns = el("div", { class: "minigame-actions" });
+    function checkWood() {
+      if (tLog && tRattan) {
+        sfx.playCorrect();
+        status.innerHTML = "🎉 <strong>泰雅族山林木屋工藝體驗完成！獲得 45 EXP！</strong>";
+        addExp(45); addGold(50);
+        gameState.stamps[z.order - 1] = true;
+      }
+    }
+    const bLog = el("button", { class: "minigame-btn", type: "button", onclick: () => {
+      tLog = true; bLog.classList.add("done"); bLog.disabled = true;
+      bLog.innerText = "✅ 原木高床架空防潮防蛇蟲"; sfx.playClick(); checkWood();
+    } }, "🪵 搭建原木高床架空地坪");
+    const bRat = el("button", { class: "minigame-btn", type: "button", onclick: () => {
+      tRattan = true; bRat.classList.add("done"); bRat.disabled = true;
+      bRat.innerText = "✅ 黃藤條緊密綁紮梁柱不鬆脫"; sfx.playClick(); checkWood();
+    } }, "🌿 採集強韌黃藤綁紮結構");
+    btns.append(bLog, bRat);
+    box.append(el("h4", {}, "🌲 實境小實驗：泰雅高床木屋與黃藤工藝"), desc, status, btns);
   }
   else if (z.id === "objects") {
     let pounded = 0;
@@ -4772,10 +5336,32 @@ function buildMinigame(z) {
     btns.append(bFish, bPound);
     box.append(el("h4", {}, "🎋 實境小實驗：先民工藝工坊實作"), desc, res, btns);
   }
+  else if (z.id === "beach") {
+    let cleanBottle = false, bringBag = false;
+    const desc = el("div", { style: "font-size:13px; color:var(--text); margin-bottom:8px;" }, "🏖️ 海岸淨灘永續生活：清除海廢榜首寶特瓶，自備環保袋餐具從源頭減塑：");
+    const status = el("div", { style: "font-size:12px; font-weight:700; color:var(--primary); margin-bottom:8px;" }, "［待操作：清除沙灘廢棄寶特瓶、落實源頭減塑出門自備］");
+    const btns = el("div", { class: "minigame-actions" });
+    function checkBeach() {
+      if (cleanBottle && bringBag) {
+        sfx.playCorrect();
+        status.innerHTML = "🎉 <strong>海岸守護與源頭減塑大滿貫！獲得 50 EXP 與 100 G！</strong>";
+        addExp(50); addGold(100);
+        gameState.stamps[z.order - 1] = true;
+      }
+    }
+    const bBot = el("button", { class: "minigame-btn", type: "button", onclick: () => {
+      cleanBottle = true; bBot.classList.add("done"); bBot.disabled = true;
+      bBot.innerText = "✅ 拾起海廢第一名寶特瓶並回收"; sfx.playClick(); checkBeach();
+    } }, "🍾 拾起海岸廢棄寶特瓶");
+    const bBag = el("button", { class: "minigame-btn", type: "button", onclick: () => {
+      bringBag = true; bBag.classList.add("done"); bBag.disabled = true;
+      bBag.innerText = "✅ 自備水壺餐具落實源頭減塑"; sfx.playClick(); checkBeach();
+    } }, "🛍️ 自備環保水壺與購物袋");
+    btns.append(bBot, bBag);
+    box.append(el("h4", {}, "🏖️ 實境小實驗：海岸淨灘與源頭減塑"), desc, status, btns);
+  }
   return box;
 }
-
-
 
 // ---------- 配色狀態 ----------
 // 介面不提供配色按鈕：一律使用預設配色，不讀取以前存在瀏覽器的選擇
@@ -5695,7 +6281,7 @@ return {  };
   <div class="drawer-overlay" id="stampsDrawer" onclick="if(event.target===this)closeDrawer('stampsDrawer')">
     <div class="drawer-panel">
       <div class="drawer-header">
-        <h3>🎖️ 十二大關卡探索徽章冊</h3>
+        <h3>🎖️ 十五大關卡探索徽章冊</h3>
         <button class="drawer-close" onclick="closeDrawer('stampsDrawer')">×</button>
       </div>
       <div class="drawer-body">
