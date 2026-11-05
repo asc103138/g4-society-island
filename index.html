@@ -1053,8 +1053,8 @@ const ZONES = [
   {
     id: 'sanheyuan', unit: 'change', islandId: 'change', order: 9,
     name: '紅磚三合院大宅', shortName: '三合院',
-    intro: '漢人依「左尊右卑」擴建三合院：正身正廳祭祖接待、兩側長輩臥室、左右護龍子孫房與小廳、右翼廚房大灶煙囪、稻埕曬穀牛車、牛棚緊鄰農具間、堆肥場、水井與防風竹林。',
-    trap: '易錯核心：人由正廳「面向屋外」以左為尊（大房在左邊）；農具間「緊鄰牛棚」是為了牽牛耕田就近取用鋤犁農具最順暢！',
+    intro: '漢人依「左尊右卑」擴建三合院：正身正廳祭祖接待、兩側長輩臥室；左護龍由最前端往後為「1.廚房大灶 2.臥室 3.廳 4.臥室」；右護龍為晚輩起居與外側牛棚農具間；稻埕曬穀牛車、堆肥場、水井與防風竹林。',
+    trap: '易錯核心：人由正廳「面向屋外」以左為尊；左護龍最前端為「1.廚房（大灶在最前端） 2.臥室 3.廳 4.臥室」；農具間「緊鄰牛棚」是為了牽牛耕田就近取用鋤犁最順暢！',
     cards: [
       {
         illustration: 'sanheyuan-main',
@@ -1063,8 +1063,8 @@ const ZONES = [
       },
       {
         illustration: 'sanheyuan-left-wing',
-        title: '左護龍：大房生活圈、小廳與廚房大灶',
-        summary: '左護龍（面向屋外之左手邊，大邊）為大房生活圈，包含大房子孫臥室、左小廳，末端設有「廚房大灶」。廚房配置紅磚大灶、大鐵鍋與高聳排煙煙囪，烹調全家三餐；柴灰餘溫燜地瓜當點心，草木灰回田天然施肥。人口增多時由「一條龍」先加蓋左護龍成「單伸手」。'
+        title: '左護龍格局：大灶在最前端（1.廚房 2.臥室 3.廳 4.臥室）',
+        summary: '左護龍（面向屋外之左手邊，大邊）由最前端向正身方向依序配置：① 廚房（紅磚大灶在最前端！高聳煙囪通風散熱良好）；② 臥室；③ 廳（左護龍起居小客廳）；④ 臥室（靠近正身端）。大灶柴灰餘溫燜地瓜當點心、草木灰回田天然施肥，極富先民智慧！'
       },
       {
         illustration: 'sanheyuan-right-wing',
@@ -2650,15 +2650,20 @@ function sanheyuan() {
     g.add(at(rbox(0.02, 0.28, 0.18, wood, 0.005), x - s * 0.25, 0.16, -0.2));
   }
   // 護龍立牌標示（面向屋外：+x 為左護龍大邊，-x 為右護龍小邊）
-  g.add(at(signBoard('左護龍・大房房/廚房大灶', 0.6, 0.13, { bg: '#8a4b38', fg: '#fff' }), 1.05, 0.58, 0.2));
+  // 左護龍房間格局（由最前端往後）：1. 廚房（大灶最前端） 2. 臥室 3. 廳 4. 臥室
+  g.add(at(signBoard('1.廚房(大灶最前)', 0.44, 0.12, { bg: '#991b1b', fg: '#fef08a' }), 1.22, 0.52, 0.62));
+  g.add(at(signBoard('2.臥室', 0.24, 0.1, { bg: '#8a4b38', fg: '#fff' }), 1.22, 0.52, 0.22));
+  g.add(at(signBoard('3.左小廳', 0.28, 0.1, { bg: '#c2410c', fg: '#fff' }), 1.22, 0.52, -0.18));
+  g.add(at(signBoard('4.臥室', 0.24, 0.1, { bg: '#8a4b38', fg: '#fff' }), 1.22, 0.52, -0.58));
   g.add(at(signBoard('右護龍・二房子孫房/小廳', 0.56, 0.13, { bg: '#8a4b38', fg: '#fff' }), -1.05, 0.58, 0));
 
-  // 廚房與排煙煙囪（位於左護龍末端，x = 1.15）
-  g.add(at(cyl(0.05, 0.05, 0.55, 6, fixedMat('#9c4a34')), 1.15, 0.65, -0.6));
-  const kitchenSmoke = ball(0.07, fixedMat('#ffffff', { transparent: true, opacity: 0.8 }), 7, 5);
+  // 廚房與排煙煙囪（位於左護龍「最前端」！z = 0.65, x = 1.05）
+  g.add(at(cyl(0.055, 0.055, 0.6, 6, fixedMat('#9c4a34')), 1.05, 0.68, 0.65));
+  const kitchenSmoke = ball(0.08, fixedMat('#ffffff', { transparent: true, opacity: 0.85 }), 7, 5);
   kitchenSmoke.userData.bob = 0.04;
-  g.add(at(kitchenSmoke, 1.15, 0.98, -0.6));
-  g.add(at(signBoard('廚房大灶', 0.3, 0.1, { bg: '#991b1b', fg: '#fef08a' }), 1.25, 0.42, -0.6));
+  g.add(at(kitchenSmoke, 1.05, 1.04, 0.65));
+  // 最前端大灶紅磚台
+  g.add(at(rbox(0.24, 0.2, 0.22, fixedMat('#991b1b'), 0.01), 1.05, 0.1, 0.62));
 
   // 3. 寬廣稻埕（曬穀、孩童遊戲）
   g.add(at(rbox(1.4, 0.03, 1.25, fixedMat('#ede4cb'), 0.02), 0, 0.015, -0.1));
@@ -4423,38 +4428,50 @@ const DRAW = {
   },
 
   'sanheyuan-left-wing'(ctx) {
-    title(ctx, '左護龍：大房臥室、小廳與廚房大灶');
+    title(ctx, '左護龍格局：大灶在最前端（1.廚房 2.臥室 3.廳 4.臥室）');
     roundRect(ctx, 20, 56, 440, 182, 8, '#fdfbf7', '#b85c3c', 2);
-    // 左護龍三個小房
-    roundRect(ctx, 35, 68, 115, 98, 4, '#fef3c7', '#d97706', 1.5);
-    text(ctx, '大房子孫臥室', 92, 88, { size: 13, color: '#92400e', bold: true });
-    text(ctx, '長子兒女寢室', 92, 108, { size: 10.5, color: '#b45309' });
-    roundRect(ctx, 50, 124, 85, 30, 2, '#b45309');
-    text(ctx, '木床・衣櫃', 92, 141, { size: 10, color: '#fff' });
 
-    roundRect(ctx, 158, 68, 120, 98, 4, '#fed7aa', '#ea580c', 1.5);
-    text(ctx, '左護龍「小廳」', 218, 88, { size: 13, color: '#9a3412', bold: true });
-    text(ctx, '大房家庭起居廳', 218, 108, { size: 10.5, color: '#c2410c' });
-    roundRect(ctx, 175, 124, 86, 30, 2, '#c2410c');
-    text(ctx, '茶几・字畫桌', 218, 141, { size: 10, color: '#fff' });
+    // 1. 廚房（最前端！）
+    roundRect(ctx, 28, 68, 102, 100, 4, '#fee2e2', '#dc2626', 2);
+    text(ctx, '1. 廚房', 79, 86, { size: 13, color: '#991b1b', bold: true });
+    text(ctx, '★ 大灶在最前端', 79, 102, { size: 9.5, color: '#dc2626', bold: true });
+    roundRect(ctx, 36, 114, 52, 28, 2, '#991b1b');
+    text(ctx, '紅磚大灶', 62, 128, { size: 9.5, color: '#fff' });
+    text(ctx, '雙口鐵鍋', 62, 138, { size: 8, color: '#fca5a5' });
+    roundRect(ctx, 92, 112, 32, 30, 2, '#78350f');
+    text(ctx, '水缸', 108, 128, { size: 8.5, color: '#fff' });
+    text(ctx, '煙囪冒煙', 79, 158, { size: 9, color: '#b91c1c' });
 
-    // 廚房大灶（左護龍末端）
-    roundRect(ctx, 286, 68, 160, 98, 4, '#fee2e2', '#dc2626', 2);
-    text(ctx, '廚房（大灶與煙囪）', 366, 88, { size: 13, color: '#991b1b', bold: true });
-    text(ctx, '位於左護龍末端！', 366, 106, { size: 10.5, color: '#dc2626', bold: true });
-    // 大灶與鐵鍋圖
-    roundRect(ctx, 302, 122, 72, 32, 2, '#991b1b');
-    text(ctx, '紅磚大灶', 338, 137, { size: 10, color: '#fff' });
-    text(ctx, '雙口鐵鍋', 338, 149, { size: 9, color: '#fca5a5' });
-    roundRect(ctx, 388, 120, 42, 34, 2, '#78350f');
-    text(ctx, '水缸柴堆', 409, 139, { size: 9.5, color: '#fff' });
+    // 2. 臥室
+    roundRect(ctx, 134, 68, 98, 100, 4, '#fef3c7', '#d97706', 1.5);
+    text(ctx, '2. 臥室', 183, 86, { size: 13, color: '#92400e', bold: true });
+    text(ctx, '大房子孫寢室', 183, 102, { size: 9.5, color: '#b45309' });
+    roundRect(ctx, 146, 116, 74, 30, 2, '#b45309');
+    text(ctx, '木床・衣櫃', 183, 133, { size: 9.5, color: '#fff' });
+    text(ctx, '安靜臥眠', 183, 158, { size: 9, color: '#92400e' });
 
-    // 柴灰物盡其用
-    roundRect(ctx, 35, 174, 410, 52, 4, '#fef3c7', '#f59e0b', 1.5);
-    text(ctx, '🍠 柴灰餘溫燜地瓜：灶火熄滅後利用柴灰餘溫燜熟地瓜，香甜不浪費能源！', 240, 192, { size: 11, color: '#92400e', bold: true });
-    text(ctx, '🌿 草木灰天然施肥：灶灰收集送往菜園農地，是極佳的天然鉀肥滋養作物。', 240, 212, { size: 11, color: '#78350f' });
+    // 3. 廳（小廳）
+    roundRect(ctx, 236, 68, 98, 100, 4, '#fed7aa', '#ea580c', 1.5);
+    text(ctx, '3. 廳', 285, 86, { size: 13, color: '#9a3412', bold: true });
+    text(ctx, '左護龍「小廳」', 285, 102, { size: 9.5, color: '#c2410c', bold: true });
+    roundRect(ctx, 248, 116, 74, 30, 2, '#c2410c');
+    text(ctx, '茶几・字畫', 285, 133, { size: 9.5, color: '#fff' });
+    text(ctx, '起居接待客廳', 285, 158, { size: 9, color: '#7c2d12' });
 
-    caption(ctx, '廚房位於左護龍末端，大灶煙囪通風排煙，柴灰物盡其用');
+    // 4. 臥室（靠近正身端）
+    roundRect(ctx, 338, 68, 112, 100, 4, '#fdf2f8', '#db2777', 1.5);
+    text(ctx, '4. 臥室', 394, 86, { size: 13, color: '#9d174d', bold: true });
+    text(ctx, '靠近正身端', 394, 102, { size: 9.5, color: '#be185d' });
+    roundRect(ctx, 350, 116, 88, 30, 2, '#db2777');
+    text(ctx, '長輩子孫大床', 394, 133, { size: 9.5, color: '#fff' });
+    text(ctx, '連通正身大房', 394, 158, { size: 9, color: '#9d174d' });
+
+    // 順序與先民智慧說明條
+    roundRect(ctx, 28, 174, 422, 52, 4, '#fef3c7', '#f59e0b', 1.5);
+    text(ctx, '👉 左護龍隔間順序（由前端至後端）：1. 廚房（大灶最前端） ➔ 2. 臥室 ➔ 3. 廳 ➔ 4. 臥室', 239, 191, { size: 10.5, color: '#92400e', bold: true });
+    text(ctx, '🍠 大灶在最前端通風排煙佳！柴灰餘溫燜地瓜當點心、草木灰回田天然施肥。', 239, 212, { size: 10.5, color: '#78350f' });
+
+    caption(ctx, '左護龍房間順序：1.廚房（大灶在最前端） 2.臥室 3.廳 4.臥室');
   },
 
   'sanheyuan-right-wing'(ctx) {
